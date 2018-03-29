@@ -1,0 +1,13 @@
+<div class="html-element-wrapper">
+  <div>
+    <span>Consider this process fragment and the highlighted activity:</span>
+    <span>
+      <strong>{{node_label}}</strong>
+    </span>
+  </div>
+  <div>
+    <img class="liquid-image" src="{{node_img}}" />
+  </div>
+</div>
+<cml:text label="Which keywords would you use to describe the highlighted activity?" instructions="Think of some relevant or similar terms that can be associated to the activity" data-validates-regex="^[a-z]{2,}(,[a-z]{2,}){2,}$" data-validates-regex-message="Add at least 3 keywords separated by commas.
+See the examples for help on formatting" validates="required regex" gold="true" />

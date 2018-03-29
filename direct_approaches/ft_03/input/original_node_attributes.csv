@@ -1,0 +1,77 @@
+process_id,node_id,node_label
+82,2667,Apply Online
+82,2668,Send Online Protocol
+82,2669,Send Documents by Post
+82,2670,Documents received
+82,2671,Check Documents
+82,2672,Evaluate
+82,2673,Invite to an aptitude test
+82,2674,Keep in the Applicant pool
+82,2675,Take Aptitude test
+82,2676,Rank Students according to GPA and the test results
+82,2679,Pay for Aptitude test
+82,2683,Acceptance
+82,2684,Send letter of rejection
+83,2687,average grade is good or better
+83,2688,sufficient cp in mathematics
+83,2689,average grade is less than good
+83,2690,send documents by post
+83,2691,apply online
+83,2692,provisional acceptance confirmed
+83,2693,provisional acceptance cancelled
+83,2694,send letter of acceptance
+83,2695,send letter of provisional acceptance
+83,2696,accepted
+83,2697,rejected
+83,2698,accepted provisionally
+83,2699,wait for bachelor's certificate
+83,2700,certificate received
+83,2701,send bachelor's certificate
+83,2702,certificate received
+83,2703,check certificate
+83,2704,less than 16 cp in mathematics
+83,2705,take oral exam
+83,2706,documents received
+83,2707,check documents
+83,2708,evaluate
+83,2709,send letter of rejection
+84,2710,complete and in time?
+84,2711,hand application over to examining board
+84,2712,check if bachelor is sufficient
+84,2713,set additional requirements
+84,2714,check if bachelors-grade within top 85%
+84,2715,check application complete
+84,2716,add certificate of bachelor degree
+84,2717,check application in time
+84,2718,german?
+84,2719,receive application
+84,2720,send application
+84,2721,receive rejection
+84,2722,add certificate of german language
+84,2723,receive acceptance
+84,2724,immatriculate
+84,2725,invite for talk
+84,2726,talk to applicant
+84,2727,document
+84,2728,rank with other applicants
+84,2729,send acceptance
+84,2730,complete application
+84,2731,send rejection
+84,2732,fill out application form
+89,2883,rejected
+89,2884,documents received
+89,2885,send documents by post
+89,2886,apply online
+89,2887,evaluate
+89,2888,send letter of acceptance
+89,2889,send letter of rejection
+89,2890,send interview invitation
+89,2891,conduct interview
+89,2892,go to interview
+89,2893,rejected
+89,2894,check bachelor's degree
+89,2895,bridging courses > 30 cp
+89,2896,bridging courses < 30 cp
+89,2897,check documents
+89,2898,forward documents
+89,2899,documents received

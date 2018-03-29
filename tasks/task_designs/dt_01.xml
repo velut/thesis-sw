@@ -1,0 +1,27 @@
+<div class="html-element-wrapper">
+  <div>
+    Consider the following query: 
+    <strong>{{query_node_label}}</strong>
+  </div>
+  <div>
+    <br />
+  </div>
+  <p>Now look at the admission process fragment retrieved for this query:</p>
+  <img class="liquid-image" src="{{result_group_img}}" />
+</div>
+
+<cml:ratings 
+  label="How relevant do you think the process fragment is with respect to the query?"
+  points="5" to="Extremely relevant" from="Not relevant at all"
+  validates="required" gold="true" />
+
+<cml:checkboxes 
+  label="Select all the activities from the process fragment which you think are relevant to the query" 
+  validates="required">
+  {% for reslabel in result_group_labels %}
+    {% assign res_node_id = result_group_id[forloop.index0] %}
+  <cml:checkbox value="{{ res_node_id }}" label="{{ reslabel }}" />
+  {% endfor %}
+  <cml:checkbox value="NONE" label="None of the above" />
+</cml:checkboxes>
+<cml:textarea label="Please explain the reasoning behind your choices (optional)" gold="true" />

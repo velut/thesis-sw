@@ -1,0 +1,54 @@
+<div class="html-element-wrapper">
+  <div>
+    Process fragment A:
+    <br />
+  </div>
+  <div>
+    <span>Activity A: 
+      <strong>{{query_node_label}}</strong>
+    </span>
+  </div>
+  <div>
+    <img class="liquid-image" src="{{query_node_img}}" />
+  </div>
+  <p>
+    <br />
+  </p>
+  <p>
+    Process fragment B:
+  </p>
+  <img class="liquid-image" src="{{result_group_img}}" />
+</div>
+
+<cml:ratings 
+  label="How relevant do you think Process fragment B is with respect to Activity A?" 
+  points="5" to="Extremely relevant" from="Not relevant at all" validates="required" gold="true" />
+
+<cml:checkboxes 
+  label="Select all the activities from Process fragment B which you think are similar to Activity A" validates="required">
+  {% for reslabel in result_group_labels %}
+    {% assign res_node_id = result_group_id[forloop.index0] %}
+  <cml:checkbox value="{{ res_node_id }}" label="{{ reslabel }}" />
+  {% endfor %}
+  <cml:checkbox value="NONE" label="None of the above" />
+</cml:checkboxes>
+
+<cml:checkboxes 
+  label="Select all the activities from Process fragment B which you think are part of Activity A" validates="required">
+  {% for reslabel in result_group_labels %}
+    {% assign res_node_id = result_group_id[forloop.index0] %}
+  <cml:checkbox value="{{ res_node_id }}" label="{{ reslabel }}" />
+  {% endfor %}
+  <cml:checkbox value="NONE" label="None of the above" />
+</cml:checkboxes>
+
+<cml:checkboxes 
+  label="Select all the activities from Process fragment B which you think include Activity A" validates="required">
+  {% for reslabel in result_group_labels %}
+    {% assign res_node_id = result_group_id[forloop.index0] %}
+  <cml:checkbox value="{{ res_node_id }}" label="{{ reslabel }}" />
+  {% endfor %}
+  <cml:checkbox value="NONE" label="None of the above" />
+</cml:checkboxes>
+
+<cml:textarea label="Please explain the reasoning behind your choices (optional)" gold="true" />

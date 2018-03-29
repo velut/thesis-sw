@@ -1,0 +1,468 @@
+---
+title: "Cosine Similarity Algorithm Performance Analysis"
+author: "Edoardo Scibona"
+date: "March 3, 2018"
+output:
+  html_document:
+    toc: yes
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Configuration
+
+Required libraries
+```{r message=FALSE}
+library(tidyverse)
+library(stringr)
+```
+
+Input folders and files
+```{r}
+# Input folder's path.
+# A folder named 'input' should be present in this notebook's root folder
+INPUT_PATH <- file.path(getwd(), "input")
+
+# Folder containing csv files with the results reported by
+# the cosine similarity algorithm.
+CA_RESULTS_FILE_PATH <- file.path(INPUT_PATH, "cosine_analysis_output.csv")
+```
+
+```{r}
+# Plot Globals
+
+PRF_PLOT_X_LABEL_UNION <- "Keyword sets per activity"
+PRF_PLOT_X_LABEL_INTERSECTION <- "Agreement threshold for keywords (at least n)"
+
+LABEL_NAMES <- c(
+  "Raw_NoStem" = "Raw, not stemmed",
+  "Raw_Stemmed" = "Raw, stemmed",
+  "Clean_NoStem" = "Clean, not stemmed",
+  "Clean_Stemmed" = "Clean, stemmed"
+)
+
+KW_CFG_LABELS <- c(
+  "Raw_Default_NoStem" = "Unrefined",
+  "Clean_NoSpam_Stemmed" = "Refined"
+)
+```
+
+# Utilities
+
+Get a string to describe PRF metrics in plots
+```{r}
+# Get a string describing the PRF type in plots
+get_prf_string <- function(prf_type) {
+  if_else(
+    prf_type == "fmeasure",
+    "F-measure",
+    str_to_title(prf_type)
+  )
+}
+```
+
+```{r}
+get_prf_plot_x_label <- function(kw_method) {
+  if (kw_method == "Union") {
+    PRF_PLOT_X_LABEL_UNION
+  } else {
+    PRF_PLOT_X_LABEL_INTERSECTION
+  }
+}
+```
+
+```{r}
+get_prf_plot_title <- function(prf_type) {
+  str_c(
+    "Cosine Similarity Algorithm ",
+    get_prf_string(prf_type),
+    " performance"
+  )
+}
+```
+
+```{r}
+factorize_prf_gold <- function(tbl) {
+  tbl %>% 
+    mutate(
+      prf_gold = str_replace(prf_gold, "overall", "Overall"),
+      prf_gold = str_replace(prf_gold, "match", "Match"),
+      prf_gold = str_replace(prf_gold, "part_of", "Part-of"),
+      prf_gold = factor(prf_gold, levels = c("Overall", "Match", "Part-of"))
+    )
+}
+```
+
+```{r}
+factorize_spam_config <- function(tbl) {
+  tbl %>% 
+    mutate(
+      spam_config = str_replace(spam_config, "Default", "All judgments"),
+      spam_config = str_replace(spam_config, "NoSpam", "Spam judgments removed"),
+      spam_config = factor(spam_config, levels = c("All judgments", "Spam judgments removed"))
+    )
+}
+```
+
+```{r}
+factorize_kw_group_union <- function(tbl) {
+  tbl %>% 
+    mutate(
+      kw_group = str_replace(kw_group, "0", "Original labels"),
+      kw_group = str_replace(kw_group, "1", "1 keyword list"),
+      kw_group = str_replace(kw_group, "2", "2 keyword lists"),
+      kw_group = str_replace(kw_group, "3", "3 keyword lists"),
+      kw_group = factor(kw_group, levels = c("Original labels", "1 keyword list", "2 keyword lists", "3 keyword lists"))
+    )
+}
+```
+
+```{r}
+factorize_kw_group_intersection <- function(tbl) {
+  tbl %>% 
+    mutate(
+      kw_group = str_c(kw_group, "/3"),
+      kw_group = str_replace(kw_group, "4/3", "Original labels"),
+      # kw_group = str_replace(kw_group, "1", "1/3"),
+      # kw_group = str_replace(kw_group, "2", "2/3"),
+      # kw_group = str_replace(kw_group, "3", "3/3"),
+      kw_group = factor(kw_group, levels = c("Original labels", "1/3", "2/3", "3/3"))
+    )
+}
+```
+
+# Step 1: Read Input Data
+
+```{r}
+get_ca_output <- function() {
+  ca_results <- 
+    read_csv(CA_RESULTS_FILE_PATH) %>%
+    mutate(
+      kw_method = if_else(use_union_method, "Union", "Intersection"),
+      file_type = if_else(use_clean_keywords, "Clean", "Raw"),
+      kw_group = as.character(kw_group_thr),
+      spam_config = if_else(remove_spam_keywords, "NoSpam", "Default"),
+      stem_config = if_else(stem_keywords, "Stemmed", "NoStem"),
+    ) %>%
+    select(
+      # Input configuration 
+      dataset = cfg, 
+      # Similarity thresholds
+      sim_thr,
+      # Keyword characteristics
+      kw_method, file_type, kw_group, spam_config, stem_config,
+      # Performance metrics
+      p_overall, r_overall, f_overall, 
+      p_match, r_match, f_match, 
+      p_part_of, r_part_of, f_part_of
+    )
+}
+```
+
+# Step 2: Prepare Data for Plotting
+
+```{r}
+# Gather the PRF attributes contained
+# in a tbl to tidy it.
+gather_prf_attrs <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    # Gather precision
+    gather(
+      p_overall, p_match, p_part_of,
+      key = "p_type", value = "precision"
+    ) %>% 
+    # Gather recall
+    gather(
+      r_overall, r_match, r_part_of,
+      key = "r_type", value = "recall"
+    ) %>% 
+    # Gather f-measure
+    gather(
+      f_overall, f_match, f_part_of,
+      key = "f_type", value = "fmeasure"
+    ) %>% 
+    # Remove p_, r_, f_ prefixes
+    mutate(
+      p_type = str_replace(p_type, "p_", ""),
+      r_type = str_replace(r_type, "r_", ""),
+      f_type = str_replace(f_type, "f_", "")
+    ) %>% 
+    # Keep only rows representing correct configurations
+    # (i.e., those with the same metric type)
+    filter(
+      p_type == r_type, 
+      r_type == f_type
+    )
+}
+```
+
+```{r}
+# Deduplicate the PRF '_type' attributes
+# and add a single 'prf_gold' attribute instead
+add_prf_gold_attr <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    mutate(
+      prf_gold = p_type
+    ) %>%
+    select(
+      - c(p_type, r_type, f_type)
+    )
+}
+```
+
+```{r}
+# Select attributes used in plots
+select_plot_attrs <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    select(
+      dataset, sim_thr,
+      kw_method, prf_gold, file_type,
+      kw_group, spam_config, stem_config,
+      precision, recall, fmeasure
+    )
+}
+```
+
+```{r}
+# Bundle the operations needed
+# to prepare PRF data for plotting
+prepare_prf_data_for_use <- function(tbl) {
+  tbl %>% 
+    gather_prf_attrs() %>%
+    add_prf_gold_attr() %>% 
+    select_plot_attrs()
+}
+```
+
+# Step 3: Plot
+
+```{r}
+plot_prf_with_sim_thr <- function(tbl, prf_type, out_file) {
+  tmp <- tbl
+
+  base_plot_union <- 
+    ggplot(
+      tmp,
+      aes_string(
+        x = "sim_thr",
+        y = prf_type,
+        group = "input_config",
+        color = "input_config"
+      )
+    )
+
+  base_plot_union +
+    geom_line(
+      alpha = .8,
+      size = 1
+    ) +
+    labs(
+      x = "Cosine similarity threshold (at least n)",
+      y = get_prf_string(prf_type),
+      title = get_prf_plot_title(prf_type),
+      subtitle = str_c(tbl$kw_method[1], " strategy")
+    ) +
+    scale_y_continuous(
+      limits = c(0.0, 1.0),
+      breaks = seq(0.0, 1.0, 0.1)
+    ) +
+    scale_x_continuous(
+      limits = c(0.0, 1.0),
+      breaks = seq(0.0, 1.0, 0.1)
+    ) +
+    scale_colour_manual(
+      name = "Keyword Configuration",
+      labels = KW_CFG_LABELS,
+      values = c("blue", "red")
+    ) +
+    facet_grid(prf_gold ~ kw_group) +
+    theme_bw() +
+    theme(legend.position="bottom")
+
+  ggsave(out_file, width = 12, height = 10)
+}
+```
+
+# Main
+
+```{r message=FALSE}
+# Prepare Cosine Similarity Algorithm results for plotting and analysis
+data_ca_results <- get_ca_output()
+
+plottable_ca_with_dataset <-
+  data_ca_results %>% 
+  prepare_prf_data_for_use()
+
+# Easier to analyze in RStudio's viewer
+analysis_ca <- 
+  plottable_ca_with_dataset %>% 
+  mutate_if(
+    is.character,
+    as.factor
+  )
+
+# For plotting
+plottable_ca <-
+  plottable_ca_with_dataset %>%
+  select(-dataset)
+```
+
+# TEST
+
+```{r}
+plot_prf_with_sim_thr_all <- function(tbl, prf_type, out_file) {
+  tmp <- tbl
+
+  base_plot_union <- 
+    ggplot(
+      tmp,
+      aes_string(
+        x = "sim_thr",
+        y = prf_type,
+        # color = "input_config",
+        group = "input_config"
+      )
+    )
+
+  base_plot_union +
+    geom_line(
+      alpha = .2,
+      size = 1
+    ) +
+    labs(
+      x = "Cosine similarity threshold (at least n)",
+      y = get_prf_string(prf_type),
+      title = get_prf_plot_title(prf_type),
+      subtitle = str_c(tbl$kw_method[1], " strategy")
+    ) +
+    scale_y_continuous(
+      limits = c(0.0, 1.0),
+      breaks = seq(0.0, 1.0, 0.1)
+    ) +
+    scale_x_continuous(
+      limits = c(0.0, 1.0),
+      breaks = seq(0.0, 1.0, 0.1)
+    ) +
+    # scale_colour_manual(
+    #   name = "Keyword Configuration",
+    #   labels = KW_CFG_LABELS,
+    #   values = c("grey10", "grey40")
+    # ) +
+    facet_grid(prf_gold ~ kw_group) +
+    theme_bw()
+
+  # ggsave(out_file, width = 12, height = 10)
+}
+```
+
+```{r}
+plottable_union_all <- 
+  plottable_ca %>% 
+  filter(
+    kw_method == "Union"
+  ) %>% 
+  unite(
+    input_config,
+    file_type, spam_config, stem_config,
+    sep = "_"
+  ) %>% 
+  factorize_prf_gold() %>% 
+  factorize_kw_group_union()
+
+plottable_intersection_all <- 
+  plottable_ca %>% 
+  filter(
+    kw_method == "Intersection"
+  ) %>% 
+  unite(
+    input_config,
+    file_type, spam_config, stem_config,
+    sep = "_"
+  ) %>% 
+  factorize_prf_gold() %>% 
+  factorize_kw_group_intersection()
+```
+
+```{r fig.width=12,fig.height=10}
+plot_prf_with_sim_thr_all(plottable_union_all, "fmeasure")
+```
+
+```{r fig.width=12,fig.height=10}
+plot_prf_with_sim_thr_all(plottable_intersection_all, "recall")
+```
+
+## Union
+
+```{r}
+plottable_union_focus <- 
+  plottable_ca %>% 
+  filter(
+    kw_method == "Union"
+  ) %>% 
+  unite(
+    input_config,
+    file_type, spam_config, stem_config,
+    sep = "_"
+  ) %>% 
+  filter(
+    # Unrefined configurations (i.e., words as they are)
+    input_config == "Raw_Default_NoStem" |
+    # Refine configurations (i.e., words as clean as possible)
+      input_config == "Clean_NoSpam_Stemmed"
+  ) %>% 
+  factorize_prf_gold() %>% 
+  factorize_kw_group_union()
+```
+
+```{r fig.width=12,fig.height=10}
+plot_prf_with_sim_thr(plottable_union_focus, "precision", "chp06_ca_prf_union_precision.png")
+```
+
+```{r fig.width=12,fig.height=10}
+plot_prf_with_sim_thr(plottable_union_focus, "recall", "chp06_ca_prf_union_recall.png")
+```
+
+```{r fig.width=12,fig.height=10}
+plot_prf_with_sim_thr(plottable_union_focus, "fmeasure", "chp06_ca_prf_union_fmeasure.png")
+```
+
+## Intersection
+
+```{r}
+plottable_intersection_focus <- 
+  plottable_ca %>% 
+  filter(
+    kw_method == "Intersection"
+  ) %>% 
+  unite(
+    input_config,
+    file_type, spam_config, stem_config,
+    sep = "_"
+  ) %>% 
+  filter(
+    # Unrefined configurations (i.e., words as they are)
+    input_config == "Raw_Default_NoStem" |
+    # Refine configurations (i.e., words as clean as possible)
+      input_config == "Clean_NoSpam_Stemmed"
+  ) %>% 
+  factorize_prf_gold() %>% 
+  factorize_kw_group_intersection()
+```
+
+```{r fig.width=12,fig.height=10}
+plot_prf_with_sim_thr(plottable_intersection_focus, "precision", "chp06_ca_prf_intersection_precision.png")
+```
+
+```{r fig.width=12,fig.height=10}
+plot_prf_with_sim_thr(plottable_intersection_focus, "recall", "chp06_ca_prf_intersection_recall.png")
+```
+
+```{r fig.width=12,fig.height=10}
+plot_prf_with_sim_thr(plottable_intersection_focus, "fmeasure", "chp06_ca_prf_intersection_fmeasure.png")
+```

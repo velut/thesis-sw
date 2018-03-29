@@ -1,0 +1,850 @@
+---
+title: "BOT Performance Analysis"
+author: "Edoardo Scibona"
+date: "March 1, 2018"
+output:
+  html_document:
+    toc: yes
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Configuration
+
+Required libraries
+```{r message=FALSE}
+library(tidyverse)
+library(stringr)
+```
+
+Input folders and files
+```{r}
+# Input folder's path.
+# A folder named 'input' should be present in this notebook's root folder
+INPUT_PATH <- file.path(getwd(), "input")
+
+# Folder containing csv files with detailed activity pairs reported by the algorithms
+# in the "overall" case (both match and part-of)
+BOT_RESULTS_PATH <- file.path(INPUT_PATH, "bot_results")
+
+# Path of the gold standard folder.
+# A folder named 'gold_standard' should be present inside the 'input' folder.
+GOLD_PATH <- file.path(INPUT_PATH, "gold_standard")
+
+# List of gold files used in this notebook.
+# These files should be present in the 'gold_standard' folder.
+GOLD_FILES <- c(
+  "82-83__cologne-frankfurt.csv",
+  "82-84__cologne-berlin.csv",
+  "83-89__frankfurt-munich.csv"
+)
+```
+
+
+```{r}
+# Plot Globals
+
+PRF_PLOT_X_LABEL_UNION <- "Keyword lists per activity"
+PRF_PLOT_X_LABEL_INTERSECTION <- "Agreement threshold for keywords (at least n)"
+
+LABEL_NAMES <- c(
+  "Raw_NoStem" = "Raw, not stemmed",
+  "Raw_Stemmed" = "Raw, stemmed",
+  "Clean_NoStem" = "Clean, not stemmed",
+  "Clean_Stemmed" = "Clean, stemmed"
+)
+```
+
+# Utilities
+
+Read csv files
+```{r}
+# Read all the csv files present in a directory,
+# merge them in a tibble, and return it.
+# NOTE: The files must have the same structure.
+# Specifically, they must be comma separated and 
+# they should have the same attribute columns.
+read_all_csv_file_in_dir <- function(source_dir) {
+  # List all csv files in the directory
+  list.files(
+    source_dir,
+    pattern = ".csv",
+    full.names = TRUE
+  ) %>% 
+    # Read each file and put resulting tbl in a list
+    lapply(read_csv) %>% 
+    # Merge list of tbls in a single tbl
+    bind_rows()
+}
+```
+
+Get a string to describe PRF metrics in plots
+```{r}
+# Get a string describing the PRF type in plots
+get_prf_string <- function(prf_type) {
+  if_else(
+    prf_type == "fmeasure",
+    "F-measure",
+    str_to_title(prf_type)
+  )
+}
+```
+
+```{r}
+get_prf_plot_x_label <- function(kw_method) {
+  if (kw_method == "Union") {
+    PRF_PLOT_X_LABEL_UNION
+  } else {
+    PRF_PLOT_X_LABEL_INTERSECTION
+  }
+}
+```
+
+```{r}
+get_prf_plot_title <- function(prf_type) {
+  str_c(
+    "BOT ",
+    get_prf_string(prf_type),
+    " performance"
+  )
+}
+```
+
+```{r}
+factorize_prf_gold <- function(tbl) {
+  tbl %>% 
+    mutate(
+      prf_gold = str_replace(prf_gold, "overall", "Overall"),
+      prf_gold = str_replace(prf_gold, "match", "Match"),
+      prf_gold = str_replace(prf_gold, "part_of", "Part-of"),
+      prf_gold = factor(prf_gold, levels = c("Overall", "Match", "Part-of"))
+    )
+}
+```
+
+```{r}
+factorize_spam_config <- function(tbl) {
+  tbl %>% 
+    mutate(
+      spam_config = str_replace(spam_config, "Default", "All judgments"),
+      spam_config = str_replace(spam_config, "NoSpam", "Spam judgments removed"),
+      spam_config = factor(spam_config, levels = c("All judgments", "Spam judgments removed"))
+    )
+}
+```
+
+# Step 1: Read Input Data
+
+Read and build the gold standard
+```{r}
+# Get the tibble representing the gold standard
+# to be used in the comparison operations
+get_gold_standard <- function() {
+  # Get file paths for gold files
+  gold_file_paths <- file.path(GOLD_PATH, GOLD_FILES)
+
+  # Read gold files (csv files separated by semicolon)
+  gold_82_83 <- 
+    read_delim(gold_file_paths[1], ";", escape_double = FALSE, trim_ws = TRUE)
+
+  gold_82_84 <- 
+    read_delim(gold_file_paths[2], ";", escape_double = FALSE, trim_ws = TRUE)
+
+  gold_83_89 <- 
+    read_delim(gold_file_paths[3], ";", escape_double = FALSE, trim_ws = TRUE)
+
+  gold_all <- 
+    # Merge all gold tibbles
+    bind_rows(
+      gold_82_83,
+      gold_82_84,
+      gold_83_89
+    ) %>% 
+    # Add boolean attributes representing the kind of relationship
+    mutate(
+      # Every pair present in the gold is an "overall" pair
+      gold_overall = TRUE,
+      # Check 'gold_relationship' to identify relationship type
+      gold_match = gold_relationship == "match",
+      gold_part_of = str_detect(gold_relationship, "part_of")
+    ) %>% 
+    rename(
+      proc_id_1 = process_id_1,
+      proc_id_2 = process_id_2
+    ) %>% 
+    mutate(
+      # Change id types to character for later join operations.
+      proc_id_1 = as.character(proc_id_1),
+      node_id_1 = as.character(node_id_1),
+      proc_id_2 = as.character(proc_id_2),
+      node_id_2 = as.character(node_id_2)
+    )
+
+  # Gold tibble with minimum columns necessary for join operations.
+  # IMPORTANT: This gold tbl will be used in join operations!
+  gold_all_redux <- 
+    gold_all %>% 
+    select(
+      proc_id_1, node_id_1, proc_id_2, node_id_2,
+      gold_overall, gold_match, gold_part_of
+    )
+}
+```
+
+Read BOT output data
+```{r}
+# Get a tibble representing BOT's output data
+get_bot_output <- function() {
+  read_all_csv_file_in_dir(BOT_RESULTS_PATH) %>%
+    # Cast the 'paired' and 'gold_paired' attributes
+    # to R's TRUE and FALSE.
+    # The 'paired' attribute signals if an activity pair
+    # considered by BOT was selected as a correspondence.
+    # The 'gold_paired' attribute signals if an activity pair
+    # considered by BOT was also present in its gold standard.
+    mutate(
+      paired = paired == "true",
+      gold_paired = gold_paired == "true"
+    ) %>% 
+    mutate_if(
+      is.numeric,
+      as.character
+    )
+}
+```
+
+# Step 2: Compare with Gold Standard
+
+Join a tibble with the gold standard
+```{r}
+# Join one tbl with the gold standard.
+join_tbl_with_gold <- function(tbl) {
+  
+  # Keep track of the dataset id to later assign it
+  # to rows representing false negatives (if necessary)
+  orig_dataset <- tbl$dataset[1]
+
+  # Join current tibble with gold standard.
+  tmp <- 
+    tbl %>% 
+    # Remove unnecessary attributes.
+    select(
+      -c(node_label_1, node_label_2)
+    ) %>% 
+    # Join with gold standard
+    full_join(
+      DATA_GOLD,
+      by = c("proc_id_1", "node_id_1", "proc_id_2", "node_id_2")
+    ) 
+  
+  # The join operation introduces NA (Not Available) values
+  # in some rows. Here we replace NAs with meaningful values.
+  tmp <- 
+    tmp %>% 
+    # After performing the full join, the identified activity pairs 
+    # that are false positives will introduce NAs in the "gold" attributes.
+    # We replace these NAs with 'FALSE' since the rows containing the NAs
+    # represent false positives not contained in the gold standard.
+    # (After this mutation gold_overall should be equal to gold_match OR gold_part_of
+    # (i.e., gold_overall == gold_match | gold_part_of)).
+    mutate(
+      gold_overall = if_else(is.na(gold_overall), FALSE, gold_overall),
+      gold_match = if_else(is.na(gold_match), FALSE, gold_match),
+      gold_part_of = if_else(is.na(gold_part_of), FALSE, gold_part_of),
+      # Check that BOT was executed with the same gold used in this notebook
+      is_bot_gold_eq_to_this_gold = gold_paired == gold_overall
+    ) %>%
+    # IMPORTANT: The two following operations are necessary only if 
+    # the gold standard used when running BOT differs
+    # from the one used in this notebook 
+    # or if BOT's output does not include false negatives.
+    #
+    # After the full join, the activity pairs present in the gold standard
+    # but not identified by BOT (i.e., the false negatives) introduce
+    # NAs in the "paired" attributes.
+    # We replace these NAs with 'FALSE' since workers did not discover these pairs.
+    mutate(
+      paired = if_else(is.na(paired), FALSE, paired)
+    ) %>% 
+    # Add the dataset id to false negatives.
+    # They lack these attribute because 
+    # they come from the gold standard tibble
+    mutate(
+      dataset = if_else(is.na(dataset), orig_dataset, dataset)
+    )
+  
+  # The gold version used to run the BOT algorithm
+  # should coincide with the one used in this notebook
+  # in order to have the same P, R, F values.
+  # If this is not the case, a warning message is printed.
+  # The gold version used in successive operations
+  # is the one bundled with this notebook. In other words,
+  # the 'gold_paired' attribute built by BOT is discarded.
+  if (FALSE %in% tmp$is_bot_gold_eq_to_this_gold) {
+    warning(
+      "BOT was executed with a gold standard different from the one used in this notebook.",
+      "Precision, Recall, and F-measure values may vary from the ones reported by BOT."
+    )
+  }
+  
+  # Add boolean attributes describing if an activity pair is
+  # a true positive (TP), false positive (FP), or false negative (FN).
+  # This operation is repeated for the overall, match, and part-of cases.
+  tmp <- 
+    tmp %>% 
+    # Remove 'gold_paired' and 'is_bot_gold_eq_to_this_gold'
+    select(
+      -c(gold_paired, is_bot_gold_eq_to_this_gold)
+    ) %>%
+    # Add the TP, FP, and FN attributes in the overall (match + part-of) case.
+    # A true positive is a pair present in the overall gold 
+    # that the workers paired successfully.
+    # A false positive is a pair not present in the overall gold
+    # that the workers wrongly reported as a pair.
+    # A false negative is a pair present in the overall gold 
+    # that the workers did not report as a pair.
+    mutate(
+      tp_overall = gold_overall & paired,
+      fp_overall = !gold_overall & paired,
+      fn_overall = gold_overall & !paired
+    ) %>% 
+    # Add the TP, FP, and FN attributes in the match case.
+    mutate(
+      # In this task, we did not ask workers to select a relationship type.
+      # Thus, we have to classify ourselves the relationship kinds of activity pairs.
+      #
+      # Match TPs are the overall TPs where the gold relationship is match.
+      tp_match = tp_overall & gold_match,
+      # Match FPs are the same as overall FPs.
+      # This prevents introducing additional FPs 
+      # that in reality would be part-of TPs.
+      fp_match = fp_overall,
+      # Match FNs are the overall FNs where the gold relationship is match.
+      fn_match = fn_overall & gold_match
+    ) %>% 
+    # Add the TP, FP, and FN attributes in the part-of case.
+    mutate(
+      # The strategy used here is the same as the one described above.
+      tp_part_of = tp_overall & gold_part_of,
+      fp_part_of = fp_overall,
+      fn_part_of = fn_overall & gold_part_of
+    )
+}
+```
+
+```{r}
+# Join all tibble with gold
+join_with_gold <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    # Get list of tbls separated by dataset
+    split(.$dataset) %>%
+    # For each tbl in the list join it with gold
+    lapply(join_tbl_with_gold) %>%
+    # Collapse list into a single tbl again
+    bind_rows()
+}
+```
+
+# Step 3: Compute Performance Metrics
+
+```{r}
+# Compute precision, recall and F-measure.
+# The logic handling the total == 0 edge cases is the same
+# as the one adopted in the BOT and OPBOT programs,
+# implemented in the class 'EvaluationMetrics.java'.
+# In other words if:
+#   tp + fp == 0 then precision is 1
+#   tp + fn == 0 then recall is 1
+#   precision + recall == 0 then F-measure is 0.
+
+compute_precision <- function(tp, fp) {
+  total <- tp + fp
+  if_else(
+    total == 0,
+    1,
+    tp / total
+  )
+}
+
+compute_recall <- function(tp, fn) {
+  total <- tp + fn
+  if_else(
+    total == 0,
+    1,
+    tp / total
+  )
+}
+
+compute_fmeasure <- function(p, r) {
+  total <- p + r
+  if_else(
+    total == 0,
+    0,
+    2 * (p * r) / total
+  )
+}
+```
+
+```{r}
+# Compute the precision, recall, and F-measure values
+# for each pair of processes (e.g., Cologne-Frankfurt).
+compute_prf_per_process_pair <- function(tbl) {
+  # Find the P, R, F values for each pair of processes in the overall case
+  tmp_overall <- 
+    tbl %>%
+    # Group by process pair for a similarity threshold
+    group_by(
+      dataset, proc_id_1, proc_id_2
+    ) %>% 
+    # Deduplicate the activity pairs to prevent
+    # introducing multiple TPs/FPs for a single pair.
+    distinct(
+      node_id_1, node_id_2,
+      .keep_all = TRUE
+    ) %>% 
+    summarise(
+      # Compute total number of TPs, FPs, and FNs in the overall case
+      tp_overall = sum(tp_overall),
+      fp_overall = sum(fp_overall),
+      fn_overall = sum(fn_overall),
+      # Compute the P, R, F values  in the overall case
+      p_overall = compute_precision(tp_overall, fp_overall),
+      r_overall = compute_recall(tp_overall, fn_overall),
+      f_overall = compute_fmeasure(p_overall, r_overall)
+    ) %>%
+    ungroup()
+  
+  # Find the P, R, F values for each pair of processes in the match case
+  tmp_match <- 
+    tbl %>%
+    # Consider only activity pairs classified as "match"
+    filter(
+      tp_match | fp_match | fn_match
+    ) %>% 
+    # Group by process pair for a similarity threshold
+    group_by(
+      dataset, proc_id_1, proc_id_2
+    ) %>% 
+    # Deduplicate activity pairs
+    distinct(
+      node_id_1, node_id_2,
+      .keep_all = TRUE
+    ) %>% 
+    summarise(
+      # Compute total number of TPs, FPs, and FNs in the match case
+      tp_match = sum(tp_match),
+      fp_match = sum(fp_match),
+      fn_match = sum(fn_match),
+      # Compute the P, R, F values  in the match case
+      p_match = compute_precision(tp_match, fp_match),
+      r_match = compute_recall(tp_match, fn_match),
+      f_match = compute_fmeasure(p_match, r_match)
+    ) %>%
+    ungroup()
+
+  # Find the P, R, F values for each pair of processes in the part-of case
+  tmp_part_of <- 
+    tbl %>%
+    # Consider only activity pairs classified as "part of"
+    filter(
+      tp_part_of | fp_part_of | fn_part_of
+    ) %>% 
+    # Group by process pair in a dataset
+    group_by(
+      dataset, proc_id_1, proc_id_2
+    ) %>% 
+    # Deduplicate activity pairs
+    distinct(
+      node_id_1, node_id_2,
+      .keep_all = TRUE
+    ) %>% 
+    summarise(
+      # Compute total number of TPs, FPs, and FNs in the part-of case
+      tp_part_of = sum(tp_part_of),
+      fp_part_of = sum(fp_part_of),
+      fn_part_of = sum(fn_part_of),
+      # Compute the P, R, F values  in the part-of case
+      p_part_of = compute_precision(tp_part_of, fp_part_of),
+      r_part_of = compute_recall(tp_part_of, fn_part_of),
+      f_part_of = compute_fmeasure(p_part_of, r_part_of)
+    ) %>%
+    ungroup()
+  
+  # Merge results
+  tmp <- 
+    tmp_overall %>% 
+    left_join(
+      tmp_match,
+      by = c("dataset", "proc_id_1", "proc_id_2")
+    ) %>% 
+    left_join(
+      tmp_part_of,
+      by = c("dataset", "proc_id_1", "proc_id_2")
+    )
+}
+```
+
+```{r}
+# Compute the average P, R, F values
+compute_prf_avg <- function(tbl) {
+  # For each similarity threshold
+  # average the per process pair metrics
+  tmp <- 
+    tbl %>% 
+    group_by(
+      dataset
+    ) %>% 
+    summarise(
+      # TPs, FPs, FNs
+      # Overall
+      tp_overall = mean(tp_overall),
+      fp_overall = mean(fp_overall),
+      fn_overall = mean(fn_overall),
+      # Match
+      tp_match = mean(tp_match),
+      fp_match = mean(fp_match),
+      fn_match = mean(fn_match),
+      # PartOf
+      tp_part_of = mean(tp_part_of),
+      fp_part_of = mean(fp_part_of),
+      fn_part_of = mean(fn_part_of),
+      # Precision, Recall, F-measure
+      # Overall
+      p_overall = mean(p_overall),
+      r_overall = mean(r_overall),
+      f_overall = mean(f_overall),
+      # Match
+      p_match = mean(p_match),
+      r_match = mean(r_match),
+      f_match = mean(f_match),
+      # PartOf
+      p_part_of = mean(p_part_of),
+      r_part_of = mean(r_part_of),
+      f_part_of = mean(f_part_of)
+    ) %>% 
+    ungroup()
+}
+```
+
+# Step 4: Prepare Data for Plotting
+
+```{r}
+# Given a tbl with a 'dataset' attribute,
+# parse the configuration options it contains.
+parse_prf_dataset_config <- function(tbl) {
+  tmp <- 
+    tbl %>%
+    mutate(
+      dataset_copy = dataset
+    ) %>%
+    separate(
+      dataset_copy,
+      into = c(
+        # Dataset (i.e., "UA"), to be removed
+        "rm_dataset",
+        # "Union" or "Intersection"
+        "kw_method",
+        # BOT gold ("GoldAll")
+        "gold",
+        # "Base", "Raw", "Clean"
+        "file_type",
+        # "0", "1", "2", "3"
+        "kw_group",
+        # "Keywords", to be removed
+        "rm_kw_string",
+        # "Default", "NoSpam"
+        "spam_config",
+        # "Stemmed", "NoStem"
+        "stem_config"
+      )
+    ) %>% 
+    # Remove unnecessary attributes
+    select(
+      -starts_with("rm_")
+    ) %>% 
+    mutate(
+      gold = str_replace(gold, "GoldAll", "Overall")
+    ) %>% 
+    select(
+      dataset, kw_method, gold, 
+      file_type, kw_group, 
+      spam_config, stem_config,
+      everything()
+    )
+}
+```
+
+```{r}
+# Gather the PRF attributes contained
+# in a tbl to tidy it.
+gather_prf_attrs <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    # Gather precision
+    gather(
+      p_overall, p_match, p_part_of,
+      key = "p_type", value = "precision"
+    ) %>% 
+    # Gather recall
+    gather(
+      r_overall, r_match, r_part_of,
+      key = "r_type", value = "recall"
+    ) %>% 
+    # Gather f-measure
+    gather(
+      f_overall, f_match, f_part_of,
+      key = "f_type", value = "fmeasure"
+    ) %>% 
+    # Remove p_, r_, f_ prefixes
+    mutate(
+      p_type = str_replace(p_type, "p_", ""),
+      r_type = str_replace(r_type, "r_", ""),
+      f_type = str_replace(f_type, "f_", "")
+    ) %>% 
+    # Keep only rows representing correct configurations
+    # (i.e., those with the same metric type)
+    filter(
+      p_type == r_type, 
+      r_type == f_type
+    )
+}
+```
+
+```{r}
+# Deduplicate the PRF '_type' attributes
+# and add a single 'prf_gold' attribute instead
+add_prf_gold_attr <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    mutate(
+      prf_gold = p_type
+    ) %>%
+    select(
+      - c(p_type, r_type, f_type)
+    )
+}
+```
+
+```{r}
+# Select attributes used in plots
+select_plot_attrs <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    select(
+      dataset,
+      kw_method, prf_gold, file_type,
+      kw_group, spam_config, stem_config,
+      precision, recall, fmeasure
+    )
+}
+```
+
+```{r}
+# Bundle the operations needed
+# to prepare PRF data for plotting
+prepare_prf_data_for_use <- function(tbl) {
+  tbl %>% 
+    parse_prf_dataset_config() %>%
+    gather_prf_attrs() %>%
+    add_prf_gold_attr() %>% 
+    select_plot_attrs()
+}
+```
+
+# Step 5: Plot
+
+```{r}
+plot_prf <- function(tbl, prf_type, out_file) {
+  tmp <- tbl
+
+  base_plot <- ggplot(tmp,
+    # IMPORTANT: use 'aes_string()' instead of 'aes()' 
+    # as 'prf_type' is a string
+    aes_string(
+      x = "kw_group",
+      y = prf_type,
+      shape = "kw_type"
+    )
+  )
+
+  base_plot + 
+    geom_point(
+      stroke = .6,
+      size = 3
+    ) +
+    geom_hline(
+      data = BOT_BASELINE,
+      aes_string(
+        yintercept = prf_type
+      ),
+      linetype = "dotted",
+      alpha = .7,
+      size = 1
+    ) +
+    labs(
+      x = get_prf_plot_x_label(tbl$kw_method[1]),
+      y = get_prf_string(prf_type),
+      title = get_prf_plot_title(prf_type),
+      subtitle = str_c(tbl$kw_method[1], " strategy")
+    ) +
+    scale_y_continuous(
+      limits = c(0.0, 1.0),
+      breaks = seq(0.0, 1.0, 0.1)
+    ) +
+    scale_shape_discrete(
+      name = "Keyword Type",
+      labels = LABEL_NAMES,
+      solid = FALSE
+    ) +
+    facet_grid(prf_gold ~ spam_config) +
+    theme_bw() +
+    theme(legend.position="bottom")
+
+  ggsave(out_file, width = 10, height = 10)
+
+}
+```
+
+# Main
+
+```{r message=FALSE}
+# Get gold data.
+# This tibble will be used in comparison operations.
+DATA_GOLD <- get_gold_standard()
+```
+
+```{r message=FALSE}
+# Prepare BOT results for plotting and analysis
+data_bot_results <- get_bot_output()
+
+data_bot_gold <-
+  data_bot_results %>% 
+  join_with_gold()
+
+data_bot_per_pair <-
+  data_bot_gold %>% 
+  compute_prf_per_process_pair()
+
+data_bot_avg <- 
+  data_bot_per_pair %>% 
+  compute_prf_avg()
+
+plottable_bot_with_dataset <-
+  data_bot_avg %>% 
+  prepare_prf_data_for_use()
+
+# Easier to analyze in RStudio's viewer
+analysis_bot <- 
+  plottable_bot_with_dataset %>% 
+  mutate_if(
+    is.character,
+    as.factor
+  )
+
+# For plotting
+plottable_bot <-
+  plottable_bot_with_dataset %>%
+  select(-dataset)
+```
+
+```{r}
+# BOT's baseline performance
+# when only original labels are 
+# present in the input data.
+# Used to make horizontal lines
+# in plots.
+BOT_BASELINE <- 
+  plottable_bot %>% 
+  filter(
+    file_type == "Base"
+  ) %>% 
+  distinct(
+    prf_gold,
+    precision, recall, fmeasure
+  ) %>% 
+  factorize_prf_gold()
+```
+
+```{r include=FALSE,eval=FALSE}
+# The 3Kw-Union and 1Kw-Intersection configs
+# (independently from the keyword characteristics)
+# are almost the same, but in union keywords
+# may be duplicated (e.g., "send send letter").
+# Contrarily, in intersection keywords appear
+# only one time (e.g., "send letter").
+# This is why there is a slight performance difference
+# between these kinds of input configurations.
+# (Original words label do not influence which
+# keywords are selected by the input builder.)
+tmp_00 <- 
+  analysis_bot %>% 
+  filter(
+    kw_group == "3" & kw_method == "Union" |
+      kw_group == "1" & kw_method == "Intersection"
+  ) %>% 
+  filter(
+    prf_gold == "overall",
+    spam_config == "Default",
+    stem_config == "NoStem"
+  )
+```
+
+## Union
+
+```{r}
+plottable_union <-
+  plottable_bot %>%
+  filter(
+    kw_method == "Union",
+    file_type != "Base"
+  ) %>%
+  unite(
+    kw_type, file_type, stem_config
+  ) %>% 
+  factorize_prf_gold() %>% 
+  factorize_spam_config()
+```
+
+```{r fig.width=10,fig.height=10}
+plot_prf(plottable_union, "precision", "chp06_bot_prf_union_precision.png")
+```
+
+```{r fig.width=10,fig.height=10}
+plot_prf(plottable_union, "recall", "chp06_bot_prf_union_recall.png")
+```
+
+```{r fig.width=10,fig.height=10}
+plot_prf(plottable_union, "fmeasure", "chp06_bot_prf_union_fmeasure.png")
+```
+
+## Intersection
+
+```{r}
+plottable_intersection <-
+  plottable_bot %>%
+  filter(
+    kw_method == "Intersection",
+    file_type != "Base"
+  ) %>%
+  unite(
+    kw_type, file_type, stem_config
+  ) %>% 
+  factorize_prf_gold() %>% 
+  factorize_spam_config()
+```
+
+```{r fig.width=10,fig.height=10}
+plot_prf(plottable_intersection, "precision", "chp06_bot_prf_intersection_precision.png")
+```
+
+```{r fig.width=10,fig.height=10}
+plot_prf(plottable_intersection, "recall", "chp06_bot_prf_intersection_recall.png")
+```
+
+```{r fig.width=10,fig.height=10}
+plot_prf(plottable_intersection, "fmeasure", "chp06_bot_prf_intersection_fmeasure.png")
+```

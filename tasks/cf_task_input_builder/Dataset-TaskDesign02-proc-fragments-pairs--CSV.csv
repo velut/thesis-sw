@@ -1,0 +1,990 @@
+processId_A;nodeId_A;nodeLabel_A;processId_B;nodeId_B;nodeLabel_B;img_A;img_B
+83;2707;check documents;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2707;check documents;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2707;check documents;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2707;check documents;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2707;check documents;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2707;check documents;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2707;check documents;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2707;check documents;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2707;check documents;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2707;check documents;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2707;check documents;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2707;check documents;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2707;check documents;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2707;check documents;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2707;check documents;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2707;check documents;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2707;check documents;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2704;less than 16 cp in mathematics;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2704;less than 16 cp in mathematics;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2704;less than 16 cp in mathematics;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2704;less than 16 cp in mathematics;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2704;less than 16 cp in mathematics;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2704;less than 16 cp in mathematics;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2704;less than 16 cp in mathematics;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2704;less than 16 cp in mathematics;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2704;less than 16 cp in mathematics;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2704;less than 16 cp in mathematics;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2704;less than 16 cp in mathematics;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2704;less than 16 cp in mathematics;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2704;less than 16 cp in mathematics;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2704;less than 16 cp in mathematics;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2704;less than 16 cp in mathematics;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2704;less than 16 cp in mathematics;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2704;less than 16 cp in mathematics;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2709;send letter of rejection;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2709;send letter of rejection;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2709;send letter of rejection;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2709;send letter of rejection;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2709;send letter of rejection;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2709;send letter of rejection;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2709;send letter of rejection;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2709;send letter of rejection;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2709;send letter of rejection;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2709;send letter of rejection;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2709;send letter of rejection;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2709;send letter of rejection;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2709;send letter of rejection;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2709;send letter of rejection;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2709;send letter of rejection;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2709;send letter of rejection;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2709;send letter of rejection;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2688;sufficient cp in mathematics;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2688;sufficient cp in mathematics;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2688;sufficient cp in mathematics;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2688;sufficient cp in mathematics;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2688;sufficient cp in mathematics;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2688;sufficient cp in mathematics;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2688;sufficient cp in mathematics;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2688;sufficient cp in mathematics;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2688;sufficient cp in mathematics;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2688;sufficient cp in mathematics;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2688;sufficient cp in mathematics;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2688;sufficient cp in mathematics;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2688;sufficient cp in mathematics;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2688;sufficient cp in mathematics;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2688;sufficient cp in mathematics;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2688;sufficient cp in mathematics;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2688;sufficient cp in mathematics;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2705;take oral exam;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2705;take oral exam;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2705;take oral exam;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2705;take oral exam;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2705;take oral exam;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2705;take oral exam;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2705;take oral exam;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2705;take oral exam;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2705;take oral exam;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2705;take oral exam;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2705;take oral exam;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2705;take oral exam;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2705;take oral exam;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2705;take oral exam;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2705;take oral exam;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2705;take oral exam;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2705;take oral exam;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2708;evaluate;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2708;evaluate;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2708;evaluate;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2708;evaluate;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2708;evaluate;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2708;evaluate;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2708;evaluate;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2708;evaluate;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2708;evaluate;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2708;evaluate;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2708;evaluate;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2708;evaluate;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2708;evaluate;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2708;evaluate;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2708;evaluate;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2708;evaluate;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2708;evaluate;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2699;wait for bachelor's certificate;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2699;wait for bachelor's certificate;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2699;wait for bachelor's certificate;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2699;wait for bachelor's certificate;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2699;wait for bachelor's certificate;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2699;wait for bachelor's certificate;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2699;wait for bachelor's certificate;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2699;wait for bachelor's certificate;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2699;wait for bachelor's certificate;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2699;wait for bachelor's certificate;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2699;wait for bachelor's certificate;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2699;wait for bachelor's certificate;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2699;wait for bachelor's certificate;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2699;wait for bachelor's certificate;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2699;wait for bachelor's certificate;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2699;wait for bachelor's certificate;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2699;wait for bachelor's certificate;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2701;send bachelor's certificate;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2701;send bachelor's certificate;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2701;send bachelor's certificate;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2701;send bachelor's certificate;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2701;send bachelor's certificate;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2701;send bachelor's certificate;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2701;send bachelor's certificate;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2701;send bachelor's certificate;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2701;send bachelor's certificate;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2701;send bachelor's certificate;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2701;send bachelor's certificate;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2701;send bachelor's certificate;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2701;send bachelor's certificate;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2701;send bachelor's certificate;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2701;send bachelor's certificate;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2701;send bachelor's certificate;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2701;send bachelor's certificate;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2695;send letter of provisional acceptance;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2695;send letter of provisional acceptance;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2695;send letter of provisional acceptance;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2695;send letter of provisional acceptance;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2695;send letter of provisional acceptance;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2695;send letter of provisional acceptance;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2695;send letter of provisional acceptance;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2695;send letter of provisional acceptance;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2695;send letter of provisional acceptance;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2695;send letter of provisional acceptance;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2695;send letter of provisional acceptance;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2695;send letter of provisional acceptance;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2695;send letter of provisional acceptance;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2695;send letter of provisional acceptance;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2695;send letter of provisional acceptance;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2695;send letter of provisional acceptance;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2695;send letter of provisional acceptance;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2697;rejected;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2697;rejected;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2697;rejected;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2697;rejected;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2697;rejected;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2697;rejected;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2697;rejected;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2697;rejected;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2697;rejected;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2697;rejected;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2697;rejected;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2697;rejected;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2697;rejected;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2697;rejected;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2697;rejected;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2697;rejected;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2697;rejected;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2703;check certificate;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2703;check certificate;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2703;check certificate;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2703;check certificate;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2703;check certificate;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2703;check certificate;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2703;check certificate;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2703;check certificate;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2703;check certificate;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2703;check certificate;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2703;check certificate;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2703;check certificate;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2703;check certificate;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2703;check certificate;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2703;check certificate;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2703;check certificate;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2703;check certificate;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2693;provisional acceptance cancelled;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2693;provisional acceptance cancelled;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2693;provisional acceptance cancelled;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2693;provisional acceptance cancelled;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2693;provisional acceptance cancelled;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2693;provisional acceptance cancelled;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2693;provisional acceptance cancelled;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2693;provisional acceptance cancelled;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2693;provisional acceptance cancelled;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2693;provisional acceptance cancelled;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2693;provisional acceptance cancelled;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2693;provisional acceptance cancelled;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2693;provisional acceptance cancelled;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2693;provisional acceptance cancelled;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2693;provisional acceptance cancelled;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2693;provisional acceptance cancelled;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2693;provisional acceptance cancelled;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2698;accepted provisionally;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2698;accepted provisionally;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2698;accepted provisionally;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2698;accepted provisionally;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2698;accepted provisionally;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2698;accepted provisionally;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2698;accepted provisionally;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2698;accepted provisionally;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2698;accepted provisionally;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2698;accepted provisionally;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2698;accepted provisionally;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2698;accepted provisionally;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2698;accepted provisionally;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2698;accepted provisionally;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2698;accepted provisionally;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2698;accepted provisionally;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2698;accepted provisionally;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2694;send letter of acceptance;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2694;send letter of acceptance;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2694;send letter of acceptance;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2694;send letter of acceptance;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2694;send letter of acceptance;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2694;send letter of acceptance;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2694;send letter of acceptance;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2694;send letter of acceptance;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2694;send letter of acceptance;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2694;send letter of acceptance;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2694;send letter of acceptance;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2694;send letter of acceptance;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2694;send letter of acceptance;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2694;send letter of acceptance;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2694;send letter of acceptance;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2694;send letter of acceptance;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2694;send letter of acceptance;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2692;provisional acceptance confirmed;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2692;provisional acceptance confirmed;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2692;provisional acceptance confirmed;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2692;provisional acceptance confirmed;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2692;provisional acceptance confirmed;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2692;provisional acceptance confirmed;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2692;provisional acceptance confirmed;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2692;provisional acceptance confirmed;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2692;provisional acceptance confirmed;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2692;provisional acceptance confirmed;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2692;provisional acceptance confirmed;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2692;provisional acceptance confirmed;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2692;provisional acceptance confirmed;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2692;provisional acceptance confirmed;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2692;provisional acceptance confirmed;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2692;provisional acceptance confirmed;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2692;provisional acceptance confirmed;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2689;average grade is less than good;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2689;average grade is less than good;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2689;average grade is less than good;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2689;average grade is less than good;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2689;average grade is less than good;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2689;average grade is less than good;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2689;average grade is less than good;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2689;average grade is less than good;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2689;average grade is less than good;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2689;average grade is less than good;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2689;average grade is less than good;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2689;average grade is less than good;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2689;average grade is less than good;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2689;average grade is less than good;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2689;average grade is less than good;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2689;average grade is less than good;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2689;average grade is less than good;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2687;average grade is good or better;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2687;average grade is good or better;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2687;average grade is good or better;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2687;average grade is good or better;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2687;average grade is good or better;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2687;average grade is good or better;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2687;average grade is good or better;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2687;average grade is good or better;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2687;average grade is good or better;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2687;average grade is good or better;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2687;average grade is good or better;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2687;average grade is good or better;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2687;average grade is good or better;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2687;average grade is good or better;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2687;average grade is good or better;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2687;average grade is good or better;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2687;average grade is good or better;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2696;accepted;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2696;accepted;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2696;accepted;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2696;accepted;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2696;accepted;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2696;accepted;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2696;accepted;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2696;accepted;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2696;accepted;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2696;accepted;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2696;accepted;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2696;accepted;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2696;accepted;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2696;accepted;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2696;accepted;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2696;accepted;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2696;accepted;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2700;certificate received;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2700;certificate received;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2700;certificate received;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2700;certificate received;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2700;certificate received;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2700;certificate received;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2700;certificate received;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2700;certificate received;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2700;certificate received;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2700;certificate received;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2700;certificate received;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2700;certificate received;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2700;certificate received;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2700;certificate received;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2700;certificate received;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2700;certificate received;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2700;certificate received;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2702;certificate received;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2702;certificate received;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2702;certificate received;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2702;certificate received;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2702;certificate received;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2702;certificate received;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2702;certificate received;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2702;certificate received;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2702;certificate received;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2702;certificate received;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2702;certificate received;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2702;certificate received;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2702;certificate received;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2702;certificate received;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2702;certificate received;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2702;certificate received;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2702;certificate received;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2706;documents received;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2706;documents received;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2706;documents received;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2706;documents received;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2706;documents received;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2706;documents received;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2706;documents received;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2706;documents received;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2706;documents received;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2706;documents received;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2706;documents received;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2706;documents received;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2706;documents received;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2706;documents received;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2706;documents received;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2706;documents received;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2706;documents received;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2691;apply online;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2691;apply online;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2691;apply online;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2691;apply online;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2691;apply online;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2691;apply online;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2691;apply online;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2691;apply online;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2691;apply online;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2691;apply online;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2691;apply online;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2691;apply online;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2691;apply online;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2691;apply online;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2691;apply online;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2691;apply online;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2691;apply online;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+83;2690;send documents by post;89;2884;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2884.png
+83;2690;send documents by post;89;2883;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2883.png
+83;2690;send documents by post;89;2889;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2889.png
+83;2690;send documents by post;89;2888;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2888.png
+83;2690;send documents by post;89;2893;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2893.png
+83;2690;send documents by post;89;2894;check bachelor's degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2894.png
+83;2690;send documents by post;89;2895;bridging courses > 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2895.png
+83;2690;send documents by post;89;2891;conduct interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2891.png
+83;2690;send documents by post;89;2897;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2897.png
+83;2690;send documents by post;89;2892;go to interview;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2892.png
+83;2690;send documents by post;89;2890;send interview invitation;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2890.png
+83;2690;send documents by post;89;2898;forward documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2898.png
+83;2690;send documents by post;89;2899;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2899.png
+83;2690;send documents by post;89;2887;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2887.png
+83;2690;send documents by post;89;2896;bridging courses < 30 cp;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2896.png
+83;2690;send documents by post;89;2886;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2886.png
+83;2690;send documents by post;89;2885;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/89/2885.png
+82;2667;Apply Online;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2667;Apply Online;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2667;Apply Online;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2667;Apply Online;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2667;Apply Online;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2667;Apply Online;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2667;Apply Online;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2667;Apply Online;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2667;Apply Online;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2667;Apply Online;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2667;Apply Online;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2667;Apply Online;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2667;Apply Online;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2667;Apply Online;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2667;Apply Online;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2667;Apply Online;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2667;Apply Online;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2667;Apply Online;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2667;Apply Online;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2667;Apply Online;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2667;Apply Online;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2667;Apply Online;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2667;Apply Online;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2668;Send Online Protocol;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2668;Send Online Protocol;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2668;Send Online Protocol;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2668;Send Online Protocol;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2668;Send Online Protocol;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2668;Send Online Protocol;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2668;Send Online Protocol;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2668;Send Online Protocol;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2668;Send Online Protocol;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2668;Send Online Protocol;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2668;Send Online Protocol;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2668;Send Online Protocol;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2668;Send Online Protocol;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2668;Send Online Protocol;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2668;Send Online Protocol;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2668;Send Online Protocol;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2668;Send Online Protocol;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2668;Send Online Protocol;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2668;Send Online Protocol;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2668;Send Online Protocol;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2668;Send Online Protocol;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2668;Send Online Protocol;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2668;Send Online Protocol;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2672;Evaluate;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2672;Evaluate;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2672;Evaluate;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2672;Evaluate;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2672;Evaluate;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2672;Evaluate;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2672;Evaluate;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2672;Evaluate;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2672;Evaluate;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2672;Evaluate;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2672;Evaluate;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2672;Evaluate;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2672;Evaluate;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2672;Evaluate;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2672;Evaluate;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2672;Evaluate;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2672;Evaluate;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2672;Evaluate;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2672;Evaluate;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2672;Evaluate;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2672;Evaluate;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2672;Evaluate;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2672;Evaluate;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2683;Acceptance;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2683;Acceptance;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2683;Acceptance;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2683;Acceptance;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2683;Acceptance;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2683;Acceptance;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2683;Acceptance;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2683;Acceptance;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2683;Acceptance;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2683;Acceptance;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2683;Acceptance;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2683;Acceptance;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2683;Acceptance;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2683;Acceptance;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2683;Acceptance;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2683;Acceptance;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2683;Acceptance;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2683;Acceptance;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2683;Acceptance;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2683;Acceptance;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2683;Acceptance;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2683;Acceptance;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2683;Acceptance;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2679;Pay for Aptitude test;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2679;Pay for Aptitude test;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2679;Pay for Aptitude test;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2679;Pay for Aptitude test;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2679;Pay for Aptitude test;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2679;Pay for Aptitude test;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2679;Pay for Aptitude test;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2679;Pay for Aptitude test;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2679;Pay for Aptitude test;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2679;Pay for Aptitude test;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2679;Pay for Aptitude test;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2679;Pay for Aptitude test;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2679;Pay for Aptitude test;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2679;Pay for Aptitude test;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2679;Pay for Aptitude test;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2679;Pay for Aptitude test;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2679;Pay for Aptitude test;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2679;Pay for Aptitude test;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2679;Pay for Aptitude test;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2679;Pay for Aptitude test;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2679;Pay for Aptitude test;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2679;Pay for Aptitude test;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2679;Pay for Aptitude test;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2684;Send letter of rejection;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2684;Send letter of rejection;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2684;Send letter of rejection;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2684;Send letter of rejection;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2684;Send letter of rejection;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2684;Send letter of rejection;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2684;Send letter of rejection;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2684;Send letter of rejection;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2684;Send letter of rejection;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2684;Send letter of rejection;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2684;Send letter of rejection;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2684;Send letter of rejection;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2684;Send letter of rejection;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2684;Send letter of rejection;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2684;Send letter of rejection;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2684;Send letter of rejection;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2684;Send letter of rejection;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2684;Send letter of rejection;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2684;Send letter of rejection;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2684;Send letter of rejection;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2684;Send letter of rejection;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2684;Send letter of rejection;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2684;Send letter of rejection;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2676;Rank Students according to GPA and the test results;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2676;Rank Students according to GPA and the test results;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2676;Rank Students according to GPA and the test results;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2676;Rank Students according to GPA and the test results;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2676;Rank Students according to GPA and the test results;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2676;Rank Students according to GPA and the test results;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2676;Rank Students according to GPA and the test results;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2676;Rank Students according to GPA and the test results;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2676;Rank Students according to GPA and the test results;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2676;Rank Students according to GPA and the test results;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2676;Rank Students according to GPA and the test results;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2676;Rank Students according to GPA and the test results;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2676;Rank Students according to GPA and the test results;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2676;Rank Students according to GPA and the test results;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2676;Rank Students according to GPA and the test results;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2676;Rank Students according to GPA and the test results;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2676;Rank Students according to GPA and the test results;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2676;Rank Students according to GPA and the test results;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2676;Rank Students according to GPA and the test results;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2676;Rank Students according to GPA and the test results;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2676;Rank Students according to GPA and the test results;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2676;Rank Students according to GPA and the test results;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2676;Rank Students according to GPA and the test results;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2671;Check Documents;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2671;Check Documents;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2671;Check Documents;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2671;Check Documents;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2671;Check Documents;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2671;Check Documents;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2671;Check Documents;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2671;Check Documents;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2671;Check Documents;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2671;Check Documents;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2671;Check Documents;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2671;Check Documents;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2671;Check Documents;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2671;Check Documents;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2671;Check Documents;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2671;Check Documents;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2671;Check Documents;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2671;Check Documents;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2671;Check Documents;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2671;Check Documents;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2671;Check Documents;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2671;Check Documents;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2671;Check Documents;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2670;Documents received;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2670;Documents received;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2670;Documents received;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2670;Documents received;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2670;Documents received;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2670;Documents received;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2670;Documents received;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2670;Documents received;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2670;Documents received;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2670;Documents received;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2670;Documents received;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2670;Documents received;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2670;Documents received;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2670;Documents received;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2670;Documents received;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2670;Documents received;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2670;Documents received;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2670;Documents received;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2670;Documents received;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2670;Documents received;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2670;Documents received;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2670;Documents received;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2670;Documents received;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2669;Send Documents by Post;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2669;Send Documents by Post;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2669;Send Documents by Post;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2669;Send Documents by Post;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2669;Send Documents by Post;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2669;Send Documents by Post;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2669;Send Documents by Post;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2669;Send Documents by Post;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2669;Send Documents by Post;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2669;Send Documents by Post;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2669;Send Documents by Post;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2669;Send Documents by Post;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2669;Send Documents by Post;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2669;Send Documents by Post;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2669;Send Documents by Post;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2669;Send Documents by Post;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2669;Send Documents by Post;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2669;Send Documents by Post;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2669;Send Documents by Post;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2669;Send Documents by Post;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2669;Send Documents by Post;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2669;Send Documents by Post;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2669;Send Documents by Post;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2674;Keep in the Applicant pool;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2674;Keep in the Applicant pool;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2674;Keep in the Applicant pool;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2674;Keep in the Applicant pool;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2674;Keep in the Applicant pool;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2674;Keep in the Applicant pool;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2674;Keep in the Applicant pool;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2674;Keep in the Applicant pool;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2674;Keep in the Applicant pool;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2674;Keep in the Applicant pool;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2674;Keep in the Applicant pool;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2674;Keep in the Applicant pool;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2674;Keep in the Applicant pool;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2674;Keep in the Applicant pool;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2674;Keep in the Applicant pool;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2674;Keep in the Applicant pool;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2674;Keep in the Applicant pool;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2674;Keep in the Applicant pool;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2674;Keep in the Applicant pool;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2674;Keep in the Applicant pool;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2674;Keep in the Applicant pool;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2674;Keep in the Applicant pool;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2674;Keep in the Applicant pool;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2675;Take Aptitude test;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2675;Take Aptitude test;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2675;Take Aptitude test;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2675;Take Aptitude test;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2675;Take Aptitude test;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2675;Take Aptitude test;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2675;Take Aptitude test;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2675;Take Aptitude test;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2675;Take Aptitude test;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2675;Take Aptitude test;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2675;Take Aptitude test;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2675;Take Aptitude test;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2675;Take Aptitude test;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2675;Take Aptitude test;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2675;Take Aptitude test;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2675;Take Aptitude test;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2675;Take Aptitude test;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2675;Take Aptitude test;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2675;Take Aptitude test;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2675;Take Aptitude test;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2675;Take Aptitude test;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2675;Take Aptitude test;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2675;Take Aptitude test;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2673;Invite to an aptitude test;83;2707;check documents;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2707.png
+82;2673;Invite to an aptitude test;83;2704;less than 16 cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2704.png
+82;2673;Invite to an aptitude test;83;2709;send letter of rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2709.png
+82;2673;Invite to an aptitude test;83;2688;sufficient cp in mathematics;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2688.png
+82;2673;Invite to an aptitude test;83;2705;take oral exam;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2705.png
+82;2673;Invite to an aptitude test;83;2708;evaluate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2708.png
+82;2673;Invite to an aptitude test;83;2699;wait for bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2699.png
+82;2673;Invite to an aptitude test;83;2701;send bachelor's certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2701.png
+82;2673;Invite to an aptitude test;83;2695;send letter of provisional acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2695.png
+82;2673;Invite to an aptitude test;83;2697;rejected;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2697.png
+82;2673;Invite to an aptitude test;83;2703;check certificate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2703.png
+82;2673;Invite to an aptitude test;83;2693;provisional acceptance cancelled;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2693.png
+82;2673;Invite to an aptitude test;83;2698;accepted provisionally;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2698.png
+82;2673;Invite to an aptitude test;83;2694;send letter of acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2694.png
+82;2673;Invite to an aptitude test;83;2692;provisional acceptance confirmed;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2692.png
+82;2673;Invite to an aptitude test;83;2689;average grade is less than good;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2689.png
+82;2673;Invite to an aptitude test;83;2687;average grade is good or better;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2687.png
+82;2673;Invite to an aptitude test;83;2696;accepted;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2696.png
+82;2673;Invite to an aptitude test;83;2700;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2700.png
+82;2673;Invite to an aptitude test;83;2702;certificate received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2702.png
+82;2673;Invite to an aptitude test;83;2706;documents received;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2706.png
+82;2673;Invite to an aptitude test;83;2691;apply online;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2691.png
+82;2673;Invite to an aptitude test;83;2690;send documents by post;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/83/2690.png
+82;2667;Apply Online;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2667;Apply Online;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2667;Apply Online;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2667;Apply Online;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2667;Apply Online;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2667;Apply Online;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2667;Apply Online;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2667;Apply Online;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2667;Apply Online;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2667;Apply Online;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2667;Apply Online;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2667;Apply Online;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2667;Apply Online;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2667;Apply Online;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2667;Apply Online;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2667;Apply Online;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2667;Apply Online;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2667;Apply Online;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2667;Apply Online;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2667;Apply Online;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2667;Apply Online;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2667;Apply Online;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2667;Apply Online;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2667.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2668;Send Online Protocol;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2668;Send Online Protocol;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2668;Send Online Protocol;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2668;Send Online Protocol;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2668;Send Online Protocol;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2668;Send Online Protocol;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2668;Send Online Protocol;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2668;Send Online Protocol;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2668;Send Online Protocol;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2668;Send Online Protocol;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2668;Send Online Protocol;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2668;Send Online Protocol;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2668;Send Online Protocol;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2668;Send Online Protocol;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2668;Send Online Protocol;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2668;Send Online Protocol;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2668;Send Online Protocol;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2668;Send Online Protocol;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2668;Send Online Protocol;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2668;Send Online Protocol;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2668;Send Online Protocol;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2668;Send Online Protocol;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2668;Send Online Protocol;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2668.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2672;Evaluate;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2672;Evaluate;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2672;Evaluate;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2672;Evaluate;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2672;Evaluate;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2672;Evaluate;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2672;Evaluate;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2672;Evaluate;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2672;Evaluate;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2672;Evaluate;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2672;Evaluate;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2672;Evaluate;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2672;Evaluate;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2672;Evaluate;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2672;Evaluate;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2672;Evaluate;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2672;Evaluate;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2672;Evaluate;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2672;Evaluate;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2672;Evaluate;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2672;Evaluate;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2672;Evaluate;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2672;Evaluate;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2672.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2683;Acceptance;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2683;Acceptance;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2683;Acceptance;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2683;Acceptance;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2683;Acceptance;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2683;Acceptance;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2683;Acceptance;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2683;Acceptance;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2683;Acceptance;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2683;Acceptance;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2683;Acceptance;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2683;Acceptance;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2683;Acceptance;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2683;Acceptance;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2683;Acceptance;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2683;Acceptance;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2683;Acceptance;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2683;Acceptance;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2683;Acceptance;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2683;Acceptance;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2683;Acceptance;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2683;Acceptance;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2683;Acceptance;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2683.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2679;Pay for Aptitude test;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2679;Pay for Aptitude test;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2679;Pay for Aptitude test;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2679;Pay for Aptitude test;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2679;Pay for Aptitude test;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2679;Pay for Aptitude test;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2679;Pay for Aptitude test;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2679;Pay for Aptitude test;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2679;Pay for Aptitude test;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2679;Pay for Aptitude test;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2679;Pay for Aptitude test;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2679;Pay for Aptitude test;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2679;Pay for Aptitude test;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2679;Pay for Aptitude test;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2679;Pay for Aptitude test;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2679;Pay for Aptitude test;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2679;Pay for Aptitude test;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2679;Pay for Aptitude test;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2679;Pay for Aptitude test;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2679;Pay for Aptitude test;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2679;Pay for Aptitude test;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2679;Pay for Aptitude test;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2679;Pay for Aptitude test;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2679.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2684;Send letter of rejection;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2684;Send letter of rejection;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2684;Send letter of rejection;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2684;Send letter of rejection;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2684;Send letter of rejection;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2684;Send letter of rejection;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2684;Send letter of rejection;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2684;Send letter of rejection;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2684;Send letter of rejection;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2684;Send letter of rejection;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2684;Send letter of rejection;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2684;Send letter of rejection;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2684;Send letter of rejection;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2684;Send letter of rejection;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2684;Send letter of rejection;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2684;Send letter of rejection;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2684;Send letter of rejection;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2684;Send letter of rejection;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2684;Send letter of rejection;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2684;Send letter of rejection;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2684;Send letter of rejection;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2684;Send letter of rejection;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2684;Send letter of rejection;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2684.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2676;Rank Students according to GPA and the test results;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2676;Rank Students according to GPA and the test results;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2676;Rank Students according to GPA and the test results;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2676;Rank Students according to GPA and the test results;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2676;Rank Students according to GPA and the test results;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2676;Rank Students according to GPA and the test results;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2676;Rank Students according to GPA and the test results;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2676;Rank Students according to GPA and the test results;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2676;Rank Students according to GPA and the test results;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2676;Rank Students according to GPA and the test results;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2676;Rank Students according to GPA and the test results;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2676;Rank Students according to GPA and the test results;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2676;Rank Students according to GPA and the test results;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2676;Rank Students according to GPA and the test results;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2676;Rank Students according to GPA and the test results;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2676;Rank Students according to GPA and the test results;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2676;Rank Students according to GPA and the test results;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2676;Rank Students according to GPA and the test results;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2676;Rank Students according to GPA and the test results;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2676;Rank Students according to GPA and the test results;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2676;Rank Students according to GPA and the test results;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2676;Rank Students according to GPA and the test results;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2676;Rank Students according to GPA and the test results;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2676.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2671;Check Documents;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2671;Check Documents;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2671;Check Documents;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2671;Check Documents;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2671;Check Documents;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2671;Check Documents;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2671;Check Documents;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2671;Check Documents;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2671;Check Documents;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2671;Check Documents;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2671;Check Documents;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2671;Check Documents;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2671;Check Documents;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2671;Check Documents;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2671;Check Documents;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2671;Check Documents;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2671;Check Documents;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2671;Check Documents;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2671;Check Documents;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2671;Check Documents;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2671;Check Documents;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2671;Check Documents;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2671;Check Documents;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2671.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2670;Documents received;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2670;Documents received;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2670;Documents received;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2670;Documents received;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2670;Documents received;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2670;Documents received;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2670;Documents received;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2670;Documents received;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2670;Documents received;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2670;Documents received;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2670;Documents received;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2670;Documents received;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2670;Documents received;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2670;Documents received;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2670;Documents received;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2670;Documents received;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2670;Documents received;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2670;Documents received;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2670;Documents received;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2670;Documents received;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2670;Documents received;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2670;Documents received;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2670;Documents received;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2670.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2669;Send Documents by Post;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2669;Send Documents by Post;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2669;Send Documents by Post;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2669;Send Documents by Post;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2669;Send Documents by Post;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2669;Send Documents by Post;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2669;Send Documents by Post;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2669;Send Documents by Post;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2669;Send Documents by Post;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2669;Send Documents by Post;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2669;Send Documents by Post;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2669;Send Documents by Post;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2669;Send Documents by Post;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2669;Send Documents by Post;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2669;Send Documents by Post;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2669;Send Documents by Post;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2669;Send Documents by Post;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2669;Send Documents by Post;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2669;Send Documents by Post;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2669;Send Documents by Post;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2669;Send Documents by Post;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2669;Send Documents by Post;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2669;Send Documents by Post;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2669.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2674;Keep in the Applicant pool;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2674;Keep in the Applicant pool;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2674;Keep in the Applicant pool;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2674;Keep in the Applicant pool;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2674;Keep in the Applicant pool;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2674;Keep in the Applicant pool;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2674;Keep in the Applicant pool;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2674;Keep in the Applicant pool;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2674;Keep in the Applicant pool;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2674;Keep in the Applicant pool;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2674;Keep in the Applicant pool;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2674;Keep in the Applicant pool;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2674;Keep in the Applicant pool;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2674;Keep in the Applicant pool;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2674;Keep in the Applicant pool;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2674;Keep in the Applicant pool;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2674;Keep in the Applicant pool;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2674;Keep in the Applicant pool;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2674;Keep in the Applicant pool;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2674;Keep in the Applicant pool;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2674;Keep in the Applicant pool;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2674;Keep in the Applicant pool;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2674;Keep in the Applicant pool;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2674.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2675;Take Aptitude test;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2675;Take Aptitude test;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2675;Take Aptitude test;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2675;Take Aptitude test;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2675;Take Aptitude test;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2675;Take Aptitude test;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2675;Take Aptitude test;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2675;Take Aptitude test;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2675;Take Aptitude test;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2675;Take Aptitude test;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2675;Take Aptitude test;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2675;Take Aptitude test;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2675;Take Aptitude test;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2675;Take Aptitude test;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2675;Take Aptitude test;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2675;Take Aptitude test;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2675;Take Aptitude test;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2675;Take Aptitude test;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2675;Take Aptitude test;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2675;Take Aptitude test;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2675;Take Aptitude test;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2675;Take Aptitude test;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2675;Take Aptitude test;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2675.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png
+82;2673;Invite to an aptitude test;84;2717;check application in time;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2717.png
+82;2673;Invite to an aptitude test;84;2720;send application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2720.png
+82;2673;Invite to an aptitude test;84;2710;complete and in time?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2710.png
+82;2673;Invite to an aptitude test;84;2715;check application complete;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2715.png
+82;2673;Invite to an aptitude test;84;2730;complete application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2730.png
+82;2673;Invite to an aptitude test;84;2719;receive application;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2719.png
+82;2673;Invite to an aptitude test;84;2732;fill out application form;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2732.png
+82;2673;Invite to an aptitude test;84;2718;german?;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2718.png
+82;2673;Invite to an aptitude test;84;2722;add certificate of german language;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2722.png
+82;2673;Invite to an aptitude test;84;2713;set additional requirements;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2713.png
+82;2673;Invite to an aptitude test;84;2711;hand application over to examining board;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2711.png
+82;2673;Invite to an aptitude test;84;2712;check if bachelor is sufficient;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2712.png
+82;2673;Invite to an aptitude test;84;2716;add certificate of bachelor degree;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2716.png
+82;2673;Invite to an aptitude test;84;2725;invite for talk;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2725.png
+82;2673;Invite to an aptitude test;84;2721;receive rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2721.png
+82;2673;Invite to an aptitude test;84;2714;check if bachelors-grade within top 85%;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2714.png
+82;2673;Invite to an aptitude test;84;2731;send rejection;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2731.png
+82;2673;Invite to an aptitude test;84;2724;immatriculate;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2724.png
+82;2673;Invite to an aptitude test;84;2723;receive acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2723.png
+82;2673;Invite to an aptitude test;84;2729;send acceptance;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2729.png
+82;2673;Invite to an aptitude test;84;2728;rank with other applicants;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2728.png
+82;2673;Invite to an aptitude test;84;2727;document;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2727.png
+82;2673;Invite to an aptitude test;84;2726;talk to applicant;http://galvanic-axle-852.appspot.com/static/taskdesign01/82/2673.png;http://galvanic-axle-852.appspot.com/static/taskdesign01/84/2726.png

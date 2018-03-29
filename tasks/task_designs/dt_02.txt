@@ -1,0 +1,48 @@
+Overview
+In this task you will be asked to compare two different university admission processes and find similarities between their activities.
+
+Goal: Express your opinion on how relevant is a process fragment with respect to a given activity and on which activities from the same process fragment are similar to the given activity.
+
+Purpose: Your responses will help us evaluate the importance of individuals' opinions in establishing matches between different processes.
+
+Steps
+Look at the fragment from Process A
+Look at the highlighted Activity A (red box)
+Look at the fragment from Process B
+Rate how relevant you think Process fragment B is with respect to Activity A
+Compare Activity A with the activities (black boxes) present in Process fragment B
+Select the names of the activities from Process fragment B which you think are similar to Activity A.
+If you think that no activity from Process fragment B is similar to Activity A then select the "None of the above" option.
+Rules & Tips
+DO
+
+Read carefully these instructions and the questions
+Take into consideration the context provided by each process fragment
+Look at all the activities (the labelled boxes) contained in the process fragments and take them in consideration in your judgment
+Think about which action is done in an activity, who is doing that action (for example a student or the university staff) and what are the things that are manipulated when doing the action (for example documents, certificates, applications)
+DEFINITIONS
+
+SIMILAR: Two activities X and Y are similar when all of the following conditions are satisfied:
+
+The actions performed in the activities are similar
+The individuals performing the actions are similar
+The things manipulated by the actions are similar
+
+Examples
+Suppose Process fragment A is the following, where Activity A is 'upload qualification documents'.
+
+
+
+Suppose also that Process fragment B is the following:
+
+
+
+In Process fragment B there are two activities (red boxes) which are similar to Activity A.
+
+The actions in these two activities are performed by a student who wants to enroll in some university and has to add some certificates which are a form of qualification.
+
+Process fragment B is pretty relevant with respect to Activity A so you should rate its relevance with a high score, such as 4 or 5.
+
+When asked to select which activities from Process fragment B are similar to Activity A you should select both 'add certificate of bachelor degree' and 'add certificate of english language'.
+
+When asked to explain your choices you could write for example that in Process fragment B there are two activities mentioning adding certificates and thus you thought that the process was relevant to Activity A and selected those two activities as the ones similar to Activity A because certificates are a form of qualification and adding and uploading are similar actions performed by a student.

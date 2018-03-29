@@ -1,0 +1,1328 @@
+---
+title: "Direct Task 03"
+author: "Edoardo Scibona"
+date: "February 11, 2018"
+output: 
+  html_document: 
+    toc: yes
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Analysis Configuration
+
+Debugging options
+```{r include=FALSE}
+# Set to TRUE to activate View() calls
+# inside functions
+debug_View <- FALSE
+```
+
+Required libraries
+```{r message=FALSE}
+library(tidyverse)
+library(lubridate)
+library(stringr)
+```
+
+Analysis configuration
+```{r}
+# Global values used in the notebook
+
+# Id of the task
+TASK_ID = "DT_03"
+
+# Number of collected judgments per unit.
+# In our tasks, this value is always 3
+# as we show each unit to three different workers.
+JDG_PER_UNIT <- 3
+
+# Input folder's path.
+# A folder named 'input' should be present in this notebook's root folder
+INPUT_PATH <- file.path(getwd(), "input")
+
+# Path of the task output file compiled by Crowdflower.
+# This file should be present inside the 'input' folder.
+CF_TASK_FILE_PATH <- file.path(INPUT_PATH, "DT_03__f1031801.csv")
+
+# Path of the gold standard folder.
+# A folder named 'gold_standard' should be present inside the 'input' folder.
+GOLD_PATH <- file.path(INPUT_PATH, "gold_standard")
+
+# List of gold files used in this notebook.
+# These files should be present in the 'gold_standard' folder.
+GOLD_FILES <- c(
+  "82-83__cologne-frankfurt.csv",
+  "82-84__cologne-berlin.csv",
+  "83-89__frankfurt-munich.csv"
+)
+```
+
+# Step 1: Read Input Data
+
+In this step, we read data from the input folder.
+Specifically, we read the task output data and the gold standard and build tibbles containing them.
+
+Read the file containing the task output with the workers' responses
+```{r}
+# Get the tibble representing the raw task output
+get_task_output <- function() {
+  read_csv(CF_TASK_FILE_PATH)
+}
+```
+
+Read and build the gold standard
+```{r}
+# Get the tibble representing the gold standard
+# to be used in the comparison operations
+get_gold_standard <- function() {
+  # Get file paths for gold files
+  gold_file_paths <- file.path(GOLD_PATH, GOLD_FILES)
+
+  # Read gold files (csv files separated by semicolon)
+  gold_82_83 <- 
+    read_delim(gold_file_paths[1], ";", escape_double = FALSE, trim_ws = TRUE)
+
+  gold_82_84 <- 
+    read_delim(gold_file_paths[2], ";", escape_double = FALSE, trim_ws = TRUE)
+
+  gold_83_89 <- 
+    read_delim(gold_file_paths[3], ";", escape_double = FALSE, trim_ws = TRUE)
+
+  # Build swapped gold for 83-82.
+  # This gold is necessary because the processes 82 and 83
+  # were submitted in both directions (82 to 83 and 83 to 82)
+  gold_83_82 <- 
+    gold_82_83 %>% 
+    mutate(
+      # Reverse part-of relationships
+      gold_relationship = str_replace(gold_relationship, "<--part_of", "part_of_tmp"),
+      gold_relationship = str_replace(gold_relationship, "part_of-->", "<--part_of"),
+      gold_relationship = str_replace(gold_relationship, "part_of_tmp", "part_of-->")
+    ) %>% 
+    select(
+      # Swap column names
+      process_id_1 = process_id_2,
+      node_id_1 = node_id_2,
+      node_label_1 = node_label_2,
+      process_id_2 = process_id_1,
+      node_id_2 = node_id_1,
+      node_label_2 = node_label_1,
+      # Select gold relationship
+      gold_relationship
+    )
+
+  gold_all <- 
+    # Merge all gold tibbles
+    bind_rows(
+      gold_82_83,
+      gold_82_84,
+      gold_83_89,
+      gold_83_82
+    ) %>% 
+    # Add boolean attributes representing the kind of relationship
+    mutate(
+      # Every pair present in the gold is an "overall" pair
+      gold_overall = TRUE,
+      # Check 'gold_relationship' to identify relationship type
+      gold_match = gold_relationship == "match",
+      gold_part_of = str_detect(gold_relationship, "part_of")
+    ) %>% 
+    rename(
+      proc_id_1 = process_id_1,
+      proc_id_2 = process_id_2
+    ) %>% 
+    mutate(
+      # Change id types to character for later join operations.
+      proc_id_1 = as.character(proc_id_1),
+      node_id_1 = as.character(node_id_1),
+      proc_id_2 = as.character(proc_id_2),
+      node_id_2 = as.character(node_id_2)
+    )
+
+  # Gold tibble with minimum columns necessary for join operations.
+  # IMPORTANT: This gold tbl will be used in join operations!
+  gold_all_redux <- 
+    gold_all %>% 
+    select(
+      proc_id_1, node_id_1, proc_id_2, node_id_2,
+      gold_overall, gold_match, gold_part_of
+    )
+}
+```
+
+# Step 2: Extract Attributes for Analysis
+
+In this step, we transform the raw data into analyzable data.
+
+Some manipulations are done directly in the "Main Analysis" section.
+
+Functions transforming base data into analyzable data.
+
+Filter which part of the full dataset is needed for the analysis
+```{r}
+# Remove inconsistent judgments
+# from a tbl (e.g., 'data_base')
+remove_inconsistent_judgments <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    filter(
+      # Each relevant node id is separated by a new line.
+      # Thus, if "NONE" appears after a newline,
+      # then one or more activities were selected 
+      # together with "NONE", making the judgment inconsistent.
+      !str_detect(relevant_node_ids, "\nNONE")
+    )
+}
+```
+
+Add dataset attribute
+```{r}
+# Add the dataset attribute to a tbl.
+#
+# @param tbl a tibble (e.g., 'data_base')
+# @param removed_inconsistent_judgments
+#        set to TRUE if the inconsistent judgment were removed from the tbl
+add_dataset_attr <- function(tbl, removed_inconsistent_judgments) {
+  # In our tasks, we always collect 3 judgments per unit
+  jdg_prefix <- "3_judgments"
+  
+  tmp <- 
+    tbl %>% 
+    mutate(
+      # Add a dataset column describing the config
+      # (e.g., "3_judgments_incjdgTRUE")
+      # incjdgTRUE => tbl may contain inconsistent judgments
+      # incjdgFALSE => tbl does not contain inconsistent judgments
+      dataset = str_c(
+        jdg_prefix,
+        if_else(removed_inconsistent_judgments, "incjdgFALSE", "incjdgTRUE"),
+        sep = "_"
+      )
+    ) %>% 
+    # Put 'dataset' attribute first
+    select(
+      dataset,
+      everything()
+    )
+}
+```
+
+Bundle the remove inconsistent judgments and add dataset attribute operations
+```{r}
+# Prepare a tbl for the analysis.
+# Specifically, choose if inconsistent judgments should be removed.
+# Additionally, this step adds a 'dataset' attribute to the data.
+#
+# @param tbl a tibble (e.g., 'data_base')
+# @param remove_inconsistent_judgments (default: FALSE)
+#        set to TRUE if the inconsistent judgment should be removed from the tbl
+prepare_data <- function(tbl, remove_inconsistent_judgments = FALSE) {
+  tmp <- tbl
+
+  if (remove_inconsistent_judgments) {
+    tmp <- remove_inconsistent_judgments(tmp)
+  }
+
+  tmp <- add_dataset_attr(tmp, remove_inconsistent_judgments)
+}
+```
+
+# Step 3: Compute Average Attributes
+
+In this step, we compute the per unit average attributes.
+
+Functions computing the mean fragment relevance and number of votes scores.
+```{r}
+# For each unit of work (i.e, query activity + group of result activities),
+# compute the mean fragment relevance (MFR) by averaging
+# the collected fragment relevance scores.
+compute_per_unit_mfr <- function(tbl) {
+  # Support tibble to compute mfr.
+  # For each unit keep only distinct judgments
+  # and average the fragment relevance scores.
+  tmp_mfr <- 
+    tbl %>% 
+    group_by(
+      dataset, unit_id
+    ) %>% 
+    distinct(
+      judgment_id,
+      .keep_all = TRUE
+    ) %>% 
+    summarise(
+      mfr_unit = mean(fragment_relevance)
+    ) %>% 
+    ungroup()
+  
+  # Add 'mfr_unit' attribute to the bigger tbl
+  tmp <- 
+    tbl %>% 
+    left_join(
+      tmp_mfr,
+      by = c("dataset", "unit_id")
+    )
+}
+```
+
+```{r}
+# For each unit of work (query activity + resulting group of activities),
+# compute how many distinct judgments were collected.
+# In our case, it should always be 3.
+compute_per_unit_jdg <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    group_by(
+      dataset, unit_id
+    ) %>% 
+    mutate(
+      jdg_unit = n_distinct(judgment_id)
+    ) %>% 
+    ungroup()
+}
+```
+
+# Step 4: Separate Data
+
+In this step, we separate the data contained in the responses.
+
+```{r}
+# For each judgment assign to each selected result activity its own row.
+# In other words, if prior to this step a row represented
+# a response where 3 activities were selected, then after
+# this step that row will be replaced by 3 new rows, one
+# for each selected activity.
+# Additionally, the 'relevant_node_ids' attribute is renamed
+# to 'relevant_node_id'.
+#
+# IMPORTANT: After this step, multiple rows may represent
+# the same activity pair if it was suggested by different workers.
+separate_relevant_node_ids <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    separate_rows(
+      relevant_node_ids,
+      sep = "\n"
+    ) %>% 
+    rename(
+      relevant_node_id = relevant_node_ids
+    )
+}
+```
+
+# Step 5: Compute Detail Attributes
+
+In this step, we compute the detail attributes.
+Specifically, for each unit we count how many workers selected a certain activity.
+
+```{r}
+# For each unit and for each activity selected as relevant,
+# compute how many workers selected that activity.
+# In other words, count in how many distinct judgments an
+# activity is selected (e.g., 1/3, 2/3, 3/3).
+compute_per_node_jdg <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    group_by(
+      dataset, unit_id, relevant_node_id
+    ) %>% 
+    mutate(
+      jdg_node = n_distinct(judgment_id)
+    ) %>% 
+    ungroup()
+}
+```
+
+Helper
+```{r}
+# Reorder attribute columns and 
+# rename 'relevant_node_id' to 'node_id_2'.
+reorder_attributes <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    # Remove unneeded columns
+    select(
+      -c(
+        node_label_1, 
+        node_ids_2, node_labels_2,
+        fragment_relevance,
+        worker_explanation
+      )
+    ) %>%
+    # Factorize 'jdg_node' 
+    mutate(
+      jdg_node = as.factor(jdg_node)
+    ) %>%
+    select(
+      dataset, 
+      unit_id, judgment_id,
+      proc_id_1, node_id_1,
+      proc_id_2, node_id_2 = relevant_node_id,
+      jdg_node, jdg_unit, mfr_unit,
+      everything()
+    )
+}
+```
+
+Bundle above operations
+```{r}
+# Bundle all the attribute computation operations
+# performed in logical steps 3, 4 and 5.
+compute_mfr_and_jdg_attrs <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    compute_per_unit_mfr() %>% 
+    compute_per_unit_jdg() %>% 
+    separate_relevant_node_ids() %>% 
+    compute_per_node_jdg() %>% 
+    reorder_attributes()
+}
+```
+
+# Step 6: Build Activity Pairs
+
+In this step, we build and validate the activity pairs.
+
+Keep only valid activity pairs.
+```{r}
+# Keep only the rows representing a valid pair of activities.
+# In other words, keep only the rows where 'node_id_2' 
+# (the id of the activity selected by a worker) is not "NONE".
+filter_valid_pairs <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    filter(
+      node_id_2 != "NONE"
+    )
+}
+```
+
+The two following operations build the judgment groups examined in our analysis.
+
+More clearly, three voting groups are created containing the activity pairs
+voted respectively by at least one worker, by at least two workers, and by 
+at least three workers (in our case all possible workers assigned to a unit).
+
+```{r}
+# From a tbl keep only the activity pairs which were voted
+# by AT LEAST 'jdg_node_threshold' workers.
+# Add to the tbl the 'jdg_node_thr' attribute, which contains 
+# the threshold value passed to the function.
+# This is necessary for the 'concat_jdg_node_thr_to_dataset()' operation.
+#
+# For example, if 'jdg_node_threshold' is 1, then all
+# the pairs of activities that were suggested by AT LEAST
+# one worker will be selected. These pairs include those voted
+# by one worker, those voted by two workers and so on.
+# If 'jdg_node_threshold' is 2 then the pairs voted by AT LEAST
+# two workers will be kept, the ones voted only by one worker
+# instead will be discarded.
+#
+# This function is used in 'build_jdg_nodes()'.
+filter_jdg_node_by_threshold <- function(jdg_node_threshold, tbl) {
+  tmp <- 
+    tbl %>% 
+    filter(
+      # Keep pairs voted by at least 'jdg_node_threshold' workers
+      jdg_node >= jdg_node_threshold
+    ) %>%
+    mutate(
+      # Add attribute with threshold value
+      jdg_node_thr = jdg_node_threshold
+    )
+}
+```
+
+```{r}
+# Build the vote groups used in the analysis.
+# The vote groups built here contain the pairs
+# that were voted by AT LEAST x workers out of 3.
+#
+# In other words, the output tbl will contain three vote groups:
+# group 1: at least 1 vote  out of 3 votes => 1/3 + 2/3 + 3/3 votes
+# group 2: at least 2 votes out of 3 votes => 2/3 + 3/3 votes
+# group 3: at least 3 votes out of 3 votes => 3/3 votes
+build_jdg_nodes <- function(tbl) {
+  # This tbl will be used as the base data 
+  # from which activity pairs will be extracted
+  # in the 'lapply()' function below
+  tmp <- 
+    tbl %>% 
+    # Change from factor to numeric for easier comparisons
+    mutate(
+      jdg_node = as.numeric(jdg_node)
+    )
+  
+  out <-
+    # For thresholds going from 1 to 'JDG_PER_UNIT':
+    seq(1, JDG_PER_UNIT) %>%
+    # from the input tibble data (tmp) keep the
+    # activity pairs voted by AT LEAST
+    # the current threshold number of workers.
+    # Put the resulting data in a list of tibbles.
+    lapply(filter_jdg_node_by_threshold, tmp) %>%
+    # Merge the list of tibbles into a single tbl
+    bind_rows() %>%
+    # Factorize 'jdg_node' and 'jdg_node_thr'
+    mutate(
+      jdg_node = as.factor(jdg_node),
+      jdg_node_thr = as.factor(jdg_node_thr)
+    )
+}
+```
+
+Save vote threshold information in dataset attribute
+```{r}
+# Add the information about how many workers voted for an activity pair
+# to the dataset string. This is done to retrieve the configuration
+# after the join with gold.
+# The resulting dataset string should look like this:
+# "3_judgments_incjdgFALSE_3_votes"
+concat_jdg_node_thr_to_dataset <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    mutate(
+      # Concat the votes threshold value 'jdg_node_thr' to the dataset
+      dataset = str_c(dataset, jdg_node_thr, sep = "_"),
+      # Concat the string "votes"
+      dataset = str_c(dataset, "votes", sep = "_")
+    )
+}
+```
+
+Add the attributes specifying the pairing characteristics
+```{r}
+# Add the 'paired' attributes.
+# These attributes signal that each row present in the data
+# (after keeping only the valid pairs) represent an activity pair.
+# These attributes are used later to assign 
+# the true/false positive attributes to activity pairs.
+add_paired_attr <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    mutate(
+      # Pairs suggested as "match"
+      paired_match = str_detect(pair_relationship, "match"),
+      # Pairs suggested as "part of" (either "part_of" or "include")
+      paired_part_of = str_detect(pair_relationship, "part_of|include"),
+      # Every identified pair is an "overall" pair
+      paired = TRUE
+    )
+}
+```
+
+Bundle the above operations
+```{r}
+# Bundle the above operations that prepare the data 
+# to be joined to the gold standard.
+extract_paired_nodes <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    filter_valid_pairs() %>% 
+    build_jdg_nodes() %>%
+    concat_jdg_node_thr_to_dataset() %>%
+    add_paired_attr()
+}
+```
+
+# Step 7: Compare with Gold Standard
+
+In this step, we compare the identified pairs, split by number of votes, 
+with the ground truth contained in the gold standard.
+
+Split the bigger data tibble with respect to the datasets it contains
+```{r}
+# Dplyr's join functions do not take into consideration
+# groupings created with 'group_by()'.
+# Thus, to correctly join the data to the gold standard, firstly we need
+# to split the original tbl into a list of tbls based on the dataset config
+# (e.g., one tbl for 1/3 votes, one for 2/3 votes, ..).
+# Each one of these tbls will then be separately joined with the gold.
+split_tbl_by_dataset <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    # The dot refers to 'tbl'
+    split(.$dataset)
+}
+```
+
+Join a tibble with the gold standard
+```{r}
+# Join one tbl with the gold standard.
+# This operation will be applied to the list of tbls
+# separated by dataset.
+join_tbl_with_gold <- function(tbl) {
+  
+  # Keep track of the dataset id to later assign it
+  # to rows representing false negatives
+  orig_dataset <- tbl$dataset[1]
+  
+  # Join current tibble with gold standard.
+  tmp <- 
+    tbl %>% 
+    # Join with gold standard on the attributes of activity pairs.
+    # Full join is required as pairs belonging to the gold standard
+    # but not found by workers (false negatives) are otherwise excluded
+    # from the final tibble.
+    full_join(
+      DATA_GOLD,
+      by = c("proc_id_1", "node_id_1", "proc_id_2", "node_id_2")
+    )
+  
+  # The join operation introduces NA (Not Available) values
+  # in some rows. Here we replace NAs with meaningful values.
+  tmp <- 
+    tmp %>% 
+    # After performing the full join, the identified activity pairs 
+    # that are false positives will introduce NAs in the "gold" attributes.
+    # We replace these NAs with 'FALSE' since the rows containing the NAs
+    # represent false positives not contained in the gold standard.
+    # (After this mutation gold_overall should be equal to gold_match OR gold_part_of
+    # (i.e., gold_overall == gold_match | gold_part_of)).
+    mutate(
+      gold_overall = if_else(is.na(gold_overall), FALSE, gold_overall),
+      gold_match = if_else(is.na(gold_match), FALSE, gold_match),
+      gold_part_of = if_else(is.na(gold_part_of), FALSE, gold_part_of)
+    ) %>% 
+    # After the full join, the activity pairs present in the gold standard
+    # but not identified by workers (i.e., the false negatives) introduce
+    # NAs in the "paired" attributes.
+    # We replace these NAs with 'FALSE' since workers did not discover these pairs.
+    mutate(
+      paired_match = if_else(is.na(paired_match), FALSE, paired_match),
+      paired_part_of = if_else(is.na(paired_part_of), FALSE, paired_part_of),
+      paired = if_else(is.na(paired), FALSE, paired)
+    ) %>% 
+    # Add the dataset id to false negatives.
+    # They lack these attribute because 
+    # they come from the gold standard tibble
+    mutate(
+      dataset = if_else(is.na(dataset), orig_dataset, dataset)
+    )
+  
+  # Add boolean attributes describing if an activity pair is
+  # a true positive (TP), false positive (FP), or false negative (FN).
+  # This operation is repeated for the overall, match, and part-of cases.
+  tmp <- 
+    tmp %>%
+    # Add the TP, FP, and FN attributes in the overall (match + part-of) case.
+    # A true positive is a pair present in the overall gold 
+    # that the workers paired successfully.
+    # A false positive is a pair not present in the overall gold
+    # that the workers wrongly reported as a pair.
+    # A false negative is a pair present in the overall gold 
+    # that the workers did not report as a pair.
+    mutate(
+      tp_overall = gold_overall & paired,
+      fp_overall = !gold_overall & paired,
+      fn_overall = gold_overall & !paired
+    ) %>% 
+    # Add the TP, FP, and FN attributes in the match case.
+    mutate(
+      # In this task, we asked workers to select activities based
+      # on their relationship type.
+      # Thus, we use the provided pairing classifications in our computations.
+      #
+      # Match TPs are pairs suggested as "match" and contained in the match gold
+      tp_match = gold_match & paired_match,
+      # Match FPs are pairs suggested as "match" but not contained in the match gold
+      fp_match = !gold_match & paired_match,
+      # Match FNs are the overall FNs where the gold relationship is match
+      fn_match = fn_overall & gold_match
+    ) %>% 
+    # Add the TP, FP, and FN attributes in the part-of case.
+    mutate(
+      # The strategy used here is the same as the one described above.
+      tp_part_of = gold_part_of & paired_part_of,
+      fp_part_of = !gold_part_of & paired_part_of,
+      fn_part_of = fn_overall & gold_part_of
+    )
+}
+```
+
+Helper function
+```{r}
+# Change id types to factors
+# for easier manipulation in RStudio
+factorize_ids <- function(tbl) {
+  tmp <- tbl
+  tcolnames <- colnames(tmp)
+  
+  if ("dataset" %in% tcolnames) {
+    tmp <- 
+      tmp %>% 
+      mutate(
+        dataset = as.factor(dataset)
+      )
+  }
+
+  if ("unit_id" %in% tcolnames) {
+    tmp <- 
+      tmp %>% 
+      mutate(
+        unit_id = as.factor(unit_id)
+      )
+  }
+
+  if ("judgment_id" %in% tcolnames) {
+    tmp <- 
+      tmp %>% 
+      mutate(
+        judgment_id = as.factor(judgment_id)
+      )
+  }
+
+  if ("proc_id_1" %in% tcolnames) {
+    tmp <- 
+      tmp %>% 
+      mutate(
+        proc_id_1 = as.factor(proc_id_1)
+      )
+  }
+
+  if ("node_id_1" %in% tcolnames) {
+    tmp <- 
+      tmp %>% 
+      mutate(
+        node_id_1 = as.factor(node_id_1)
+      )
+  }
+
+  if ("proc_id_2" %in% tcolnames) {
+    tmp <- 
+      tmp %>% 
+      mutate(
+        proc_id_2 = as.factor(proc_id_2)
+      )
+  }
+
+  if ("node_id_2" %in% tcolnames) {
+    tmp <- 
+      tmp %>% 
+      mutate(
+        node_id_2 = as.factor(node_id_2)
+      )
+  }
+}
+```
+
+Bundle the gold joining operations
+```{r}
+# Bundle the above operations that join the data
+# with the gold standard.
+# After this operation, data can be studied and filtered.
+#
+# IMPORTANT: Data may contain duplicated rows 
+# (i.e., duplicated activity pairs) 
+# since some result fragments overlap.
+join_with_gold <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    # Get list of tbls separated by number of votes
+    split_tbl_by_dataset() %>%
+    # For each tbl in the list join it with gold
+    lapply(join_tbl_with_gold) %>%
+    # Collapse list into a single tbl again
+    bind_rows() %>%
+    # Change id types into factors for easier examination
+    factorize_ids()
+}
+```
+
+# Step 8: Compute Task Performance Metrics
+
+In this step, we use the TP, FP, and FN attributes computed in the previous step
+to evaluate the precision, recall, and F-measure performance metrics.
+
+We compute these metrics for each process pair and then we average those results.
+
+Functions computing the metrics
+```{r}
+# Compute precision, recall and F-measure.
+# The logic handling the total == 0 edge cases is the same
+# as the one adopted in the BOT and OPBOT programs,
+# implemented in the class 'EvaluationMetrics.java'.
+# In other words if:
+#   tp + fp == 0 then precision is 1
+#   tp + fn == 0 then recall is 1
+#   precision + recall == 0 then F-measure is 0.
+
+compute_precision <- function(tp, fp) {
+  total <- tp + fp
+  if_else(
+    total == 0,
+    1,
+    tp / total
+  )
+}
+
+compute_recall <- function(tp, fn) {
+  total <- tp + fn
+  if_else(
+    total == 0,
+    1,
+    tp / total
+  )
+}
+
+compute_fmeasure <- function(p, r) {
+  total <- p + r
+  if_else(
+    total == 0,
+    0,
+    2 * (p * r) / total
+  )
+}
+```
+
+Compute metrics for each process pair
+```{r}
+# Compute the precision, recall, and F-measure values
+# for each pair of processes (e.g., Cologne-Frankfurt).
+compute_prf_per_process_pair <- function(tbl) {
+  # Find the P, R, F values for each pair of processes in the overall case
+  tmp_overall <- 
+    tbl %>%
+    # Group by process pair in a dataset
+    group_by(
+      dataset, proc_id_1, proc_id_2
+    ) %>% 
+    # Deduplicate the activity pairs to prevent
+    # introducing multiple TPs/FPs for a single pair.
+    # Since each row represents an activity pair and
+    # since different workers can suggest the same pair,
+    # the data may contain duplicated activity pairs.
+    distinct(
+      node_id_1, node_id_2,
+      .keep_all = TRUE
+    ) %>% 
+    summarise(
+      # Compute total number of TPs, FPs, and FNs in the overall case
+      tp_overall = sum(tp_overall),
+      fp_overall = sum(fp_overall),
+      fn_overall = sum(fn_overall),
+      # Compute the P, R, F values  in the overall case
+      p_overall = compute_precision(tp_overall, fp_overall),
+      r_overall = compute_recall(tp_overall, fn_overall),
+      f_overall = compute_fmeasure(p_overall, r_overall)
+    ) %>%
+    ungroup()
+  
+  # Find the P, R, F values for each pair of processes in the match case
+  tmp_match <- 
+    tbl %>%
+    # Consider only activity pairs classified as "match"
+    filter(
+      tp_match | fp_match | fn_match
+    ) %>% 
+    # Group by process pair in a dataset
+    group_by(
+      dataset, proc_id_1, proc_id_2
+    ) %>% 
+    # Deduplicate activity pairs
+    distinct(
+      node_id_1, node_id_2,
+      .keep_all = TRUE
+    ) %>% 
+    summarise(
+      # Compute total number of TPs, FPs, and FNs in the match case
+      tp_match = sum(tp_match),
+      fp_match = sum(fp_match),
+      fn_match = sum(fn_match),
+      # Compute the P, R, F values  in the match case
+      p_match = compute_precision(tp_match, fp_match),
+      r_match = compute_recall(tp_match, fn_match),
+      f_match = compute_fmeasure(p_match, r_match)
+    ) %>%
+    ungroup()
+  
+  # Find the P, R, F values for each pair of processes in the part-of case
+  tmp_part_of <- 
+    tbl %>%
+    # Consider only activity pairs classified as "part of"
+    filter(
+      tp_part_of | fp_part_of | fn_part_of
+    ) %>% 
+    # Group by process pair in a dataset
+    group_by(
+      dataset, proc_id_1, proc_id_2
+    ) %>% 
+    # Deduplicate activity pairs
+    distinct(
+      node_id_1, node_id_2,
+      .keep_all = TRUE
+    ) %>% 
+    summarise(
+      # Compute total number of TPs, FPs, and FNs in the part-of case
+      tp_part_of = sum(tp_part_of),
+      fp_part_of = sum(fp_part_of),
+      fn_part_of = sum(fn_part_of),
+      # Compute the P, R, F values  in the part-of case
+      p_part_of = compute_precision(tp_part_of, fp_part_of),
+      r_part_of = compute_recall(tp_part_of, fn_part_of),
+      f_part_of = compute_fmeasure(p_part_of, r_part_of)
+    ) %>%
+    ungroup()
+  
+  # Merge results
+  tmp <- 
+    tmp_overall %>% 
+    left_join(
+      tmp_match,
+      by = c("dataset", "proc_id_1", "proc_id_2")
+    ) %>% 
+    left_join(
+      tmp_part_of,
+      by = c("dataset", "proc_id_1", "proc_id_2")
+    )
+}
+```
+
+Compute average metrics
+```{r}
+# Compute the average P, R, F values
+compute_prf_avg <- function(tbl) {
+  # For each dataset
+  # average the per process pair metrics
+  tmp <- 
+    tbl %>% 
+    group_by(
+      dataset
+    ) %>% 
+    summarise(
+      # TPs, FPs, FNs
+      # Overall
+      tp_overall = mean(tp_overall),
+      fp_overall = mean(fp_overall),
+      fn_overall = mean(fn_overall),
+      # Match
+      tp_match = mean(tp_match),
+      fp_match = mean(fp_match),
+      fn_match = mean(fn_match),
+      # PartOf
+      tp_part_of = mean(tp_part_of),
+      fp_part_of = mean(fp_part_of),
+      fn_part_of = mean(fn_part_of),
+      # Precision, Recall, F-measure
+      # Overall
+      p_overall = mean(p_overall),
+      r_overall = mean(r_overall),
+      f_overall = mean(f_overall),
+      # Match
+      p_match = mean(p_match),
+      r_match = mean(r_match),
+      f_match = mean(f_match),
+      # PartOf
+      p_part_of = mean(p_part_of),
+      r_part_of = mean(r_part_of),
+      f_part_of = mean(f_part_of)
+    ) %>% 
+    ungroup()
+}
+```
+
+# Main Analysis
+
+The analysis is executed here using the functions defined in the previous step sections.
+
+Step 1: Read Data
+```{r message=FALSE}
+# All the variables defined in this and in the next cells are global to the notebook.
+# However, we only use uppercase lettering for 'DATA_GOLD' since it's
+# directly used (not passed) in the 'join_tbl_with_gold()' function.
+
+# Get gold data.
+# This tibble will be used in comparison operations.
+DATA_GOLD <- get_gold_standard()
+
+# Get tibble representing the raw task output data
+data_raw <- get_task_output()
+```
+
+Step 2: Extract Attributes for Analysis
+```{r}
+# This step requires some operations that change from task to task.
+
+# From the raw task data select only the necessary attributes
+data_base <- 
+  data_raw %>%
+  select(
+    # CF attributes
+    unit_id = `_unit_id`,
+    judgment_id = `_id`,
+    worker_id = `_worker_id`,
+    # Processes' attributes
+    # First process ("query" process)
+    proc_id_1 = query_process_id,
+    node_id_1 = query_node_id,
+    node_label_1 = query_node_label,
+    # Second process ("result" process)
+    proc_id_2 = result_process_id,
+    # More than one activity was shown in the result process,
+    # thus these two attributes may contain multiple ids or labels
+    node_ids_2 = result_group_id,
+    node_labels_2 = result_group_labels,
+    # Design questions, change names accordingly
+    fragment_relevance = 
+     how_relevant_do_you_think_process_fragment_b_is_with_respect_to_activity_a,
+    match_node_ids = 
+      select_all_the_activities_from_process_fragment_b_which_you_think_are_similar_to_activity_a,
+    part_of_node_ids = 
+      select_all_the_activities_from_process_fragment_b_which_you_think_are_part_of_activity_a,
+    include_node_ids = 
+      select_all_the_activities_from_process_fragment_b_which_you_think_include_activity_a,
+    worker_explanation = 
+     please_explain_the_reasoning_behind_your_choices_optional
+  )
+
+# Transform the selected attributes
+# and compute the ones needed for the analysis 
+
+# Since in this task responses are spread
+# over three attributes (representing relationship kinds),
+# we need to gather them a single attribute.
+data_base <- 
+  data_base %>%
+  gather(
+    match_node_ids, part_of_node_ids, include_node_ids,
+    key = "pair_relationship",
+    value = "relevant_node_ids"
+  ) %>% 
+  mutate(
+    pair_relationship = str_replace(pair_relationship, "_node_ids", "")
+  )
+
+data_base <- 
+  data_base %>%
+  mutate(
+    # Factorize ids for easier manipulation in RStudio
+    unit_id = as.factor(unit_id),
+    judgment_id = as.factor(judgment_id),
+    worker_id = as.factor(worker_id)
+  ) %>%
+  mutate(
+    # Change id types to character to join with gold later.
+    proc_id_1 = as.character(proc_id_1),
+    node_id_1 = as.character(node_id_1),
+    proc_id_2 = as.character(proc_id_2)
+  ) %>% 
+  mutate(
+    # Did the worker leave an explanation for his choices?
+    has_worker_explanation = !is.na(worker_explanation)
+  ) %>%
+  mutate(
+    # How many activities did a worker select as an answer in a unit?
+    # The selected activity (node) ids are contained in a string separated by newlines.
+    # Thus, the number of selected activities is 1 (first activity)
+    # plus the number of newlines present in the string.
+    nodes_selected = str_count(relevant_node_ids, "\n") + 1
+  )
+
+# Get all judgments obtained from the task
+data_3jdg_all <- 
+  data_base %>% 
+  prepare_data()
+
+# Get all judgments obtained from the task
+# except the ones that are inconsistent
+# (i.e. any judgment containing one or more
+# selected activities along with the
+# "none of the activities" option).
+data_3jdg_no_inconsistent <- 
+  data_base %>% 
+  prepare_data(
+    remove_inconsistent_judgments = TRUE
+  )
+
+# Merge the two datasets.
+# This tibble will be used in the next steps.
+data_all <- 
+  bind_rows(
+    data_3jdg_all,
+    data_3jdg_no_inconsistent
+  )
+```
+
+Steps 3-5: Compute Average and Detail Attributes
+```{r}
+# Compute the mean fragment relevance (MFR)
+# and number of votes (judgments/jdg) values.
+data_all_measurements <- 
+  data_all %>% 
+  compute_mfr_and_jdg_attrs()
+```
+
+Step 6: Build Activity Pairs
+```{r}
+# Get all valid activity pairs
+# identified by the workers.
+data_all_pairs <- 
+  data_all_measurements %>% 
+  extract_paired_nodes()
+```
+
+Step 7: Compare with Gold Standard
+```{r}
+# Join the valid pairs with the gold standard.
+# This tbl does not contain distinct pairs,
+# instead it has as many rows for an activity pair
+# as the number of workers who suggested it.
+# This data can be analyzed to find relationships
+# between various measurements and the number of
+# true/false positives.
+data_all_gold <- 
+  data_all_pairs %>% 
+  join_with_gold()
+```
+
+Step 8: Compute task performance metrics
+```{r}
+# For each dataset and for each pair of processes
+# compute the P, R, F values.
+data_all_per_pair_results <-
+  data_all_gold %>% 
+  compute_prf_per_process_pair()
+
+# For each dataset average the previously
+# computed P, R, F values.
+data_all_avg_results <- 
+  data_all_per_pair_results %>% 
+  compute_prf_avg()
+```
+
+# Output
+
+Per pair metrics
+```{r}
+output_per_pair <-
+  data_all_per_pair_results %>% 
+  select(
+    dataset,
+    proc_id_1, proc_id_2,
+    p_overall, r_overall, f_overall,
+    p_match, r_match, f_match,
+    p_part_of, r_part_of, f_part_of
+  )
+
+output_per_pair
+```
+
+Average metrics
+```{r}
+output_avg <-
+  data_all_avg_results %>% 
+  select(
+    dataset,
+    p_overall, r_overall, f_overall,
+    p_match, r_match, f_match,
+    p_part_of, r_part_of, f_part_of
+  )
+
+output_avg
+```
+
+# Extra
+
+## Write performance metrics output
+
+Do not run the cells below if the output files should not be overwritten.
+
+Write output csv files containing performance metrics
+```{r}
+# Write per pair results csv file
+output_per_pair %>%
+  # Add task id
+  mutate(
+    task_id = TASK_ID
+  ) %>%
+  # Make task id first attribute
+  select(
+    task_id,
+    everything()
+  ) %>%
+  write_csv(
+    # Concat task id to suffix to get output file name
+    str_c(TASK_ID, "__per_pair_results.csv")
+  )
+
+# Write avg results csv file
+output_avg %>% 
+  mutate(
+    task_id = TASK_ID
+  ) %>%
+  select(
+    task_id,
+    everything()
+  ) %>%
+  write_csv(str_c(TASK_ID, "__avg_results.csv"))
+```
+
+## Count TPs
+
+Count TPs, both all and distinct
+```{r}
+# Count how many TPs for cost analysis
+
+tmp_all_tp <- 
+  data_all_gold %>% 
+  filter(
+    # Keep all voted pairs (voted by at least 1 worker)
+    # in the default case (i.e., no inconsistent judgments removed)
+    str_detect(dataset, "incjdgTRUE_1_votes"),
+    # which are true positives
+    tp_overall
+  )
+
+tmp_distinct_tp <- 
+  tmp_all_tp %>% 
+  # For each process pair keep only
+  # one TP activity pair
+  distinct(
+    proc_id_1, proc_id_2,
+    node_id_1, node_id_2
+  )
+
+tp_overall_count <- nrow(tmp_all_tp)
+tp_overall_unique_count <- nrow(tmp_distinct_tp)
+```
+
+```{r}
+tp_overall_count
+```
+
+```{r}
+tp_overall_unique_count
+```
+
+## MFR Analysis
+
+In this analysis, we compute how performance metrics change when we increase 
+the mean fragment relevance (MFR) score required for suggested pairs to be considered valid.
+
+More clearly, initially we consider all activity pairs suggested by workers
+and the average fragment relevance of the unit they belong to.
+Then we fix a threshold and keep only the pairs belonging to units with MFR >= threshold.
+For these pairs, we compute the performance metrics.
+We repeat this process for multiple threshold values.
+
+```{r}
+# From a tbl keep only the activity pairs which have
+# AT LEAST 'mfr_unit_threshold' MFR score.
+# Add 'mfr_unit_thr' attribute with threshold grouping value.
+filter_mfr_unit_by_threshold <- function(mfr_unit_threshold, tbl) {
+  tmp <- 
+    tbl %>% 
+    filter(
+      mfr_unit >= mfr_unit_threshold
+    ) %>%
+    mutate(
+      mfr_unit_thr = mfr_unit_threshold
+    )
+}
+```
+
+```{r}
+# Add the information about which MFR score a pair has
+# to the dataset string. 
+# This is done to retrieve the configuration
+# after the join with gold.
+# The resulting dataset string should look like this:
+# "3_judgments_incjdgTRUE_1_votes_015_mfr"
+#
+# Attention: 'mfr_total_thr' score is multiplied by 100
+# and padded with zeros for easier manipulation
+# (e.g. 0.15 becomes "015" and should be converted back
+# to 0.15 in later operations)
+concat_mfr_unit_thr_to_dataset <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    mutate(
+      # Concat padded 'mfr_unit_thr * 100' to 'dataset'
+      dataset = str_c(
+        dataset, 
+        str_pad(mfr_unit_thr * 100, 3, "left", pad = "0"),
+        sep = "_"
+      ),
+      # Concat the string "mfr"
+      dataset = str_c(dataset, "mfr", sep = "_")
+    )
+}
+```
+
+Main MFR Analysis
+```{r}
+# Step 1: Get all the valid activity pairs suggested by workers.
+# In other words, get all the activity pairs suggested by
+# at least one worker (i.e., those with jdg_node_thr == "1")
+data_mfr_pairs <- 
+  data_all_pairs %>% 
+  filter(
+    jdg_node_thr == "1"
+  )
+
+# Step 2: Normalize MFR score
+data_mfr_pairs_norm <-
+  data_mfr_pairs %>%
+  mutate(
+    mfr_unit = (mfr_unit - 1) / 4
+  )
+
+# Step 3: For each MFR threshold, keep the activity pairs
+# belonging to a unit with a MFR score higher than
+# or equal to the current threshold.
+
+# From min to max by step
+# (e.g., 0; 0.01; 0.02; ..)
+mfr_min <- 0
+mfr_max <- 1
+mfr_step <- 0.01
+
+# Group activity pairs by MFR thresholds
+# (e.g. those with MFR >= 0.01; >= 0.50; ..)
+data_mfr_step_pairs <- 
+  # For thresholds from from min to max by step:
+  seq(mfr_min, mfr_max, mfr_step) %>% 
+  # from the tbl containing all suggested pairs (i.e., 'data_mfr_pairs_norm')
+  # extract only the pairs belonging to a unit 
+  # that has a MFR score >= to the current threshold;
+  # put the resulting tbl in a list
+  lapply(filter_mfr_unit_by_threshold, data_mfr_pairs_norm) %>% 
+  # Collapse the list of tbls into a single tbl
+  bind_rows() %>% 
+  # Update the dataset config with the MFR threshold
+  concat_mfr_unit_thr_to_dataset()
+
+# Step 4: Join with gold
+data_mfr_gold <-
+  data_mfr_step_pairs %>%
+  join_with_gold()
+
+# Step 5: Compute per pair PRF values
+data_mfr_per_pair_results <- 
+  data_mfr_gold %>% 
+  compute_prf_per_process_pair()
+
+# Step 6: Compute average PRF values
+data_mfr_avg_results <- 
+  data_mfr_per_pair_results %>% 
+  compute_prf_avg()
+```
+
+Write output
+```{r}
+data_mfr_avg_results %>% 
+  mutate(
+    task_id = TASK_ID
+  ) %>%
+  select(
+    task_id,
+    dataset,
+    p_overall, r_overall, f_overall,
+    p_match, r_match, f_match,
+    p_part_of, r_part_of, f_part_of
+  ) %>%
+  write_csv(str_c(TASK_ID, "__mfr_avg_results.csv"))
+```

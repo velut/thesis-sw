@@ -1,0 +1,17 @@
+process_id_1;node_id_1;node_label_1;process_id_2;node_id_2;node_label_2;gold_relationship
+82;2667;Apply Online;83;2691;apply online;<--part_of
+82;2668;Send Online Protocol;83;2691;apply online;<--part_of
+82;2669;Send Documents by Post;83;2690;send documents by post;match
+82;2670;Documents received;83;2706;documents received;match
+82;2671;Check Documents;83;2707;check documents;match
+82;2672;Evaluate;83;2708;evaluate;<--part_of
+82;2672;Evaluate;83;2688;sufficient cp in mathematics;<--part_of
+82;2672;Evaluate;83;2704;less than 16 cp in mathematics;<--part_of
+82;2673;Invite to an aptitude test;83;2705;take oral exam;part_of-->
+82;2675;Take Aptitude test;83;2705;take oral exam;part_of-->
+82;2679;Pay for Aptitude test;83;2705;take oral exam;part_of-->
+82;2676;Rank Students according to GPA and the test results;83;2708;evaluate;match
+82;2683;Acceptance;83;2694;send letter of acceptance;<--part_of
+82;2683;Acceptance;83;2696;accepted;<--part_of
+82;2684;Send letter of rejection;83;2697;rejected;<--part_of
+82;2684;Send letter of rejection;83;2709;send letter of rejection;<--part_of

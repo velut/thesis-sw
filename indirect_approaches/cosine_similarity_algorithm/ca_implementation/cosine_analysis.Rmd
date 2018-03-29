@@ -1,0 +1,1231 @@
+---
+title: "Cosine Similarity Analysis"
+author: "Edoardo Scibona"
+date: "March 2, 2018"
+output: 
+  html_document: 
+    toc: yes
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Configuration
+
+Required libraries
+```{r message=FALSE}
+library(tidyverse)
+library(stringr)
+library(SnowballC)
+library(tidytext)
+library(widyr)
+```
+
+Input folder and files
+```{r}
+# Input folder's path.
+# A folder named 'input' should be present in this notebook's root folder
+INPUT_PATH <- file.path(getwd(), "input")
+
+# Task output containing the keywords as written by workers (i.e., "raw keywords")
+RAW_KW_FILE_PATH <- file.path(INPUT_PATH, "IT_01__raw__f1028243.csv")
+
+# Task output containing the keywords written by workers
+# but manually corrected by us (i.e., "clean keywords").
+# For example, we fixed obvious spelling errors (e.g., "revoque" => "revoke")
+CLEAN_KW_FILE_PATH <- file.path(INPUT_PATH, "IT_01__clean__f1028243.csv")
+
+# Path of the gold standard folder.
+# A folder named 'gold_standard' should be present inside the 'input' folder.
+GOLD_PATH <- file.path(INPUT_PATH, "gold_standard")
+
+# List of gold files used in this notebook.
+# These files should be present in the 'gold_standard' folder.
+GOLD_FILES <- c(
+  "82-83__cologne-frankfurt.csv",
+  "82-84__cologne-berlin.csv",
+  "83-89__frankfurt-munich.csv"
+)
+```
+
+Gold standard
+```{r message=FALSE}
+# Get the tibble representing the gold standard
+# to be used in the comparison operations
+get_gold_standard <- function() {
+  # Get file paths for gold files
+  gold_file_paths <- file.path(GOLD_PATH, GOLD_FILES)
+
+  # Read gold files (csv files separated by semicolon)
+  gold_82_83 <- 
+    read_delim(gold_file_paths[1], ";", escape_double = FALSE, trim_ws = TRUE)
+
+  gold_82_84 <- 
+    read_delim(gold_file_paths[2], ";", escape_double = FALSE, trim_ws = TRUE)
+
+  gold_83_89 <- 
+    read_delim(gold_file_paths[3], ";", escape_double = FALSE, trim_ws = TRUE)
+
+  gold_all <- 
+    # Merge all gold tibbles
+    bind_rows(
+      gold_82_83,
+      gold_82_84,
+      gold_83_89
+    ) %>% 
+    # Add boolean attributes representing the kind of relationship
+    mutate(
+      # Every pair present in the gold is an "overall" pair
+      gold_overall = TRUE,
+      # Check 'gold_relationship' to identify relationship type
+      gold_match = gold_relationship == "match",
+      gold_part_of = str_detect(gold_relationship, "part_of")
+    ) %>% 
+    rename(
+      proc_id_1 = process_id_1,
+      proc_id_2 = process_id_2
+    ) %>% 
+    mutate(
+      # Change id types to character for later join operations.
+      proc_id_1 = as.character(proc_id_1),
+      node_id_1 = as.character(node_id_1),
+      proc_id_2 = as.character(proc_id_2),
+      node_id_2 = as.character(node_id_2)
+    )
+
+  # Gold tibble with minimum columns necessary for join operations.
+  # IMPORTANT: This gold tbl will be used in join operations!
+  gold_all_redux <- 
+    gold_all %>% 
+    select(
+      proc_id_1, node_id_1, proc_id_2, node_id_2,
+      gold_overall, gold_match, gold_part_of
+    )
+}
+```
+
+# Step 1: Read and Prepare Input Data
+
+In this step, we read data from the input folder.
+Specifically, we read the indirect task output containing the lists of keywords.
+
+Additionally, we prepare the raw data (both raw and clean keywords) for usage.
+
+```{r}
+# Prepare keyword tibbles for usage.
+# By default spam keywords are kept in the output tibble.
+prepare_kw <- function(tbl, remove_spam_keywords = FALSE) {
+  tmp <- 
+    tbl %>%
+    # Keep only useful attributes
+    select(
+      unit_id = `_unit_id`,
+      judgment_id = `_id`,
+      worker_id = `_worker_id`,
+      proc_id = process_id, 
+      node_id, node_label,
+      keywords = which_keywords_would_you_use_to_describe_the_highlighted_activity
+    ) %>% 
+    # Sort by process id and activity id
+    arrange(proc_id, node_id)
+
+  # Remove spam keywords if required
+  if (remove_spam_keywords) {
+    # Worker '40662071' entered 24 obvious spam judgments,
+    # which we remove, and 1 valid judgment on node '2886',
+    # which we keep.
+    tmp_no_spam <-
+      tmp %>% 
+      filter(worker_id != "40662071" | node_id == "2886")
+    
+    tmp <- tmp_no_spam
+  }
+
+  # Remove 'worker_id' attribute (no longer necessary)
+  tmp <- 
+    tmp %>% 
+    select(
+      -worker_id
+    ) %>% 
+    mutate_if(
+      is.numeric,
+      as.character
+    )
+}
+```
+
+Get raw keywords (all or with spam removed)
+```{r message=FALSE}
+# Read file containing task output with raw keywords
+read_raw_kw_file <- function() {
+  read_csv(RAW_KW_FILE_PATH)
+}
+
+# Get a tibble containing all raw keywords
+get_raw_kw_all <- function() {
+  read_raw_kw_file() %>%
+    prepare_kw()
+}
+
+# Get a tibble containing all raw keywords except spam ones
+get_raw_kw_nospam <- function() {
+  read_raw_kw_file() %>%
+    prepare_kw(remove_spam_keywords = TRUE)
+}
+
+# Cache keywords to improve speed
+CACHE_RAW_KW_ALL <- get_raw_kw_all()
+CACHE_RAW_KW_NOSPAM <- get_raw_kw_nospam()
+
+# Get a tibble containing all raw keywords (cached)
+get_raw_kw_all_cached <- function() {
+  CACHE_RAW_KW_ALL
+}
+
+# Get a tibble containing all raw keywords except spam ones (cached)
+get_raw_kw_nospam_cached <- function() {
+  CACHE_RAW_KW_NOSPAM
+}
+```
+
+Get clean keywords (all or with spam removed)
+```{r message=FALSE}
+# Read file containing task output with clean keywords
+read_clean_kw_file <- function() {
+  read_delim(CLEAN_KW_FILE_PATH, ";", escape_double = FALSE, trim_ws = TRUE)
+}
+
+# Get a tibble containing all clean keywords
+get_clean_kw_all <- function() {
+  read_clean_kw_file() %>%
+    prepare_kw()
+}
+
+# Get a tibble containing all clean keywords except spam ones
+get_clean_kw_nospam <- function() {
+  read_clean_kw_file() %>%
+    prepare_kw(remove_spam_keywords = TRUE)
+}
+
+# Cache keywords to improve speed
+CACHE_CLEAN_KW_ALL <- get_clean_kw_all()
+CACHE_CLEAN_KW_NOSPAM <- get_clean_kw_nospam()
+
+# Get a tibble containing all raw keywords (cached)
+get_clean_kw_all_cached <- function() {
+  CACHE_CLEAN_KW_ALL
+}
+
+# Get a tibble containing all raw keywords except spam ones (cached)
+get_clean_kw_nospam_cached <- function() {
+  CACHE_CLEAN_KW_NOSPAM
+}
+```
+
+Get a tibble with the required kind of keywords
+```{r}
+# Return a tibble with the requested kind of keywords.
+#
+# @param use_clean_keywords TRUE if clean keywords should be used, FALSE if not
+# @param remove_spam_keywords TRUE if spam judgments should be removed, FALSE if not
+get_kw_data <- function(use_clean_keywords, remove_spam_keywords) {
+  tmp <- NULL
+  
+  if (use_clean_keywords) {
+    if (remove_spam_keywords) {
+      tmp <- get_clean_kw_nospam_cached()
+    } else {
+      tmp <- get_clean_kw_all_cached()
+    }
+  } else {
+    if (remove_spam_keywords) {
+      tmp <- get_raw_kw_nospam_cached()
+    } else {
+      tmp <- get_raw_kw_all_cached()
+    }
+  }
+  
+  # Return tibble
+  tmp
+}
+```
+
+Get main attributes for all activities
+```{r message=FALSE}
+# Get a tibble with the 3 main attributes
+# associated to each activity
+get_all_activities <- function() {
+  get_raw_kw_all() %>%
+    distinct(
+      proc_id, node_id, node_label
+    )
+}
+
+CACHE_ALL_ACTIVITIES <- get_all_activities()
+get_all_activities_cached <- function() {
+  CACHE_ALL_ACTIVITIES
+}
+```
+
+# Step 2: Build Keyword Lists
+
+In this step, we build the keyword lists that will be used as the input data for automated approaches.
+
+To build the keyword lists, we use two methods: union and intersection.
+
+## Union Method
+
+The union method consists in building larger and larger lists of keywords for each activity.
+Specifically, for each activity we begin by considering the keywords suggested only by the first worker (out of 3 in our case), then we consider the keywords suggested by the first and second workers, finally we consider the keywords suggested by all three workers.
+
+Thus, a bigger keyword list contains all the keywords found in the smaller lists.
+
+```{r}
+# Group keywords with the "union" method.
+# In other words, for each activity first consider the keywords
+# submitted only by one worker, then by two workers and so on.
+# Each new keyword group contains the keywords of the previous group
+# and adds a new list of keywords.
+# @param kw_group_thr number indicating how many judgments should be considered
+# (e.g., if 'kw_group_thr' is 2 then keywords submitted
+# by the first two workers (out of three) will be returned).
+# If 'kw_group_thr' is 0 then no keywords are returned.
+get_kw_by_union <- function(use_clean_keywords, remove_spam_keywords, 
+                            stem_keywords, kw_group_thr) {
+  # Get the tbl containing the required keywords
+  tmp <- get_kw_data(use_clean_keywords, remove_spam_keywords)
+  
+  # If the keyword group threshold is 0, then 
+  # no keyword lists should be returned as the
+  # final activity label will contain only the
+  # words present in the original label.
+  if (kw_group_thr == 0) {
+    return(
+      tmp %>% 
+        distinct(
+          proc_id, node_id
+        ) %>% 
+        mutate(
+          kw_list = ""
+        )
+    )
+  }
+
+  # Separate keywords into one per row.
+  # This is necessary for stemming
+  tmp <- 
+    tmp %>%  
+    # Split the comma-separated lists of keywords
+    # such that each row contains single keyword
+    separate_rows(
+      keywords,
+      sep = ","
+    ) %>% 
+    rename(
+      kw = keywords
+    )
+  
+  # Stem keywords if needed
+  if (stem_keywords) {
+    tmp <- 
+      tmp %>% 
+      mutate(
+        kw = wordStem(kw)
+      )
+  }
+  
+  # For each judgment, regroup the keywords
+  # into a single space-separated string
+  tmp <- 
+    tmp %>% 
+    group_by(
+      unit_id, judgment_id,
+      proc_id, node_id
+    ) %>% 
+    summarise(
+      kw_list = str_c(kw, collapse = " ")
+    ) %>% 
+    ungroup()
+
+  # Keep only the keyword in the required keyword group
+  tmp <-
+    tmp %>% 
+    # For each unit:
+    group_by(
+      unit_id
+    ) %>% 
+    # keep the lists of keywords from the first 'kw_group_thr' judgments
+    # (e.g., if 'kw_group_thr' == 2, then the keywords submitted by the first
+    # and second workers that completed the unit are kept,
+    # those submitted by the third worker are discarded).
+    # This is the strategy at the core of the union method.
+    filter(
+      row_number() <= kw_group_thr
+    ) %>%
+    ungroup() %>%
+    # Remove unneeded columns
+    select(
+      -c(unit_id, judgment_id)
+    )
+}
+```
+
+## Intersection Method
+
+The intersection method consists in building smaller and smaller lists of keywords for each activity.
+Specifically, for each activity we begin by considering the keywords suggested by at least one worker (i.e., all collected keywords), then we consider those suggested by at least two workers, finally we consider only the ones suggested by all three workers.
+
+```{r}
+# Group keywords with the "intersection" method.
+# In other words, for each activity first consider the keywords
+# suggested by at least one worker, then the keywords suggested
+# by at least two workers and so on.
+# Each new keyword group may lose some of the keywords of the previous group.
+# Some activities may not have all the keyword groups.
+# @param kw_group_thr number indicating how many overlapping judgments should be considered
+# (e.g., if 'kw_group_thr' is 2, then the keywords submitted
+# by at least two workers (out of three) will be returned).
+get_kw_by_intersection <- function(use_clean_keywords, remove_spam_keywords,
+                                   stem_keywords, kw_group_thr) {
+  # Get the tbl containing the required keywords
+  tmp <- get_kw_data(use_clean_keywords, remove_spam_keywords)
+
+  # Separate keywords into one per row.
+  # This is necessary for stemming and for
+  # counting how many different workers
+  # suggested a keyword.
+  tmp <- 
+    tmp %>%  
+    # Split the comma-separated lists of keywords
+    # such that each row contains single keyword
+    separate_rows(
+      keywords,
+      sep = ","
+    ) %>% 
+    rename(
+      kw = keywords
+    )
+  
+  # Stem keywords if needed
+  if (stem_keywords) {
+    tmp <- 
+      tmp %>% 
+      mutate(
+        kw = wordStem(kw)
+      )
+  }
+  
+  # For each keyword suggested in a unit
+  # (i.e., for each keyword suggested for an activity)
+  # count how many different workers suggested it.
+  tmp <- 
+    tmp %>% 
+    group_by(
+      unit_id, kw
+    ) %>% 
+    mutate(
+      num_votes = n_distinct(judgment_id)
+    ) %>% 
+    ungroup()
+
+  # Keep keywords in the required vote group 
+  # (e.g., at least 1 vote out of 3, 2/3, 3/3)
+  tmp <- 
+    tmp %>% 
+    # Keep keywords with at least 'kw_group_thr' votes.
+    # This is the strategy at the core of the "intersection" method.
+    filter(
+      num_votes >= kw_group_thr
+    ) %>%
+    # Remove unneeded columns
+    select(
+      -c(unit_id, judgment_id, num_votes)
+    )
+  
+  # Collapse the keywords for each activity
+  # (i.e., from one row per keyword
+  # change to one row per string of keywords).
+  tmp <-
+    tmp %>%
+    group_by(
+      proc_id, node_id
+    ) %>%
+    # For each activity keep only distinct keywords,
+    # otherwise the final keyword list would look like
+    # "letter letter letter send .." if for example
+    # all three workers suggested "letter" as a keyword
+    distinct(
+      kw
+    ) %>%
+    summarise(
+      kw_list = str_c(kw, collapse = " ")
+    ) %>% 
+    ungroup()
+  
+  # Not all activities may have keywords selected
+  # by at least 'kw_group_thr' workers.
+  # Since we still want a tbl with the full list of activities, 
+  # we join the tibble containing all the existing activities
+  # with our 'tmp' tibble, which may be missing some activities.
+  # Then we replace NA values in the keyword list attribute
+  # (caused by missing activities in 'tmp') with empty strings.
+  tmp <- 
+    get_all_activities_cached() %>% 
+    left_join(
+      tmp,
+      by = c("proc_id", "node_id")
+    ) %>% 
+    # Replace NA with empty string for activities without a keyword list
+    mutate(
+      kw_list = str_replace_na(kw_list, replacement = "")
+    ) %>% 
+    # Remove unneeded attribute
+    select(
+      -node_label
+    )
+}
+```
+
+# Step 3: Prepare Word Lists for Cosine Analysis
+
+```{r}
+# For each document (activity), get the list of words made of
+# both words from the original label and the collected keywords.
+#
+# The final words associated to each activity/document
+# contain only alphabetical characters (i.e., a-z).
+#
+# The process id and the node id are merged into a single column 'doc_id'
+# (e.g., "82-2667"); 'doc_id' will be the "item" required by the function
+# 'pairwise_similarity()' from the 'widyr' library.
+get_docs_words <- function(use_clean_keywords, remove_spam_keywords, stem_keywords, 
+                           kw_group_thr, use_union_method) {
+  # Get tbl of keywords based on required method
+  kw_tbl <- NULL
+  
+  # Use union method or intersection method
+  if (use_union_method) {
+    kw_tbl <- get_kw_by_union(      
+      use_clean_keywords = use_clean_keywords, 
+      remove_spam_keywords = remove_spam_keywords,
+      stem_keywords = stem_keywords,
+      kw_group_thr = kw_group_thr
+    )
+  } else {
+    kw_tbl <- get_kw_by_intersection(
+      use_clean_keywords = use_clean_keywords, 
+      remove_spam_keywords = remove_spam_keywords,
+      stem_keywords = stem_keywords,
+      kw_group_thr = kw_group_thr
+    )
+  }
+
+  # Join activity (node) data with keywords
+  tmp <- 
+    get_all_activities_cached() %>% 
+    left_join(
+      kw_tbl,
+      by = c("proc_id", "node_id")
+    )
+  
+  # Unite process and node ids into 'doc_id'
+  tmp <- 
+    tmp %>% 
+    unite(
+      proc_id, node_id,
+      col = "doc_id",
+      sep = "-"
+    )
+  
+  # For each document (in our case, for each activity),
+  # collapse the keyword list into a single string
+  # occupying one row.
+  tmp <- 
+    tmp %>% 
+    group_by(
+      doc_id, node_label
+    ) %>% 
+    summarise(
+      kw = str_c(kw_list, collapse = " ")
+    ) %>% 
+    ungroup()
+  
+  # Some original activity labels contain
+  # non-alphabetical characters.
+  # Here we remove them.
+  tmp <- 
+    tmp %>% 
+    mutate(
+      # Replace "-" with a space in labels
+      node_label = str_replace_all(node_label, "-", " "),
+      # Remove all non-alphabetical characters from labels (keeps spaces)
+      node_label = str_replace_all(
+        node_label, 
+        "[^a-zA-Z ]",
+        ""
+      )
+    )
+  
+  # If the keywords were stemmed,
+  # also stem the original label words
+  if (stem_keywords) {
+    tmp_node_label <- 
+      tmp %>% 
+      # Separate label words and stem
+      separate_rows(
+        node_label,
+        sep = "\\s+"
+      ) %>% 
+      mutate(
+        # 'wordStem()' produces different outputs 
+        # based on word capitalization 
+        # (e.g., "Apply" => "Apply"; "apply" => "appli").
+        # Thus, turn label words to lowercase 
+        # to correctly and uniformly apply stemming.
+        node_label = str_to_lower(node_label),
+        node_label = wordStem(node_label)
+      ) %>% 
+      # Regroup label words after stemming
+      group_by(
+        doc_id
+      ) %>% 
+      summarise(
+        node_label = str_c(node_label, collapse = " ")
+      ) %>% 
+      ungroup()
+    
+    # Replace unstemmed labels with stemmed ones
+    tmp <- 
+      tmp %>% 
+      select(
+        doc_id, kw
+      ) %>% 
+      left_join(
+        tmp_node_label,
+        by = "doc_id"
+      ) %>% 
+      select(
+        doc_id, node_label, kw
+      )
+  }
+  
+  # Unite label and keyword attributes 
+  # into the 'word' attribute
+  tmp <- 
+    tmp %>% 
+    unite(
+      node_label, kw,
+      col = "word",
+      sep = " "
+    )
+  
+  # Separate words and turn to lowercase
+  tmp <- 
+    tmp %>% 
+    # Use one row for each word.
+    # Words are separated by one or more spaces.
+    separate_rows(
+      word,
+      sep = "\\s+"
+    ) %>% 
+    mutate(
+      word = str_to_lower(word)
+    ) %>% 
+    filter(
+      word != ""
+    )
+}
+```
+
+```{r}
+# Prepare the documents and words to be analyzed
+# with the cosine similarity by adding the 'n' attribute,
+# which counts how many times a given word occurs in an document.
+get_analyzable_docs_words <- function(use_clean_keywords, remove_spam_keywords, stem_keywords, 
+                                      kw_group_thr, use_union_method) {
+  # Get the required list of words for the documents (activity labels + keywords)
+  tmp_words <- get_docs_words(
+    use_clean_keywords, remove_spam_keywords, stem_keywords, 
+    kw_group_thr, use_union_method
+  )
+  
+  # Get the list of unique words
+  # across all documents
+  distinct_words <- 
+    tmp_words %>% 
+    distinct(word)
+  
+  # Build a tbl that for each document and for each word
+  # contains an attribute 'n' telling how many times
+  # a given word is present in a document.
+  words_vec <- 
+    tmp_words %>% 
+    # Split the original tbl into a list of tbls
+    # (one for each document).
+    split(.$doc_id) %>% 
+    # For each tbl in the list:
+    # 1) Count how many times each word contained
+    # in the considered document is repeated.
+    # This operation introduces the 'n' attribute.
+    # 2) Join it with the full list of unique words so that
+    # each document is associated with all the words.
+    # 3) Assign a value of 0 to words not originally
+    # present in the considered document.
+    # 4) Replace NA values with the original document id.
+    lapply(
+      function (tbl) {
+        orig_doc_id <- tbl$doc_id[1]
+        tmp <- 
+          tbl %>% 
+          count(
+            doc_id, word
+          ) %>% 
+          full_join(
+            distinct_words,
+            by = "word"
+          ) %>% 
+          replace_na(
+            list(
+              n = 0,
+              doc_id = orig_doc_id
+            )
+          )
+      }
+    ) %>% 
+    # Merge the list of tbls into a single tbl
+    bind_rows()
+}
+```
+
+# Step 4: Compute Cosine Similarity
+
+```{r}
+# Compute the cosine similarity between each pair of documents.
+# The document's ID will be the "item", the word will be the "feature",
+# and 'n', the number of times the word appears in the document, will be the "value".
+compute_pairwise_cosine_sim <- function(docs_words) {
+  docs_words %>% 
+    pairwise_similarity(
+      doc_id, word, n
+    )
+}
+```
+
+# Step 5: Prepare Data for Comparison with Gold Standard
+
+```{r}
+# From the cosine similarity tbl keep only the
+# process pairs used in the analysis 
+# (i.e., "82-83", "82-84", "83-89").
+filter_process_pairs <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    # Split 'doc_id' back into process and node ids
+    separate(
+      item1,
+      into = c("proc_id_1", "node_id_1"),
+      sep = "-"
+    ) %>% 
+    separate(
+      item2,
+      into = c("proc_id_2", "node_id_2"),
+      sep = "-"
+    ) %>% 
+    # Filter process pairs of interest
+    filter(
+      proc_id_1 == "82" & proc_id_2 == "83" |
+        proc_id_1 == "82" & proc_id_2 == "84" |
+        proc_id_1 == "83" & proc_id_2 == "89"
+    )
+}
+```
+
+```{r}
+# Add the 'paired' attribute.
+# This attribute signals that each row present in the data
+# (after keeping only the valid pairs) represent an activity pair.
+# This attribute is used later to assign 
+# the true/false positive attributes to activity pairs.
+add_paired_attr <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    mutate(
+      paired = TRUE
+    )
+}
+```
+
+```{r}
+# From the tbl containing the cosine similarity values
+# build a tbl containing all groups of pairs with similarity
+# as least as high as a certain threshold (i.e., the output tbl
+# will contain all pairs with sim >= 0, all with sim >= 0.01, ..).
+build_sim_thr_groups <- function(tbl) {
+  tmp <- 
+    # For each of the following similarity thresholds
+    # (0.00, 0.01, 0.02, ..., 0.99, 1.00)
+    seq(0, 1, 0.01) %>% 
+    # 1) Find all the pairs from the input tbl 
+    # having similarity >= threshold
+    # 2) Add 'sim_thr' column telling similarity group
+    # 3) Put resulting tbl in a list
+    lapply(
+      function(thr) {
+        tbl %>% 
+          filter(
+            similarity >= thr
+          ) %>% 
+          mutate(
+            sim_thr = thr
+          )
+      }
+    ) %>% 
+    # Merge list of tbls
+    bind_rows()
+}
+```
+
+# Step 6: Compare with Gold Standard
+
+```{r}
+# Join one tbl with the gold standard.
+# This operation will be applied to the list of tbls
+# separated by similarity threshold.
+join_tbl_with_gold <- function(tbl) {
+
+  # Keep track of the original similarity threshold
+  # to assign it later to rows representing false negatives
+  orig_sim_thr <- tbl$sim_thr[1]
+
+  # Join current tibble with gold standard.
+  tmp <- 
+    tbl %>% 
+    # Join with gold standard on the attributes of activity pairs.
+    # Full join is required as pairs belonging to the gold standard
+    # but not found by workers (false negatives) are otherwise excluded
+    # from the final tibble.
+    full_join(
+      DATA_GOLD,
+      by = c("proc_id_1", "node_id_1", "proc_id_2", "node_id_2")
+    )
+
+  # The join operation introduces NA (Not Available) values
+  # in some rows. Here we replace NAs with meaningful values.
+  tmp <- 
+    tmp %>% 
+    # After performing the full join, the identified activity pairs 
+    # that are false positives will introduce NAs in the "gold" attributes.
+    # We replace these NAs with 'FALSE' since the rows containing the NAs
+    # represent false positives not contained in the gold standard.
+    # (After this mutation gold_overall should be equal to gold_match OR gold_part_of
+    # (i.e., gold_overall == gold_match | gold_part_of)).
+    mutate(
+      gold_overall = if_else(is.na(gold_overall), FALSE, gold_overall),
+      gold_match = if_else(is.na(gold_match), FALSE, gold_match),
+      gold_part_of = if_else(is.na(gold_part_of), FALSE, gold_part_of)
+    ) %>% 
+    # After the full join, the activity pairs present in the gold standard
+    # but not identified by the algorithm (i.e., the false negatives) introduce
+    # NAs in the "paired" attributes.
+    # We replace these NAs with 'FALSE' since the algorithm did not
+    # discover these pairs.
+    mutate(
+      paired = if_else(is.na(paired), FALSE, paired)
+    ) %>% 
+    # Add the similarity threshold value to false negatives
+    mutate(
+      sim_thr = if_else(is.na(sim_thr), orig_sim_thr, sim_thr)
+    )
+  
+  # Add boolean attributes describing if an activity pair is
+  # a true positive (TP), false positive (FP), or false negative (FN).
+  # This operation is repeated for the overall, match, and part-of cases.
+  tmp <- 
+    tmp %>%
+    # Add the TP, FP, and FN attributes in the overall (match + part-of) case.
+    # A true positive is a pair present in the overall gold 
+    # that the algorithm paired successfully.
+    # A false positive is a pair not present in the overall gold
+    # that the algorithm wrongly reported as a pair.
+    # A false negative is a pair present in the overall gold 
+    # that the algorithm did not report as a pair.
+    mutate(
+      tp_overall = gold_overall & paired,
+      fp_overall = !gold_overall & paired,
+      fn_overall = gold_overall & !paired
+    ) %>% 
+    # Add the TP, FP, and FN attributes in the match case.
+    mutate(
+      # The algorithm does not know about relationship types.
+      # Thus, we have to classify ourselves the relationship kinds of activity pairs.
+      # 
+      # Match TPs are the overall TPs where the gold relationship is match.
+      tp_match = tp_overall & gold_match,
+      # Match FPs are the same as overall FPs.
+      # This prevents introducing additional FPs 
+      # that in reality would be part-of TPs.
+      fp_match = fp_overall,
+      # Match FNs are the overall FNs where the gold relationship is match.
+      fn_match = fn_overall & gold_match
+    ) %>% 
+    # Add the TP, FP, and FN attributes in the part-of case.
+    mutate(
+      # The strategy used here is the same as the one described above.
+      tp_part_of = tp_overall & gold_part_of,
+      fp_part_of = fp_overall,
+      fn_part_of = fn_overall & gold_part_of
+    )
+}
+```
+
+```{r}
+# Join each similarity group with the gold standard.
+join_sim_groups_with_gold <- function(tbl) {
+  tmp <-   
+    tbl %>% 
+    # Split the original tbl into a list of tbls
+    # based on the similarity threshold.
+    split(.$sim_thr) %>% 
+    # For each tbl in the list join it with gold standard
+    lapply(join_tbl_with_gold) %>% 
+    # Merge the list of tbls into a single one
+    bind_rows()
+}
+```
+
+# Step 6: Compute Performance Metrics
+
+```{r}
+# Compute precision, recall and F-measure.
+# The logic handling the total == 0 edge cases is the same
+# as the one adopted in the BOT and OPBOT programs,
+# implemented in the class 'EvaluationMetrics.java'.
+# In other words if:
+#   tp + fp == 0 then precision is 1
+#   tp + fn == 0 then recall is 1
+#   precision + recall == 0 then F-measure is 0.
+
+compute_precision <- function(tp, fp) {
+  total <- tp + fp
+  if_else(
+    total == 0,
+    1,
+    tp / total
+  )
+}
+
+compute_recall <- function(tp, fn) {
+  total <- tp + fn
+  if_else(
+    total == 0,
+    1,
+    tp / total
+  )
+}
+
+compute_fmeasure <- function(p, r) {
+  total <- p + r
+  if_else(
+    total == 0,
+    0,
+    2 * (p * r) / total
+  )
+}
+```
+
+```{r}
+# Compute the precision, recall, and F-measure values
+# for each pair of processes (e.g., Cologne-Frankfurt).
+compute_prf_per_process_pair <- function(tbl) {
+  # Find the P, R, F values for each pair of processes in the overall case
+  tmp_overall <- 
+    tbl %>%
+    # Group by process pair for a similarity threshold
+    group_by(
+      sim_thr, proc_id_1, proc_id_2
+    ) %>% 
+    # Deduplicate the activity pairs to prevent
+    # introducing multiple TPs/FPs for a single pair.
+    distinct(
+      node_id_1, node_id_2,
+      .keep_all = TRUE
+    ) %>% 
+    summarise(
+      # Compute total number of TPs, FPs, and FNs in the overall case
+      tp_overall = sum(tp_overall),
+      fp_overall = sum(fp_overall),
+      fn_overall = sum(fn_overall),
+      # Compute the P, R, F values  in the overall case
+      p_overall = compute_precision(tp_overall, fp_overall),
+      r_overall = compute_recall(tp_overall, fn_overall),
+      f_overall = compute_fmeasure(p_overall, r_overall)
+    ) %>%
+    ungroup()
+  
+  # Find the P, R, F values for each pair of processes in the match case
+  tmp_match <- 
+    tbl %>%
+    # Consider only activity pairs classified as "match"
+    filter(
+      tp_match | fp_match | fn_match
+    ) %>% 
+    # Group by process pair for a similarity threshold
+    group_by(
+      sim_thr, proc_id_1, proc_id_2
+    ) %>% 
+    # Deduplicate activity pairs
+    distinct(
+      node_id_1, node_id_2,
+      .keep_all = TRUE
+    ) %>% 
+    summarise(
+      # Compute total number of TPs, FPs, and FNs in the match case
+      tp_match = sum(tp_match),
+      fp_match = sum(fp_match),
+      fn_match = sum(fn_match),
+      # Compute the P, R, F values  in the match case
+      p_match = compute_precision(tp_match, fp_match),
+      r_match = compute_recall(tp_match, fn_match),
+      f_match = compute_fmeasure(p_match, r_match)
+    ) %>%
+    ungroup()
+
+  # Find the P, R, F values for each pair of processes in the part-of case
+  tmp_part_of <- 
+    tbl %>%
+    # Consider only activity pairs classified as "part of"
+    filter(
+      tp_part_of | fp_part_of | fn_part_of
+    ) %>% 
+    # Group by process pair in a dataset
+    group_by(
+      sim_thr, proc_id_1, proc_id_2
+    ) %>% 
+    # Deduplicate activity pairs
+    distinct(
+      node_id_1, node_id_2,
+      .keep_all = TRUE
+    ) %>% 
+    summarise(
+      # Compute total number of TPs, FPs, and FNs in the part-of case
+      tp_part_of = sum(tp_part_of),
+      fp_part_of = sum(fp_part_of),
+      fn_part_of = sum(fn_part_of),
+      # Compute the P, R, F values  in the part-of case
+      p_part_of = compute_precision(tp_part_of, fp_part_of),
+      r_part_of = compute_recall(tp_part_of, fn_part_of),
+      f_part_of = compute_fmeasure(p_part_of, r_part_of)
+    ) %>%
+    ungroup()
+  
+  # Merge results
+  tmp <- 
+    tmp_overall %>% 
+    left_join(
+      tmp_match,
+      by = c("sim_thr", "proc_id_1", "proc_id_2")
+    ) %>% 
+    left_join(
+      tmp_part_of,
+      by = c("sim_thr", "proc_id_1", "proc_id_2")
+    )
+}
+```
+
+```{r}
+# Compute the average P, R, F values
+compute_prf_avg <- function(tbl) {
+  # For each similarity threshold
+  # average the per process pair metrics
+  tmp <- 
+    tbl %>% 
+    group_by(
+      sim_thr
+    ) %>% 
+    summarise(
+      # TPs, FPs, FNs
+      # Overall
+      tp_overall = mean(tp_overall),
+      fp_overall = mean(fp_overall),
+      fn_overall = mean(fn_overall),
+      # Match
+      tp_match = mean(tp_match),
+      fp_match = mean(fp_match),
+      fn_match = mean(fn_match),
+      # PartOf
+      tp_part_of = mean(tp_part_of),
+      fp_part_of = mean(fp_part_of),
+      fn_part_of = mean(fn_part_of),
+      # Precision, Recall, F-measure
+      # Overall
+      p_overall = mean(p_overall),
+      r_overall = mean(r_overall),
+      f_overall = mean(f_overall),
+      # Match
+      p_match = mean(p_match),
+      r_match = mean(r_match),
+      f_match = mean(f_match),
+      # PartOf
+      p_part_of = mean(p_part_of),
+      r_part_of = mean(r_part_of),
+      f_part_of = mean(f_part_of)
+    ) %>% 
+    ungroup()
+}
+```
+
+```{r}
+# Bundle above operations
+compute_all_metrics <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    compute_pairwise_cosine_sim() %>% 
+    filter_process_pairs() %>% 
+    add_paired_attr() %>% 
+    build_sim_thr_groups() %>% 
+    join_sim_groups_with_gold() %>% 
+    compute_prf_per_process_pair() %>% 
+    compute_prf_avg()
+}
+```
+
+# Main
+
+```{r}
+# Generate all the input configurations
+# that the algorithm should analyze
+generate_input_configurations <- function() {
+  # TRUE/FALSE options
+  tf_vec <- c(1, 0)
+  
+  # Generate all possible combinations
+  # of config attributes for union method
+  tmp_union <- 
+    expand.grid(
+      use_clean_keywords = tf_vec,
+      remove_spam_keywords = tf_vec,
+      stem_keywords = tf_vec,
+      # For union, 'kw_group_thr == 0'
+      # corresponds to selecting only 
+      # the original label words
+      kw_group_thr = c(0, 1, 2, 3),
+      use_union_method = c(1)
+    )
+  
+  # Generate all possible combinations
+  # of config attributes for union method
+  tmp_intersection <- 
+    expand.grid(
+      use_clean_keywords = tf_vec,
+      remove_spam_keywords = tf_vec,
+      stem_keywords = tf_vec,
+      # For intersection, 'kw_group_thr == 4'
+      # corresponds to selecting only 
+      # the original label words
+      kw_group_thr = c(1, 2, 3, 4),
+      use_union_method = c(0)
+    )
+  
+  # Merge configurations
+  tmp <- 
+    bind_rows(
+      tmp_union,
+      tmp_intersection
+    )
+  
+  tmp <- 
+    tmp %>% 
+    # Sort configurations
+    arrange(
+      use_clean_keywords, remove_spam_keywords, stem_keywords, 
+      kw_group_thr, use_union_method
+    ) %>% 
+    # Prepare a 'cfg' string that contains the configuration options
+    # formatted as the arguments to call 'run_analysis()' with
+    unite(
+      use_clean_keywords, remove_spam_keywords, stem_keywords,
+      kw_group_thr, use_union_method,
+      col = "cfg",
+      sep = ",",
+      remove = FALSE
+    )
+}
+```
+
+```{r}
+# Bundle the operations necessary to analyze an input configuration.
+# This function should be called for each input configuration that 
+# should be analyzed.
+run_analysis <- function(use_clean_keywords, remove_spam_keywords, stem_keywords, 
+                         kw_group_thr, use_union_method) {
+  tmp <-
+    # Get the analyzable words extracted from the activities
+    # and their keywords in the required configuration
+    get_analyzable_docs_words(
+      use_clean_keywords, remove_spam_keywords, stem_keywords, 
+      kw_group_thr, use_union_method
+    ) %>% 
+    # Compute cosine similarity, join with gold,
+    # and compute performance metrics
+    compute_all_metrics() %>% 
+    # Add the 'cfg' attribute that stores the characteristics
+    # of the input configuration just analyzed
+    mutate(
+      use_clean_keywords = as.logical(use_clean_keywords),
+      remove_spam_keywords = as.logical(remove_spam_keywords),
+      stem_keywords = as.logical(stem_keywords),
+      kw_group_thr = kw_group_thr,
+      use_union_method = as.logical(use_union_method)
+    ) %>% 
+    unite(
+      use_clean_keywords, remove_spam_keywords, stem_keywords,
+      kw_group_thr, use_union_method,
+      col = "cfg",
+      sep = "_",
+      remove = FALSE
+    ) %>% 
+    select(
+      cfg,
+      everything()
+    )
+}
+```
+
+```{r message=FALSE}
+# Main analysis
+
+# Get gold
+DATA_GOLD <- get_gold_standard()
+
+# Get input configurations
+input_configs <- generate_input_configurations()
+
+# Analyze all input configurations.
+# This operation may take some time
+output <- 
+  input_configs %>%
+  # For each input configuration,
+  # build the string representing
+  # the function call that analyzes it
+  # (e.g., "run_analysis(0,0,0,1,1)")
+  mutate(
+    call = str_c("run_analysis(", cfg, ")")
+  ) %>% 
+  # Select the vector containing the calls to be made
+  .$call %>% 
+  # Evaluate each call to run the analysis
+  # and put the resulting tibble in a list
+  lapply(
+    function(expr) {
+      eval(parse(text = expr))
+    }
+  ) %>% 
+  # Merge the list of tibbles
+  # into a single tibble
+  bind_rows()
+
+# Write output to file
+write_csv(output, "cosine_analysis_output.csv")
+```

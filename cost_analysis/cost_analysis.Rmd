@@ -1,0 +1,356 @@
+---
+title: "Cost Analysis"
+author: "Edoardo Scibona"
+date: "March 7, 2018"
+output: 
+  html_document: 
+    toc: yes
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Configuration
+
+Required libraries
+```{r message=FALSE}
+library(tidyverse)
+library(stringr)
+```
+
+```{r}
+TASK_NAME_LABELS <- c(
+  # Indirect task
+  "IT_01" = "Label Enrichment\nwith Keywords",
+  # Direct tasks
+  "DT_01" = "Query Only",
+  "DT_02" = "Query Context",
+  "DT_03" = "Query Extended",
+  # Former tasks
+  "FT_01" = "Label Only",
+  "FT_02" = "Context One",
+  "FT_03" = "Context Set"
+)
+
+APPROACH_NAME_LABELS <- c(
+  # Indirect task approaches
+  "IT_01_BOT_UNION" = "BOT (Union)",
+  "IT_01_BOT_INTERSECTION" = "BOT (Intersection)",
+  "IT_01_CA_UNION" = "Cosine Similarity\n(Union)",
+  "IT_01_CA_INTERSECTION" = "Cosine Similarity\n(Intersection)",
+  # Direct tasks
+  "DT_01" = "Query Only",
+  "DT_02" = "Query Context",
+  "DT_03" = "Query Extended",
+  # Former tasks
+  "FT_01" = "Label Only",
+  "FT_02" = "Context One",
+  "FT_03" = "Context Set"
+)
+```
+
+# Cost Analysis
+
+```{r}
+# Total and per judgment costs of tasks.
+# These costs are the ones associated to 
+# executing tasks on Crowdflower.
+# All costs in U.S. dollars.
+task_costs <- tibble(
+  task_id = c(
+    # Indirect task
+    "IT_01",
+    # Direct tasks
+    "DT_01",
+    "DT_02",
+    "DT_03",
+    # Former tasks
+    "FT_01",
+    "FT_02",
+    "FT_03"
+  ),
+  total_cost = c(
+    # Indirect task
+    5.76,
+    # Direct tasks
+    26.76,
+    26.76,
+    26.28,
+    # Former tasks (costs reported by paper)
+    40.56,
+    40.80,
+    28.32
+  ),
+  cost_per_jdg = c(
+    # Indirect task
+    0.02,
+    # Direct tasks
+    0.02,
+    0.02,
+    0.02,
+    # Former tasks (costs reported by paper)
+    0.01,
+    0.01,
+    0.05
+  )
+)
+```
+
+```{r}
+# Per true positive 
+# and per unique true positive costs.
+# These costs are associated to the performance
+# of tasks.
+# For direct and former tasks, the approach coincides
+# with the task.
+# For the indirect task, the approaches stem from
+# the algorithms and the configurations used.
+# All costs in U.S. dollars.
+approaches_costs <- tibble(
+  approach_id = c(
+    # Indirect task approaches
+    "IT_01_BOT_UNION",
+    "IT_01_BOT_INTERSECTION",
+    "IT_01_CA_UNION",
+    "IT_01_CA_INTERSECTION",
+    # Direct tasks
+    "DT_01",
+    "DT_02",
+    "DT_03",
+    # Former tasks
+    "FT_01",
+    "FT_02",
+    "FT_03"
+  ),
+  total_cost = c(
+    # Indirect task approaches
+    5.76,
+    5.76,
+    5.76,
+    5.76,
+    # Direct tasks
+    26.76,
+    26.76,
+    26.28,
+    # Former tasks (costs reported by paper)
+    40.56,
+    40.80,
+    28.32
+  ),
+  tp_overall = c(
+    # Indirect task approaches
+    22,
+    31,
+    23,
+    20,
+    # Direct tasks
+    146,
+    101,
+    319,
+    # Former tasks
+    108,
+    105,
+    69
+  ),
+  tp_overall_unique = c(
+    # Indirect task approaches
+    22,
+    31,
+    23,
+    20,
+    # Direct tasks
+    67,
+    56,
+    70,
+    # Former tasks
+    46,
+    44,
+    31
+  )
+)
+
+  
+approaches_costs <- 
+  approaches_costs %>% 
+  mutate(
+    # How much does a true positive cost? (All and unique)
+    cost_per_tp = total_cost / tp_overall,
+    cost_per_unique_tp = total_cost / tp_overall_unique,
+    increase = cost_per_unique_tp / cost_per_tp
+  )
+```
+
+## Total Cost
+
+```{r fig.width=8}
+ggplot(
+  task_costs,
+  aes(
+    x = reorder(task_id, -total_cost),
+    y = total_cost
+  )
+) +
+  geom_col() +
+  labs(
+    x = "Task",
+    y = "Total cost (U.S. dollars)",
+    title = "Total cost of the tasks"
+  ) +
+  scale_x_discrete(
+    labels = TASK_NAME_LABELS
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 45, 5)
+  ) +
+  coord_flip() +
+  theme_bw()
+```
+
+```{r}
+ggsave("chp07_task_total_cost.png", width = 8)
+```
+
+
+## Cost per Judgment
+
+```{r fig.width=8}
+ggplot(
+  task_costs,
+  aes(
+    x = reorder(task_id, -cost_per_jdg),
+    y = cost_per_jdg
+  )
+) +
+  geom_col() +
+  labs(
+    x = "Task",
+    y = "Cost per judgment (U.S. dollars)",
+    title = "Cost per judgment of the tasks"
+  ) +
+  scale_x_discrete(
+    labels = TASK_NAME_LABELS
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 0.1, 0.01)
+  ) +
+  coord_flip() +
+  theme_bw()
+```
+
+```{r}
+ggsave("chp07_task_per_jdg_cost.png", width = 8)
+```
+
+
+## Cost per True Positive
+
+```{r fig.width=8}
+ggplot(
+  approaches_costs,
+  aes(
+    x = reorder(approach_id, -cost_per_tp),
+    y = cost_per_tp
+  )
+) +
+  geom_col() +
+  labs(
+    x = "Approach",
+    y = "Cost per true positive (U.S. dollars)",
+    title = "Cost per true positive of the approaches"
+  ) +
+  scale_x_discrete(
+    labels = APPROACH_NAME_LABELS
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 1, 0.05)
+  ) +
+  coord_flip() +
+  theme_bw()
+```
+
+```{r}
+ggsave("chp07_cost_per_tp.png", width = 8)
+```
+
+```{r fig.width=8}
+ggplot(
+  approaches_costs,
+  aes(
+    x = reorder(approach_id, -cost_per_unique_tp),
+    y = cost_per_unique_tp
+  )
+) +
+  geom_col() +
+  labs(
+    x = "Approach",
+    y = "Cost per unique true positive (U.S. dollars)",
+    title = "Cost per unique true positive of the approaches"
+  ) +
+  scale_x_discrete(
+    labels = APPROACH_NAME_LABELS
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 1, 0.1)
+  ) +
+  coord_flip() +
+  theme_bw()
+```
+
+```{r}
+ggsave("chp07_cost_per_unique_tp.png", width = 8)
+```
+
+
+```{r}
+gathered_approaches_costs <- 
+  approaches_costs %>% 
+  gather(
+    cost_per_tp, cost_per_unique_tp,
+    key = "tp_type",
+    value = "tp_cost"
+  ) %>% 
+  mutate(
+    tp_type = str_replace(tp_type, "cost_per_tp", "All TPs"),
+    tp_type = str_replace(tp_type, "cost_per_unique_tp", "Unique TPs"),
+    tp_type = factor(tp_type, levels = c("Unique TPs", "All TPs"))
+  ) %>% 
+  filter(
+    !str_detect(approach_id, "IT_01")
+  )
+```
+
+```{r fig.width=8}
+ggplot(
+  gathered_approaches_costs,
+  aes(
+    x = reorder(approach_id, -tp_cost),
+    y = tp_cost,
+    fill = tp_type
+  )
+) +
+  geom_col(position = "dodge") +
+  labs(
+    x = "Approach",
+    y = "Cost (U.S. dollars)",
+    title = "True positive cost comparison for direct and former approaches"
+  ) +
+  scale_x_discrete(
+    labels = APPROACH_NAME_LABELS
+  ) +
+  scale_y_continuous(
+    breaks = seq(0, 1, 0.1)
+  ) +
+  scale_fill_grey(
+    name = "Cost type",
+    start = 0.2, end = 0.6
+  ) +
+  coord_flip() + 
+  theme_bw()
+```
+
+```{r}
+ggsave("chp07_tp_cost_cmp.png", width = 8)
+```
+

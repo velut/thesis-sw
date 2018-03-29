@@ -1,0 +1,60 @@
+Overview
+In this task you will be asked to analyze two admission processes from different universities and compare their activities.
+
+Goal: Express your opinion on the similarity of the two processes and on the relationship between one activity from the first process and the activities from the second process.
+
+Purpose: Your responses will help us evaluate the importance of individuals' opinions in establishing matches between different processes.
+
+Steps
+Look at the fragment from Process A
+Look at the highlighted Activity A (red box)
+Look at the fragment from Process B
+Rate how relevant you think Process fragment B is with respect to Activity A
+Compare Activity A with the activities (black boxes) present in Process fragment B
+Select the names of the activities from Process fragment B which you think are similar to Activity A.
+If you think that no activity from Process fragment B is similar to Activity A then select the "None of the above" option.
+Select the names of the activities from Process fragment B which you think are  part of Activity A.
+An activity is part of Activity A if doing Activity A also includes doing this other activity.
+If you think that no activity from Process fragment B is  part of Activity A then select the "None of the above" option.
+Select the names of the activities from Process fragment B which you think include Activity A.
+An activity includes Activity A if doing this activity also includes doing Activity A.
+If you think that no activity from Process fragment B includes Activity A then select the "None of the above" option.
+Rules & Tips
+DO
+
+Read carefully these instructions and the questions
+Take into consideration the context provided by each process fragment
+Look at all the activities (the labelled boxes) contained in the process fragments and take them in consideration in your judgment
+Think about which action is done in an activity, who is doing that action (for example a student or the university staff) and what are the things that are manipulated when doing the action (for example documents, certificates, applications)
+DEFINITIONS
+
+SIMILAR: Two activities X and Y are similar when all of the following conditions are satisfied:
+
+The actions performed in the activities are similar
+The individuals performing the actions are similar
+The things manipulated by the actions are similar
+PART OF: An activity X is part of an activity Y if doing Y includes doing X.
+Example: "Open door" is part of "Enter building" as entering a building includes opening the door of the building.
+Example: "Drive car" is part of "Go to work"
+
+INCLUDES: An activity X includes an activity Y if doing X includes doing Y.
+Example: "Send email" includes "Use computer"
+Example: "Check document" includes "Verify signature"
+
+
+Examples
+Suppose Process fragment A is the following, where Activity A is 'check application in time'.
+
+
+
+Also suppose that Process fragment B is the following:
+
+
+
+The two process fragments both have activities which mention checking if an application is in time (this action is done by the university staff).
+
+As these process fragments seem to be similar their similarity score should be high, such as 4 or 5.
+
+Both activities from Process fragment B seem to be similar to Activity A and thus they should be selected in the question about activities similar to Activity A.
+
+In addition both activities from Process fragment B could be part of Activity A because checking if an application arrived in time (as in Activity A) includes checking both for EU and non-EU countries (as in the two activities from Process fragment B). You should then select the two activities from Process fragment B in the question about which activities are part of Activity A.

@@ -1,0 +1,89 @@
+dataset,proc_id_1,node_id_1,proc_id_2,node_id_2,node_label_1,node_label_2,paired,gold_paired
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2667,83,2691,"apply online send paper provid","apply online confirm establish countri",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2668,83,2691,"send online protocol appli onlin send protocol","apply online confirm establish countri",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2669,83,2690,"send documents by post mail paper offic","send documents by post email document letter",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2669,83,2706,"send documents by post mail paper offic","documents received mail paper destin",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2669,83,2707,"send documents by post mail paper offic","check documents document inform applic",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2670,83,2706,"documents received send onlin protocol document","documents received mail paper destin",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2671,83,2690,"check documents send document post check evalu","send documents by post email document letter",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2671,83,2706,"check documents send document post check evalu","documents received mail paper destin",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2671,83,2707,"check documents send document post check evalu","check documents document inform applic",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2672,83,2688,"evaluate valid confirm address","sufficient cp in mathematics suffici take oral exam evalu",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2672,83,2704,"evaluate valid confirm address","less than cp in mathematics math exam school",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2672,83,2708,"evaluate valid confirm address","evaluate result mark valid",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2673,83,2705,"invite to an aptitude test invit test failur","take oral exam revoqu reject bad",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2675,83,2705,"take aptitude test confirm establish countri","take oral exam revoqu reject bad",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2676,83,2708,"rank students according to gpa and the test results confirm establish countri","evaluate result mark valid",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2679,83,2705,"pay for aptitude test test invit applic","take oral exam revoqu reject bad",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2683,83,2693,"acceptance revoqu reject bad","provisional acceptance cancelled averag grade good better accept confirm",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2683,83,2694,"acceptance revoqu reject bad","send letter of acceptance send letter reject accept",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2683,83,2696,"acceptance revoqu reject bad","accepted letter applic invit",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2683,83,2697,"acceptance revoqu reject bad","rejected unaccept reject deni",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2683,83,2709,"acceptance revoqu reject bad","send letter of rejection letter reject accept",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2684,83,2690,"send letter of rejection repuls paper document","send documents by post email document letter",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2684,83,2694,"send letter of rejection repuls paper document","send letter of acceptance send letter reject accept",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2684,83,2697,"send letter of rejection repuls paper document","rejected unaccept reject deni",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2684,83,2706,"send letter of rejection repuls paper document","documents received mail paper destin",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2684,83,2709,"send letter of rejection repuls paper document","send letter of rejection letter reject accept",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2667,84,2716,"apply online send paper provid","add certificate of bachelor degree revoqu reject bad",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2667,84,2718,"apply online send paper provid","german languag translat german",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2667,84,2722,"apply online send paper provid","add certificate of german language applic certif form",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2667,84,2730,"apply online send paper provid","complete application finish success fulfil",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2667,84,2732,"apply online send paper provid","fill out application form mother tongu nation process",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2668,84,2720,"send online protocol appli onlin send protocol","send application request petit requisit",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2669,84,2720,"send documents by post mail paper offic","send application request petit requisit",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2670,84,2719,"documents received send onlin protocol document","receive application job interview appli",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2671,84,2710,"check documents send document post check evalu","complete and in time time complet deadlin",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2671,84,2715,"check documents send document post check evalu","check application complete send receiv check applic complet valid confirm",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2671,84,2717,"check documents send document post check evalu","check application in time hour minut second",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2672,84,2711,"evaluate valid confirm address","hand application over to examining board execut board verif",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2672,84,2712,"evaluate valid confirm address","check if bachelor is sufficient degre establish confirm",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2672,84,2713,"evaluate valid confirm address","set additional requirements hand applic examin board",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2672,84,2714,"evaluate valid confirm address","check if bachelors grade within top % elig screen interview",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2672,84,2715,"evaluate valid confirm address","check application complete send receiv check applic complet valid confirm",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2673,84,2725,"invite to an aptitude test invit test failur","invite for talk interview invit groundcheck",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2674,84,2715,"keep in the applicant pool confirm establish countri","check application complete send receiv check applic complet valid confirm",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2675,84,2726,"take aptitude test confirm establish countri","talk to applicant convers entranc evalu",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2675,84,2727,"take aptitude test confirm establish countri","document evalu applic test",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2676,84,2728,"rank students according to gpa and the test results confirm establish countri","rank with other applicants document rank applic reject",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2679,84,2725,"pay for aptitude test test invit applic","invite for talk interview invit groundcheck",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2683,84,2716,"acceptance revoqu reject bad","add certificate of bachelor degree revoqu reject bad",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2683,84,2721,"acceptance revoqu reject bad","receive rejection reject accept fail",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2683,84,2723,"acceptance revoqu reject bad","receive acceptance send accept reject receiv immatricul",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2683,84,2724,"acceptance revoqu reject bad","immatriculate process registrar enrol",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2683,84,2729,"acceptance revoqu reject bad","send acceptance send email accept",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2684,84,2721,"send letter of rejection repuls paper document","receive rejection reject accept fail",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2684,84,2723,"send letter of rejection repuls paper document","receive acceptance send accept reject receiv immatricul",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,82,2684,84,2731,"send letter of rejection repuls paper document","send rejection denial document process",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2688,89,2895,"sufficient cp in mathematics suffici take oral exam evalu","bridging courses > cp progress grade rhumb",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2690,89,2884,"send documents by post email document letter","documents received exhibit paper taken",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2690,89,2885,"send documents by post email document letter","send documents by post document postal mail doc",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2691,89,2886,"apply online confirm establish countri","apply online revoqu reject bad",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2692,89,2888,"provisional acceptance confirmed applic accept evalu","send letter of acceptance letter send accept",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2692,89,2889,"provisional acceptance confirmed applic accept evalu","send letter of rejection send reject accept reject",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2694,89,2888,"send letter of acceptance send letter reject accept","send letter of acceptance letter send accept",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2694,89,2889,"send letter of acceptance send letter reject accept","send letter of rejection send reject accept reject",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2695,89,2887,"send letter of provisional acceptance process result degre","evaluate verif process result",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2696,89,2883,"accepted letter applic invit","rejected denial negat neg",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2697,89,2889,"rejected unaccept reject deni","send letter of rejection send reject accept reject",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2697,89,2893,"rejected unaccept reject deni","rejected revoqu reject bad",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2699,89,2894,"wait for bachelors certificate document accept degre","check bachelors degree appli send document confirm graduat degre",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2700,89,2894,"certificate received send certif email","check bachelors degree appli send document confirm graduat degre",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2701,89,2887,"send bachelors certificate process evalu result","evaluate verif process result",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2701,89,2894,"send bachelors certificate process evalu result","check bachelors degree appli send document confirm graduat degre",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2702,89,2894,"certificate received email send certif","check bachelors degree appli send document confirm graduat degre",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2703,89,2894,"check certificate certif recommend valid","check bachelors degree appli send document confirm graduat degre",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2704,89,2896,"less than cp in mathematics math exam school","bridging courses < cp avanc path bridg",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2705,89,2891,"take oral exam revoqu reject bad","conduct interview interview nomene talk",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2705,89,2892,"take oral exam revoqu reject bad","go to interview job interview particip work",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2706,89,2884,"documents received mail paper destin","documents received exhibit paper taken",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2706,89,2885,"documents received mail paper destin","send documents by post document postal mail doc",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2706,89,2889,"documents received mail paper destin","send letter of rejection send reject accept reject",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2706,89,2899,"documents received mail paper destin","documents received pass merit evalu process",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2707,89,2885,"check documents document inform applic","send documents by post document postal mail doc",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2707,89,2894,"check documents document inform applic","check bachelors degree appli send document confirm graduat degre",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2707,89,2897,"check documents document inform applic","check documents valid confirm verifi",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2708,89,2887,"evaluate result mark valid","evaluate verif process result",false,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2709,89,2888,"send letter of rejection letter reject accept","send letter of acceptance letter send accept",true,false
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2709,89,2889,"send letter of rejection letter reject accept","send letter of rejection send reject accept reject",true,true
+UA_Union_GoldAll_Raw_1_Keywords_Default_Stemmed,83,2709,89,2893,"send letter of rejection letter reject accept","rejected revoqu reject bad",true,false

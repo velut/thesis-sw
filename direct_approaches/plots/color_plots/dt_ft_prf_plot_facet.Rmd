@@ -1,0 +1,788 @@
+---
+title: "Precision, Recall, and F-measure Plots for Direct and Former Tasks (Chapter 5)"
+author: "Edoardo Scibona"
+date: "February 11, 2018"
+output: 
+  html_document: 
+    toc: yes
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this notebook, we collect the plots describing the obtained performance metrics
+in our direct tasks and in the former tasks presented in the "Activity Matching with Human Intelligence" paper.
+
+# Configuration
+
+Required libraries
+```{r message=FALSE}
+library(tidyverse)
+library(lubridate)
+library(stringr)
+```
+
+Input files and folders
+```{r}
+# Global values used in the notebook
+
+# Input folder's path.
+# A folder named 'input' should be present in this notebook's root folder
+INPUT_PATH <- file.path(getwd(), "input")
+
+# Path of the folder containing the average
+# precision, recall, and F-measure results.
+# A folder named 'prf_avg' should be present inside the 'input' folder.
+PRF_AVG_INPUT_PATH <- file.path(INPUT_PATH, "prf_avg")
+
+# Path of the folder containing the per pair
+# precision, recall, and F-measure results.
+# A folder named 'prf_pair' should be present inside the 'input' folder.
+PRF_PAIR_INPUT_PATH <- file.path(INPUT_PATH, "prf_pair")
+
+# Path of the folder containing the average
+# precision, recall, and F-measure results
+# as a function of the mean fragment relevance.
+# A folder named 'mfr_avg' should be present inside the 'input' folder.
+MFR_AVG_INPUT_PATH <- file.path(INPUT_PATH, "mfr_avg")
+```
+
+```{r}
+# Task ID to task name
+LABEL_NAMES <- c(
+  # Our direct tasks
+  "DT_01" = "Query Only",
+  "DT_02" = "Query Context",
+  "DT_03" = "Query Extended",
+  # Former tasks
+  "FT_01" = "Label Only",
+  "FT_02" = "Context One",
+  "FT_03" = "Context Set"
+)
+
+PRF_PLOT_X_LABEL <- "Vote threshold per unit (at least n votes)"
+
+MFR_PLOT_X_LABEL <- "Normalized MFR score"
+```
+
+# Utilities
+
+Read csv files
+```{r}
+# Read all the csv files present in a directory,
+# merge them in a tibble, and return it.
+# NOTE: The files must have the same structure.
+# Specifically, they must be comma separated and 
+# they should have the same attribute columns.
+read_all_csv_file_in_dir <- function(source_dir) {
+  # List all csv files in the directory
+  list.files(
+    source_dir,
+    pattern = ".csv",
+    full.names = TRUE
+  ) %>% 
+    # Read each file and put resulting tbl in a list
+    lapply(read_csv) %>% 
+    # Merge list of tbls in a single tbl
+    bind_rows()
+}
+```
+
+Get a string to describe PRF metrics in plots
+```{r}
+# Get a string describing the PRF type in plots
+get_prf_string <- function(prf_type) {
+  if_else(
+    prf_type == "fmeasure",
+    "F-measure",
+    str_to_title(prf_type)
+  )
+}
+```
+
+Get PRF AVG plot title
+```{r}
+# Get a string describing the title of PRF plots
+get_prf_avg_plot_title <- function(prf_type) {
+  str_c(
+    get_prf_string(prf_type),
+    " performance"
+  )
+}
+
+# Get a string describing the subtitle of PRF plots
+get_prf_avg_plot_subtitle <- function(has_allj) {
+  if (has_allj) {
+    "Considering all judgments"
+  } else {
+    "Inconsistent judgments excluded"
+  }
+}
+```
+
+Get PRF CMP plot title
+```{r}
+# Get a string describing the title of PRF plots
+get_prf_avg_cmp_plot_title <- function(prf_type) {
+  str_c(
+    get_prf_string(prf_type),
+    " performance comparison"
+  )
+}
+```
+
+Get MFR AVG plot title
+```{r}
+# Get a string describing the title of PRF plots
+get_mfr_avg_plot_title <- function(prf_type) {
+  str_c(
+    get_prf_string(prf_type),
+    " performance"
+  )
+}
+```
+
+# Setup
+
+## Read Data
+
+Read average PRF results
+```{r}
+# Get a tbl representing all the avg PRF
+# results obtained in various tasks.
+get_prf_avg_results_tbl <- function() {
+  read_all_csv_file_in_dir(PRF_AVG_INPUT_PATH)
+}
+```
+
+Read per pair PRF results
+```{r}
+# Get a tbl representing all the per pair PRF
+# results obtained in various tasks.
+get_prf_pair_results_tbl <- function() {
+  read_all_csv_file_in_dir(PRF_PAIR_INPUT_PATH)
+}
+```
+
+Read average MFR results
+```{r}
+# Get a tbl representing all the avg MFR
+# results obtained in various tasks.
+get_mfr_avg_results_tbl <- function() {
+  read_all_csv_file_in_dir(MFR_AVG_INPUT_PATH)
+}
+```
+
+## Parse Dataset Configuration
+
+```{r}
+# Given a tbl with a 'dataset' attribute,
+# parse the configuration options it contains.
+parse_prf_dataset_config <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    mutate(
+      dataset_copy = dataset
+    ) %>% 
+    separate(
+      dataset_copy,
+      into = c(
+        # Number of judgments collected for each unit
+        "jdg_unit", "zrm_jdg_unit_str", 
+        # Are all original judgments present?
+        "has_all_jdg",
+        # Consensus threshold
+        "jdg_node_thr", "zrm_jdg_node_thr_str"
+      )
+    ) %>% 
+    mutate(
+      # Convert 'has_all_jdg' to boolean
+      has_all_jdg = str_replace(has_all_jdg, "incjdg", ""),
+      has_all_jdg = has_all_jdg == "TRUE"
+    ) %>% 
+    select(
+      # Remove cols which contain leftover strings
+      -contains("zrm_")
+    )
+}
+```
+
+```{r}
+# Given a tbl with a 'dataset' attribute,
+# parse the configuration options it contains.
+parse_mfr_dataset_config <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    mutate(
+      dataset_copy = dataset
+    ) %>% 
+    separate(
+      dataset_copy,
+      into = c(
+        # Number of judgments collected for each unit
+        "jdg_unit", "zrm_jdg_unit_str", 
+        # Are all original judgments present?
+        "has_all_jdg",
+        # Consensus threshold
+        "jdg_node_thr", "zrm_jdg_node_thr_str",
+        # MFR threshold
+        "mfr_unit_thr", "zrm_mfr_unit_thr_str"
+      )
+    ) %>% 
+    mutate(
+      # Convert 'has_all_jdg' to boolean
+      has_all_jdg = str_replace(has_all_jdg, "incjdg", ""),
+      has_all_jdg = has_all_jdg == "TRUE"
+    ) %>% 
+    mutate(
+      # Convert 'mfr_unit_thr' to numeric and divide by 100
+      mfr_unit_thr = as.numeric(mfr_unit_thr) / 100
+    ) %>% 
+    select(
+      # Remove cols which contain leftover strings
+      -contains("zrm_")
+    )
+}
+```
+
+## Gather attributes
+
+```{r}
+# Gather the PRF attributes contained
+# in a tbl to tidy it.
+gather_prf_attrs <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    # Gather precision
+    gather(
+      p_overall, p_match, p_part_of,
+      key = "p_type", value = "precision"
+    ) %>% 
+    # Gather recall
+    gather(
+      r_overall, r_match, r_part_of,
+      key = "r_type", value = "recall"
+    ) %>% 
+    # Gather f-measure
+    gather(
+      f_overall, f_match, f_part_of,
+      key = "f_type", value = "fmeasure"
+    ) %>% 
+    # Remove p_, r_, f_ prefixes
+    mutate(
+      p_type = str_replace(p_type, "p_", ""),
+      r_type = str_replace(r_type, "r_", ""),
+      f_type = str_replace(f_type, "f_", "")
+    ) %>% 
+    # Keep only rows representing correct configurations
+    # (i.e., those with the same metric type)
+    filter(
+      p_type == r_type, 
+      r_type == f_type
+    )
+}
+```
+
+## Add Gold Attribute
+
+```{r}
+# Deduplicate the PRF '_type' attributes
+# and add a single 'prf_gold' attribute instead
+add_prf_gold_attr <- function(tbl) {
+  tmp <- 
+    tbl %>% 
+    mutate(
+      prf_gold = p_type
+    ) %>%
+    select(
+      - c(p_type, r_type, f_type)
+    )
+}
+```
+
+## Bundle Previous Operations
+
+```{r}
+# Bundle the operations needed
+# to prepare PRF data for plotting
+prepare_prf_data_for_use <- function(tbl) {
+  tbl %>% 
+    parse_prf_dataset_config() %>%
+    gather_prf_attrs() %>%
+    add_prf_gold_attr()
+}
+```
+
+```{r}
+# Bundle the operations needed
+# to prepare MFR data for plotting
+prepare_mfr_data_for_use <- function(tbl) {
+  tbl %>% 
+    parse_mfr_dataset_config() %>%
+    gather_prf_attrs() %>%
+    add_prf_gold_attr()
+}
+```
+
+## Plotting
+
+Plot average PRF metrics
+```{r}
+plot_prf_avg <- function(tbl, prf_type, has_allj, out_file) {
+  tmp <- tbl
+
+  base_plot <- ggplot(tmp,
+    # IMPORTANT: use 'aes_string()' instead of 'aes()' 
+    # as 'prf_type' is a string
+    aes_string(
+      x = "jdg_node_thr",
+      y = prf_type,
+      group = "task_id",
+      linetype = "task_id"
+    )
+  )
+
+  base_plot + 
+    geom_line(
+      size = 1
+    ) +
+    geom_point(size = 3) +
+    labs(
+      x = PRF_PLOT_X_LABEL,
+      y = get_prf_string(prf_type),
+      title = get_prf_avg_plot_title(prf_type),
+      subtitle = get_prf_avg_plot_subtitle(has_allj)
+    ) +
+    scale_y_continuous(
+      limits = c(0.0, 1.0),
+      breaks = seq(0.0, 1.0, 0.1)
+    ) +
+    scale_linetype_manual(
+      name = "Task",
+      labels = LABEL_NAMES,
+      values = c("solid", "dashed", "dotted")
+    ) +
+    facet_grid(prf_gold ~ .) +
+    theme_bw() +
+    theme(legend.position="bottom")
+
+  ggsave(out_file, width = 7, height = 10)
+}
+```
+
+Plot per pair PRF metrics
+```{r}
+plot_prf_pair <- function(tbl, prf_type, out_file) {
+  tmp <- 
+    tbl %>% 
+    unite(
+      proc_id_1, proc_id_2,
+      col = "proc_pair",
+      sep = "-"
+    ) %>% 
+    mutate(
+      proc_pair = str_replace(proc_pair, "82-83", "Cologne-Frankfurt"),
+      proc_pair = str_replace(proc_pair, "83-82", "Frankfurt-Cologne"),
+      proc_pair = str_replace(proc_pair, "82-84", "Cologne-FU Berlin"),
+      proc_pair = str_replace(proc_pair, "83-89", "Frankfurt-TU Munich")
+    ) %>% 
+    mutate(
+      prf_gold = str_replace(prf_gold, "overall", "Overall"),
+      prf_gold = str_replace(prf_gold, "match", "Match"),
+      prf_gold = str_replace(prf_gold, "part_of", "Part-of"),
+      prf_gold = factor(prf_gold, levels = c("Overall", "Match", "Part-of"))
+    ) %>% 
+    mutate(
+      task_id = str_replace(task_id, "DT_01", "Query Only"),
+      task_id = str_replace(task_id, "DT_02", "Query Context"),
+      task_id = str_replace(task_id, "DT_03", "Query Extended"),
+      task_id = factor(task_id, levels = c("Query Only", "Query Context", "Query Extended"))
+    )
+    
+
+  base_plot <- ggplot(tmp,
+    # IMPORTANT: use 'aes_string()' instead of 'aes()' 
+    # as 'prf_type' is a string
+    aes_string(
+      x = "jdg_node_thr",
+      y = prf_type,
+      shape = "proc_pair"
+    )
+  )
+
+  base_plot + 
+    geom_point(
+      alpha = 1,
+      size = 3
+    ) +
+    labs(
+      x = PRF_PLOT_X_LABEL,
+      y = get_prf_string(prf_type)
+    ) +
+    scale_y_continuous(
+      limits = c(0.0, 1.0),
+      breaks = seq(0.0, 1.0, 0.1)
+    ) +
+    scale_shape_discrete(
+      solid = FALSE,
+      name = "Process pairs"
+    ) +
+    facet_grid(prf_gold ~ task_id) +
+    theme_bw() +
+    theme(legend.position="bottom")
+
+  ggsave(out_file, width = 7, height = 8)
+}
+```
+
+Plot average PRF metrics comparison
+```{r}
+plot_prf_avg_cmp <- function(tbl, prf_type, out_file) {
+  tmp <- tbl
+
+  base_plot <- ggplot(tmp,
+    # IMPORTANT: use 'aes_string()' instead of 'aes()' 
+    # as 'prf_type' is a string
+    aes_string(
+      x = "jdg_node_thr",
+      y = prf_type,
+      group = "task_id",
+      color = "task_id",
+      linetype = "task_id",
+      shape = "task_id"
+    )
+  )
+
+  base_plot + 
+    geom_line(
+      size = 1
+    ) +
+    geom_point(
+      size = 3
+    ) +
+    labs(
+      x = PRF_PLOT_X_LABEL,
+      y = get_prf_string(prf_type),
+      title = get_prf_avg_cmp_plot_title(prf_type)
+    ) +
+    scale_y_continuous(
+      limits = c(0.0, 1.0),
+      breaks = seq(0.0, 1.0, 0.1)
+    ) +
+    scale_color_manual(
+      name = "Task",
+      labels = LABEL_NAMES,
+      values = c(rep("blue", 3), rep("red", 3))
+    ) +
+    scale_linetype_manual(
+      name = "Task",
+      labels = LABEL_NAMES,
+      values = c("solid", "dashed", "dotted", "solid", "dashed", "dotted")
+    ) +
+    scale_shape_manual(
+      name = "Task",
+      labels = LABEL_NAMES,
+      values = c(rep(16, 3), rep(17, 3))
+    ) +
+    facet_grid(prf_gold ~ .) +
+    theme_bw() +
+    theme(legend.position="bottom", legend.direction="horizontal")
+
+  ggsave(out_file, width = 7, height = 10)
+}
+```
+
+Plot PRF metrics as a function of MFR score
+```{r}
+plot_mfr_avg <- function(tbl, prf_type, out_file) {
+  tmp <- tbl
+
+  base_plot <- ggplot(tmp,
+    # IMPORTANT: use 'aes_string()' instead of 'aes()' 
+    # as 'prf_type' is a string
+    aes_string(
+      x = "mfr_unit_thr",
+      y = prf_type,
+      group = "task_id",
+      color = "task_id"
+    )
+  )
+
+  base_plot + 
+    geom_line(
+      size = 1.2
+    ) +
+    labs(
+      x = MFR_PLOT_X_LABEL,
+      y = get_prf_string(prf_type),
+      title = get_mfr_avg_plot_title(prf_type)
+    ) +
+    scale_y_continuous(
+      limits = c(0.0, 1.0),
+      breaks = seq(0.0, 1.0, 0.1)
+    ) +
+    scale_x_continuous(
+      limits = c(0, 1),
+      breaks = seq(0, 1, 0.1)
+    ) +
+    scale_color_manual(
+      name = "Task",
+      labels = LABEL_NAMES,
+      # values = c("black", "grey30", "grey60")
+      values = c("blue", "red", "darkgreen")
+    ) +
+    facet_grid(prf_gold ~ .) +
+    theme_bw() +
+    theme(legend.position="bottom")
+
+  ggsave(out_file, width = 7, height = 10)
+}
+```
+
+# Average PRF Plots
+
+## Read Data
+
+```{r message=FALSE}
+data_prf_avg_raw <- get_prf_avg_results_tbl()
+```
+
+```{r}
+data_prf_avg_base <- 
+  data_prf_avg_raw %>%
+  prepare_prf_data_for_use()
+```
+
+## Direct Tasks
+
+```{r}
+data_prf_avg_direct <-
+  data_prf_avg_base %>% 
+  filter(
+    str_detect(task_id, "DT_")
+  )
+```
+
+All judgments
+```{r}
+dt_prf_avg_allj <- 
+  data_prf_avg_direct %>% 
+  filter(
+    has_all_jdg
+  ) %>% 
+  select(
+    task_id, jdg_node_thr, prf_gold,
+    precision, recall, fmeasure
+  ) %>% 
+  mutate(
+    task_id = factor(task_id, levels = c("DT_01", "DT_02", "DT_03"))
+  ) %>% 
+  mutate(
+    prf_gold = str_replace(prf_gold, "overall", "Overall"),
+    prf_gold = str_replace(prf_gold, "match", "Match"),
+    prf_gold = str_replace(prf_gold, "part_of", "Part-of"),
+    prf_gold = factor(prf_gold, levels = c("Overall", "Match", "Part-of"))
+  )
+```
+
+```{r message=FALSE}
+plot_prf_avg(dt_prf_avg_allj, "precision", TRUE, "chp05_dt_prf_avg_allj_precision.png")
+plot_prf_avg(dt_prf_avg_allj, "recall", TRUE, "chp05_dt_prf_avg_allj_recall.png")
+plot_prf_avg(dt_prf_avg_allj, "fmeasure", TRUE, "chp05_dt_prf_avg_allj_fmeasure.png")
+```
+
+Exclude inconsistent judgments
+```{r}
+dt_prf_avg_noincj <- 
+  data_prf_avg_direct %>% 
+  filter(
+    !has_all_jdg
+  ) %>% 
+  select(
+    task_id, jdg_node_thr, prf_gold,
+    precision, recall, fmeasure
+  ) %>% 
+  mutate(
+    task_id = factor(task_id, levels = c("DT_01", "DT_02", "DT_03"))
+  ) %>% 
+  mutate(
+    prf_gold = str_replace(prf_gold, "overall", "Overall"),
+    prf_gold = str_replace(prf_gold, "match", "Match"),
+    prf_gold = str_replace(prf_gold, "part_of", "Part-of"),
+    prf_gold = factor(prf_gold, levels = c("Overall", "Match", "Part-of"))
+  )
+```
+
+```{r message=FALSE}
+plot_prf_avg(dt_prf_avg_noincj, "precision", FALSE, "chp05_dt_prf_avg_noincj_precision.png")
+plot_prf_avg(dt_prf_avg_noincj, "recall", FALSE, "chp05_dt_prf_avg_noincj_recall.png")
+plot_prf_avg(dt_prf_avg_noincj, "fmeasure", FALSE, "chp05_dt_prf_avg_noincj_fmeasure.png")
+```
+
+## Former Tasks
+
+```{r}
+data_prf_avg_former <-
+  data_prf_avg_base %>% 
+  filter(
+    str_detect(task_id, "FT_")
+  )
+```
+
+All judgments
+```{r}
+ft_prf_avg_allj <- 
+  data_prf_avg_former %>% 
+  filter(
+    has_all_jdg
+  ) %>% 
+  select(
+    task_id, jdg_node_thr, prf_gold,
+    precision, recall, fmeasure
+  ) %>% 
+  mutate(
+    task_id = factor(task_id, levels = c("FT_01", "FT_02", "FT_03"))
+  ) %>% 
+  mutate(
+    prf_gold = str_replace(prf_gold, "overall", "Overall"),
+    prf_gold = str_replace(prf_gold, "match", "Match"),
+    prf_gold = str_replace(prf_gold, "part_of", "Part-of"),
+    prf_gold = factor(prf_gold, levels = c("Overall", "Match", "Part-of"))
+  )
+```
+
+```{r message=FALSE}
+plot_prf_avg(ft_prf_avg_allj, "precision", TRUE, "chp05_ft_prf_avg_allj_precision.png")
+plot_prf_avg(ft_prf_avg_allj, "recall", TRUE, "chp05_ft_prf_avg_allj_recall.png")
+plot_prf_avg(ft_prf_avg_allj, "fmeasure", TRUE, "chp05_ft_prf_avg_allj_fmeasure.png")
+```
+
+# Cologne-Frankfurt/Frankfurt-Cologne Pairs Comparison
+
+```{r message=FALSE}
+data_prf_pair_raw <- get_prf_pair_results_tbl()
+```
+
+```{r}
+data_prf_pair_base <- 
+  data_prf_pair_raw %>%
+  prepare_prf_data_for_use()
+```
+
+```{r}
+dt_prf_pair <- 
+  data_prf_pair_base %>% 
+  filter(
+    str_detect(task_id, "DT_")
+  ) %>% 
+  select(
+    task_id,
+    jdg_node_thr, has_all_jdg, prf_gold,
+    proc_id_1, proc_id_2,
+    precision, recall, fmeasure
+  ) %>% 
+  mutate(
+    proc_id_1 = as.character(proc_id_1),
+    proc_id_2 = as.character(proc_id_2)
+  )
+```
+
+```{r}
+dt_prf_pair_8283_8382 <- 
+  dt_prf_pair %>% 
+  # Keep only pairs "82-83" and "83-82"
+  filter(
+    proc_id_1 == "82" & proc_id_2 == "83" |
+      proc_id_1 == "83" & proc_id_2 == "82"
+  ) %>% 
+  # Keep results computed on all judgments
+  filter(
+    has_all_jdg
+  )
+```
+
+```{r}
+plot_prf_pair(dt_prf_pair_8283_8382, "precision", "chp05_dt_prf_8283_order_precision.png")
+plot_prf_pair(dt_prf_pair_8283_8382, "recall", "chp05_dt_prf_8283_order_recall.png")
+plot_prf_pair(dt_prf_pair_8283_8382, "fmeasure", "chp05_dt_prf_8283_order_fmeasure.png")
+```
+
+# Direct and Former Tasks Comparison
+
+```{r}
+data_cmp <- 
+  data_prf_avg_base %>% 
+  filter(
+    has_all_jdg
+  ) %>% 
+  select(
+    task_id, prf_gold, jdg_node_thr,
+    precision, recall, fmeasure
+  ) %>% 
+  mutate(
+    prf_gold = str_replace(prf_gold, "overall", "Overall"),
+    prf_gold = str_replace(prf_gold, "match", "Match"),
+    prf_gold = str_replace(prf_gold, "part_of", "Part-of"),
+    prf_gold = factor(prf_gold, levels = c("Overall", "Match", "Part-of"))
+  )
+```
+
+```{r}
+plot_prf_avg_cmp(data_cmp, "precision", "chp05_cmp_prf_avg_precision.png")
+plot_prf_avg_cmp(data_cmp, "recall", "chp05_cmp_prf_avg_recall.png")
+plot_prf_avg_cmp(data_cmp, "fmeasure", "chp05_cmp_prf_avg_fmeasure.png")
+```
+
+# MFR Average Plots
+
+## Read Data
+
+```{r message=FALSE}
+data_mfr_avg_raw <- get_mfr_avg_results_tbl()
+```
+
+```{r}
+data_mfr_avg_base <- 
+  data_mfr_avg_raw %>%
+  prepare_mfr_data_for_use()
+```
+
+## Direct Tasks
+
+```{r}
+data_mfr_avg_direct <- 
+  data_mfr_avg_base %>% 
+  filter(
+    str_detect(task_id, "DT_")
+  )
+```
+
+All judgments
+```{r}
+dt_mfr_avg_allj <- 
+  data_mfr_avg_direct %>% 
+  filter(
+    has_all_jdg
+  ) %>% 
+  select(
+    task_id, mfr_unit_thr, prf_gold,
+    precision, recall, fmeasure
+  ) %>% 
+  mutate(
+    task_id = factor(task_id, levels = c("DT_01", "DT_02", "DT_03"))
+  ) %>% 
+  mutate(
+    prf_gold = str_replace(prf_gold, "overall", "Overall"),
+    prf_gold = str_replace(prf_gold, "match", "Match"),
+    prf_gold = str_replace(prf_gold, "part_of", "Part-of"),
+    prf_gold = factor(prf_gold, levels = c("Overall", "Match", "Part-of"))
+  )
+```
+
+```{r}
+plot_mfr_avg(dt_mfr_avg_allj, "precision", "chp05_dt_mfr_avg_allj_precision.png")
+plot_mfr_avg(dt_mfr_avg_allj, "recall", "chp05_dt_mfr_avg_allj_recall.png")
+plot_mfr_avg(dt_mfr_avg_allj, "fmeasure", "chp05_dt_mfr_avg_allj_fmeasure.png")
+```

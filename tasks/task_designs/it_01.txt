@@ -1,0 +1,43 @@
+Overview
+In this task you will be asked to associate keywords to activities belonging to different universities admission processes.
+
+Goal: Provide a list of keywords that you think can describe the highlighted activity
+
+Purpose: Your responses will help us evaluate the importance of individuals' opinions in establishing matches between models representing business processes.
+
+Steps
+Look at the university admission process fragment pictured below
+Look at the highlighted activity (red box)
+Enter a list of at least three (3) keywords that you think can describe the activity
+Rules & Tips
+DO
+
+Read carefully these instructions and the questions
+Take into consideration the context provided by each process
+Look at the other non-highlighted activities (black boxes) present in a process, you might find them useful.
+Think about which action is done in an activity, who is doing that action (for example a student or the university staff) and what are the things that are manipulated when doing the action (for example documents or certificates)
+
+KEYWORDS INPUT RULES
+
+Keyword input must respect these rules:
+
+Enter at least three (3) keywords
+Each keyword must be at least 2 characters long
+All keywords must be lowercase
+Use a comma to separate keywords
+Do NOT use spaces between keywords
+Each keyword must be one word
+(for example if you think that "driving licence" could be a good keyword then add the two keywords "driving" and "licence" in that order)
+Example 1 of a valid list of keywords:
+
+
+Example 2:
+
+
+Examples
+Consider the following process fragment and the highlighted activity 'check citizenship'
+
+
+
+A valid list of keywords for this activity could be the following one:
+

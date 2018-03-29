@@ -1,0 +1,67 @@
+dataset,proc_id_1,node_id_1,proc_id_2,node_id_2,node_label_1,node_label_2,paired,gold_paired
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2667,83,2691,"apply online","apply online",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2668,83,2691,"send online protocol","apply online",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2669,83,2690,"send documents by post mail paper","send documents by post",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2670,83,2706,"documents received","documents received paper",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2671,83,2707,"check documents send check","check documents",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2672,83,2688,"evaluate","sufficient cp in mathematics exam",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2672,83,2704,"evaluate","less than cp in mathematics",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2672,83,2708,"evaluate","evaluate",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2673,83,2705,"invite to an aptitude test test","take oral exam",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2675,83,2705,"take aptitude test confirm establish","take oral exam",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2676,83,2708,"rank students according to gpa and the test results","evaluate",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2679,83,2705,"pay for aptitude test test","take oral exam",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2683,83,2694,"acceptance","send letter of acceptance send letter accept",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2683,83,2696,"acceptance","accepted letter",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2684,83,2694,"send letter of rejection","send letter of acceptance send letter accept",true,false
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2684,83,2697,"send letter of rejection","rejected reject",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2684,83,2709,"send letter of rejection","send letter of rejection letter reject",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2667,84,2716,"apply online","add certificate of bachelor degree",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2667,84,2718,"apply online","german german",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2667,84,2722,"apply online","add certificate of german language",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2667,84,2730,"apply online","complete application finish",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2667,84,2732,"apply online","fill out application form data",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2668,84,2720,"send online protocol","send application",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2669,84,2720,"send documents by post mail paper","send application",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2670,84,2719,"documents received","receive application",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2671,84,2710,"check documents send check","complete and in time time complet",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2671,84,2715,"check documents send check","check application complete send check",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2671,84,2717,"check documents send check","check application in time",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2672,84,2711,"evaluate","hand application over to examining board",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2672,84,2712,"evaluate","check if bachelor is sufficient confirm",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2672,84,2713,"evaluate","set additional requirements",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2672,84,2714,"evaluate","check if bachelors grade within top %",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2673,84,2725,"invite to an aptitude test test","invite for talk",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2675,84,2726,"take aptitude test confirm establish","talk to applicant",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2675,84,2727,"take aptitude test confirm establish","document applic",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2676,84,2728,"rank students according to gpa and the test results","rank with other applicants rank applic",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2683,84,2723,"acceptance","receive acceptance send accept immatricul",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2683,84,2724,"acceptance","immatriculate immatricul",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2683,84,2729,"acceptance","send acceptance accept",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2684,84,2721,"send letter of rejection","receive rejection",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,82,2684,84,2731,"send letter of rejection","send rejection forward",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2688,89,2895,"sufficient cp in mathematics exam","bridging courses > cp",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2690,89,2885,"send documents by post","send documents by post document send",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2691,89,2886,"apply online","apply online",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2694,89,2888,"send letter of acceptance send letter accept","send letter of acceptance accept",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2694,89,2889,"send letter of acceptance send letter accept","send letter of rejection accept",true,false
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2695,89,2888,"send letter of provisional acceptance","send letter of acceptance accept",true,false
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2695,89,2889,"send letter of provisional acceptance","send letter of rejection accept",true,false
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2696,89,2883,"accepted letter","rejected",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2696,89,2888,"accepted letter","send letter of acceptance accept",true,false
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2696,89,2889,"accepted letter","send letter of rejection accept",true,false
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2697,89,2883,"rejected reject","rejected",true,false
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2697,89,2893,"rejected reject","rejected",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2699,89,2894,"wait for bachelors certificate accept","check bachelors degree send",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2700,89,2894,"certificate received authent","check bachelors degree send",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2701,89,2894,"send bachelors certificate degre","check bachelors degree send",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2702,89,2894,"certificate received","check bachelors degree send",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2703,89,2894,"check certificate licenc","check bachelors degree send",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2704,89,2896,"less than cp in mathematics","bridging courses < cp bridg",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2705,89,2891,"take oral exam","conduct interview talk",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2705,89,2892,"take oral exam","go to interview interview",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2706,89,2884,"documents received paper","documents received",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2706,89,2899,"documents received paper","documents received paper",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2707,89,2897,"check documents","check documents confirm verifi",false,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2708,89,2887,"evaluate","evaluate",true,true
+UA_Intersection_GoldAll_Raw_2_Keywords_Default_Stemmed,83,2709,89,2889,"send letter of rejection letter reject","send letter of rejection accept",true,true

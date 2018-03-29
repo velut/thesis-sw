@@ -1,0 +1,37 @@
+Overview
+In this task you will be asked to rate the relevance of universities' admission processes with respect to a given query.
+
+Goal: Express your opinion on how relevant a process is with respect to a given query.
+
+Purpose: Your responses will help us evaluate the importance of individuals' opinions in establishing matches between different processes.
+
+Steps
+Read the provided query
+Look at the fragment of a university admission process retrieved for the query
+Rate how relevant you think the retrieved process fragment is with respect to the query
+Select the activities from the retrieved process fragment which you think are relevant to the query.
+If you think that no activity is relevant, then select the "None of the above" option.
+Optionally explain the reasoning behind your choices
+Rules & Tips
+DO
+
+Read carefully these instructions and the questions
+Take into consideration the context provided by each process
+Look at all the activities (the labeled black boxes) contained in the process fragments and take them in consideration in your judgment
+Think about which action is done in an activity, who is doing that action (for example a student or the university staff) and what are the things that are manipulated when doing the action (for example documents, certificates, applications)
+Examples
+Suppose the provided query is 'qualification'
+
+and the retrieved process fragment is the following:
+
+
+
+You can notice that we have two relevant activities (red boxes).
+
+The actions in these two activities are performed by a student who wants to enroll in some university and has to add some certificates which are a form of qualification.
+
+This process fragment is pretty relevant with respect to the query so you should rate its relevance with a high score such as 4 or 5.
+
+When asked to select which activities from the process fragment are relevant to the query you should select both 'add certificate of bachelor degree' and 'add certificate of english language'.
+
+When asked to explain your choices you could write for example that in the process fragment there are two activities mentioning certificates, which are a form of qualification, and thus you thought that the process was relevant and selected those two activities as the ones relevant to the query.

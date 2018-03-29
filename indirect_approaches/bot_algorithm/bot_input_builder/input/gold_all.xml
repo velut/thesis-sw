@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+Matches extracted from:
+https://docs.google.com/spreadsheets/d/1_It6HEX7i2qy_qiRjUOjI9qdze-pDdc1Ny0L2nPMBtQ/edit#gid=919059224
+-->
+
+<!--
+Activty names always follow the pairing order
+
+Symbols:
+	matches: ==
+	<-is part of: <POF
+	is part of->: POF>
+-->
+
+<!-- This file contains both MATCH and PART-OF relationships -->
+
+<ProcessPairs>
+
+	<!-- Cologne-Frankfurt (82-83) -->
+	<ProcessPair process1="82" process2="83">
+		
+		<!-- "Apply Online" <POF "apply online" -->
+		<Cluster>
+			<Node id="2667" process="82"/>
+			<Node id="2691" process="83"/>
+		</Cluster>
+
+		<!-- "Send Online Protocol" <POF "apply online" -->
+		<Cluster>
+			<Node id="2668" process="82"/>
+			<Node id="2691" process="83"/>
+		</Cluster>
+
+		<!-- "Send Documents by Post" == "send documents by post" -->
+		<Cluster>
+			<Node id="2669" process="82"/>
+			<Node id="2690" process="83"/>
+		</Cluster>
+
+		<!-- "Documents received" == "documents received" -->
+		<Cluster>
+			<Node id="2670" process="82"/>
+			<Node id="2706" process="83"/>
+		</Cluster>
+
+		<!-- "Check Documents" == "check documents" -->
+		<Cluster>
+			<Node id="2671" process="82"/>
+			<Node id="2707" process="83"/>
+		</Cluster>
+
+		<!-- "Evaluate" <POF "evaluate", "sufficient cp in mathematics", "less than 16 cp in mathematics" -->
+		<Cluster>
+			<Node id="2672" process="82"/>
+			<Node id="2708" process="83"/>
+			<Node id="2688" process="83"/>
+			<Node id="2704" process="83"/>
+		</Cluster>
+
+		<!-- "Invite to an aptitude test", "Take Aptitude test", "Pay for Aptitude test" POF> "take oral exam" -->
+		<Cluster>
+			<Node id="2673" process="82"/>
+			<Node id="2675" process="82"/>
+			<Node id="2679" process="82"/>
+			<Node id="2705" process="83"/>
+		</Cluster>
+
+		<!-- "Rank Students according to GPA and the test results" == "evaluate" -->
+		<Cluster>
+			<Node id="2676" process="82"/>
+			<Node id="2708" process="83"/>
+		</Cluster>
+
+		<!-- "Acceptance" <POF "send letter of acceptance", "accepted" -->
+		<Cluster>
+			<Node id="2683" process="82"/>
+			<Node id="2694" process="83"/>
+			<Node id="2696" process="83"/>
+		</Cluster>
+
+		<!-- "Send letter of rejection" <POF "rejected", "send letter of rejection" -->
+		<Cluster>
+			<Node id="2684" process="82"/>
+			<Node id="2697" process="83"/>
+			<Node id="2709" process="83"/>
+		</Cluster>
+
+	</ProcessPair>
+
+	<!-- Cologne-Berlin (82-84) -->
+	<ProcessPair process1="82" process2="84">
+		
+		<!-- "Apply Online" <POF "complete application", "fill out application form", "add certificate of bachelor degree", "german?", "add certificate of german language" -->
+		<Cluster>
+			<Node id="2667" process="82"/>
+			<Node id="2730" process="84"/>
+			<Node id="2732" process="84"/>
+			<Node id="2716" process="84"/>
+			<Node id="2718" process="84"/>
+			<Node id="2722" process="84"/>
+		</Cluster>
+
+		<!-- "Send Online Protocol", "Send Documents by Post" POF> "send application" -->
+		<Cluster>
+			<Node id="2668" process="82"/>
+			<Node id="2669" process="82"/>
+			<Node id="2720" process="84"/>
+		</Cluster>
+
+		<!-- "Documents received" == "receive application" -->
+		<Cluster>
+			<Node id="2670" process="82"/>
+			<Node id="2719" process="84"/>
+		</Cluster>
+
+		<!-- "Check Documents" <POF "check application complete", "check application in time", "complete and in time?" -->
+		<Cluster>
+			<Node id="2671" process="82"/>
+			<Node id="2715" process="84"/>
+			<Node id="2717" process="84"/>
+			<Node id="2710" process="84"/>
+		</Cluster>
+
+		<!-- "Evaluate" <POF "hand application over to examining board", "check if bachelor is sufficient", "set additional requirements", "check if bachelors-grade within top 85%" -->
+		<Cluster>
+			<Node id="2672" process="82"/>
+			<Node id="2711" process="84"/>
+			<Node id="2712" process="84"/>
+			<Node id="2713" process="84"/>
+			<Node id="2714" process="84"/>
+		</Cluster>
+
+		<!-- "Invite to an aptitude test" == "invite for talk" -->
+		<Cluster>
+			<Node id="2673" process="82"/>
+			<Node id="2725" process="84"/>
+		</Cluster>
+
+		<!-- "Take Aptitude test" <POF "talk to applicant", "document" -->
+		<Cluster>
+			<Node id="2675" process="82"/>
+			<Node id="2726" process="84"/>
+			<Node id="2727" process="84"/>
+		</Cluster>
+
+		<!-- "Rank Students according to GA and the test results" == "rank with other applicants" -->
+		<Cluster>
+			<Node id="2676" process="82"/>
+			<Node id="2728" process="84"/>
+		</Cluster>
+
+		<!-- "Acceptance" <POF "send acceptance", "receive acceptance", "immatriculate" -->
+		<Cluster>
+			<Node id="2683" process="82"/>
+			<Node id="2729" process="84"/>
+			<Node id="2723" process="84"/>
+			<Node id="2724" process="84"/>
+		</Cluster>
+
+		<!-- "Send letter of rejection" <POF "send rejection", "receive rejection" -->
+		<Cluster>
+			<Node id="2684" process="82"/>
+			<Node id="2731" process="84"/>
+			<Node id="2721" process="84"/>
+		</Cluster>
+
+	</ProcessPair>
+
+	<!-- Frankfurt-Munich (83-89) -->
+	<ProcessPair process1="83" process2="89">
+		
+		<!-- "apply online" == "apply online" -->
+		<Cluster>
+			<Node id="2691" process="83"/>
+			<Node id="2886" process="89"/>
+		</Cluster>
+
+		<!-- "send documents by post" == "send documents by post" -->
+		<Cluster>
+			<Node id="2690" process="83"/>
+			<Node id="2885" process="89"/>
+		</Cluster>
+
+		<!-- "documents received" == "documents received (1)" -->
+		<Cluster>
+			<Node id="2706" process="83"/>
+			<Node id="2884" process="89"/>
+		</Cluster>
+
+		<!-- "sufficient cp in mathematics" POF> "bridging courses > 30 cp" -->
+		<Cluster>
+			<Node id="2688" process="83"/>
+			<Node id="2895" process="89"/>
+		</Cluster>
+
+		<!-- "less than 16 cp in mathematics" POF> "bridging courses < 30 cp" -->
+		<Cluster>
+			<Node id="2704" process="83"/>
+			<Node id="2896" process="89"/>
+		</Cluster>
+
+		<!-- "take oral exam" <POF "go to interview", "conduct interview" -->
+		<Cluster>
+			<Node id="2705" process="83"/>
+			<Node id="2892" process="89"/>
+			<Node id="2891" process="89"/>
+		</Cluster>
+
+		<!-- "check documents" <POF "check documents" -->
+		<Cluster>
+			<Node id="2707" process="83"/>
+			<Node id="2897" process="89"/>
+		</Cluster>
+
+		<!-- "documents received" <POF "documents received (2)" -->
+		<Cluster>
+			<Node id="2706" process="83"/>
+			<Node id="2899" process="89"/>
+		</Cluster>
+
+		<!-- "evaluate" <POF "evaluate" -->
+		<Cluster>
+			<Node id="2708" process="83"/>
+			<Node id="2887" process="89"/>
+		</Cluster>
+
+		<!-- "send letter of acceptance" == "send letter of acceptance" -->
+		<Cluster>
+			<Node id="2694" process="83"/>
+			<Node id="2888" process="89"/>
+		</Cluster>
+
+		<!-- "accepted" == "rejected (accepted?)" -->
+		<!-- Note: In 89 after "Send letter of acceptance" comes "Rejected", probably a typo-->
+		<Cluster>
+			<Node id="2696" process="83"/>
+			<Node id="2883" process="89"/>
+		</Cluster>
+
+		<!-- "send letter of rejection" == "send letter of rejection" -->
+		<Cluster>
+			<Node id="2709" process="83"/>
+			<Node id="2889" process="89"/>
+		</Cluster>
+
+		<!-- "rejected" == "rejected" -->
+		<Cluster>
+			<Node id="2697" process="83"/>
+			<Node id="2893" process="89"/>
+		</Cluster>
+
+		<!-- "wait for bachelor's certificate", "certificate received (1)", "certificate received (2)", "send bachelor's certificate", "check certificate" POF> "check bachelor's degree" -->
+		<Cluster>
+			<Node id="2699" process="83"/>
+			<Node id="2700" process="83"/>
+			<Node id="2702" process="83"/>
+			<Node id="2701" process="83"/>
+			<Node id="2703" process="83"/>
+			<Node id="2894" process="89"/>
+		</Cluster>
+
+	</ProcessPair>
+
+</ProcessPairs>
